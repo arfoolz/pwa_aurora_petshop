@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Stok;
 use Illuminate\Support\Str;
-use App\Helpers\Helper;
+// use App\Helpers\Helper;
 
 class DashboardStokBarangController extends Controller
 {
@@ -38,10 +38,10 @@ class DashboardStokBarangController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
+        dd($request->all());
 
         Stok::Create([
-            'kode_barang' => Helper::IDGenerator(new Stok, 'kode_barang', 5, 'KB'),
+            // 'kode_barang' => Helper::IDGenerator(new Stok, 'kode_barang', 5, 'KB'),
             'nama' => $request->nama,
             'jenis' => $request->jenis,
             'satuan' => $request->satuan,
