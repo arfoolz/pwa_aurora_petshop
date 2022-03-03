@@ -4,6 +4,7 @@
 
 - Composer Install
 - npm install bootstrap
+- composer require nesbot/carbon
 
 ## Cara Menjalankan Project
 
