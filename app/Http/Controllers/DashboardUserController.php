@@ -143,10 +143,10 @@ class DashboardUserController extends Controller
         return back();
     }
 
-    // public function destroy($id)
-    // {
-    //     $siadmin = User::findorfail($id);
-    //     $siadmin->delete();
-    //     return back();
-    // }
+    public function destroyPengguna($id)
+    {
+        $siadmin = User::findorfail($id);
+        $siadmin->delete();
+        return back();
+    }
 }
