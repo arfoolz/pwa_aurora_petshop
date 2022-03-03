@@ -129,8 +129,8 @@
                                                         </a>
                                                       
                                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                          <li><a class="dropdown-item" href="#">Edit</a></li>
-                                                          <li><a class="dropdown-item" href="#">Delete</a></li>
+                                                          <li><a class="dropdown-item" href="{{ url('edit-admin', $item->id) }}}">Edit</a></li>
+                                                          <li><a class="dropdown-item" href="{{ url('delete-admin', $item->id) }}}">Delete</a></li>
                                                         </ul>
                                                       </div>
                                                 </th>

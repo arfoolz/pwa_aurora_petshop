@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Admin;
+use Illuminate\Support\Facades\Hash;
 
 class DashboardUserController extends Controller
 {
@@ -30,15 +31,15 @@ class DashboardUserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function createAdmin()
     {
         return view('Admin.User.Admin.Create_Admin');
     }
 
-    // public function create()
-    // {
-    //     return view('Admin.User.Admin.Create_Admin');
-    // }
+    public function createPengguna()
+    {
+        return view('Admin.User.Admin.Create_Pengguna');
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -46,7 +47,7 @@ class DashboardUserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function storeAdmin(Request $request)
     {
         // dd($request->all());
 
@@ -57,29 +58,27 @@ class DashboardUserController extends Controller
             'email' => $request->email,
             'alamat' => $request->alamat,
             'no_tlpn' => $request->no_tlpn,
-            'password' => $request->password,
+            'password' => Hash::make($request->password),
         ]);
 
-        $request->session()->flash('success', 'Data Berhasil Dibuat! :)');
         return redirect('/user-admin');
     }
 
-    // public function store(Request $request)
-    // {
-    //     // dd($request->all());
+    public function storePengguna(Request $request)
+    {
 
-    //     User::Create([
-    //         'nama' => $request->nama,
-    //         'level' => $request->level,
-    //         'jenis_kelamin' => $request->jenis_kelamin,
-    //         'email' => $request->email,
-    //         'alamat' => $request->alamat,
-    //         'no_tlpn' => $request->no_tlpn,
-    //         'password' => $request->password,
-    //     ]);
+        User::Create([
+            'nama' => $request->nama,
+            'level' => $request->level,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'email' => $request->email,
+            'alamat' => $request->alamat,
+            'no_tlpn' => $request->no_tlpn,
+            'password' => Hash::make($request->password),
+        ]);
 
-    //     return redirect('/user-admin');
-    // }
+        return redirect('/user-pengguna');
+    }
 
     /**
      * Display the specified resource.
@@ -98,17 +97,17 @@ class DashboardUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function editAdmin($id)
     {
         $siadmin = Admin::findorfail($id);
         return view('Admin.User.Edit_Admin',compact('siadmin'));
     }
 
-    // public function edit($id)
-    // {
-    //     $siadmin = User::findorfail($id);
-    //     return view('Admin.User.Edit_Admin',compact('siadmin'));
-    // }
+    public function editPengguna($id)
+    {
+        $siadmin = User::findorfail($id);
+        return view('Admin.User.Edit_Pengguna',compact('siPengguna'));
+    }
 
     /**
      * Update the specified resource in storage.
@@ -117,19 +116,19 @@ class DashboardUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function updateAdmin(Request $request, $id)
+    {
+        $siadmin = Admin::findorfail($id);
+        $siadmin->update($request->all());
+        return redirect('user-admin');
+    }
+
+    public function updatePengguna(Request $request, $id)
     {
         $siadmin = User::findorfail($id);
         $siadmin->update($request->all());
-        return redirect('user');
+        return redirect('user-pengguna');
     }
-
-    // public function update(Request $request, $id)
-    // {
-    //     $siadmin = User::findorfail($id);
-    //     $siadmin->update($request->all());
-    //     return redirect('user');
-    // }
 
     /**
      * Remove the specified resource from storage.
@@ -137,9 +136,9 @@ class DashboardUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroyAdmin($id)
     {
-        $siadmin = User::findorfail($id);
+        $siadmin = Admin::findorfail($id);
         $siadmin->delete();
         return back();
     }
