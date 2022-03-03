@@ -2,4 +2,10 @@
 
 ## Install Project Ini
 
-Composer Install
+- Composer Install
+- npm install bootstrap
+
+## Cara Menjalankan Project
+
+- cek .env apakah database susah sesuai ( lewati jika sudah sesuai )
+- php artisan serve
