@@ -15,7 +15,7 @@ class CreateStokbarangsTable extends Migration
     {
         Schema::create('stoks', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_barang', 255)->unique();
+            $table->string('kode_barang', 255);
             $table->string('nama', 50);
             $table->string('jenis', 50);
             $table->string('satuan', 50);

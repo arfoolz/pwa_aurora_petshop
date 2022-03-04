@@ -17,7 +17,7 @@ class DashboardStokBarangController extends Controller
     public function index()
     {
         $dtStok = Stok::all();
-        return view('Admin.StokBarang.Stok');
+        return view('Admin.StokBarang.Stok', compact('dtStok'));
     }    
 
     /**
@@ -38,21 +38,21 @@ class DashboardStokBarangController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
 
         Stok::Create([
-            // 'kode_barang' => Helper::IDGenerator(new Stok, 'kode_barang', 5, 'KB'),
+            'kode_barang' => $request->kode_barang,
             'nama' => $request->nama,
             'jenis' => $request->jenis,
             'satuan' => $request->satuan,
             'stok' => $request->stok,
             'harga_jual' => $request->harga_jual,
             'harga_beli' => $request->harga_beli,
-            'deksripsi' => $request->deksripsi,
+            'deskripsi' => $request->deskripsi,
             'expired' => $request->expired,
         ]);
 
-        return view('Admin.StokBarang.Stok');
+        return redirect('/stok-barang');
     }
 
     /**

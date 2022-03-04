@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Stok;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class UserAdminSeeder extends Seeder
 {
@@ -90,19 +91,38 @@ class UserAdminSeeder extends Seeder
             ]
         );
 
-        // Stok::truncate();
-        // Stok::create (
-        //     [
-        //     'kode_barang'    => Str::random(60),
-        //     'nama'           => 'Sakura',
-        //     'jenis'          => 'dog food',
-        //     'satuan'         => 'Kg',
-        //     'stok'           => '50',
-        //     'harga_jual'     => 'Rp 50.000',
-        //     'harga_beli'     => 'Rp 100.000',
-        //     'gambar'         => 'ssd',
-        //     'expired'        => '20-02-2000',
-        //     ]
-        // );
+        $dt = Carbon::now();
+        $dateNow = $dt->toDateTimeString();
+
+        Stok::truncate();
+        Stok::create (
+            [
+            'kode_barang'    => Str::random(20),
+            'nama'           => 'Sakura',
+            'jenis'          => 'dog food',
+            'satuan'         => 'Kg',
+            'stok'           => '50',
+            'harga_jual'     => 'Rp 50.000',
+            'harga_beli'     => 'Rp 100.000',
+            'deskripsi'      => 'makannan terjangkau untung anjing anda',
+            'gambar'         => 'ssd',
+            'expired'        => $dateNow,
+            ]
+        );
+
+        Stok::create (
+            [
+            'kode_barang'    => Str::random(20),
+            'nama'           => 'Bottime',
+            'jenis'          => 'cat food',
+            'satuan'         => 'Kg',
+            'stok'           => '50',
+            'harga_jual'     => 'Rp 40.000',
+            'harga_beli'     => 'Rp 200.000',
+            'gambar'         => 'ssd',
+            'deskripsi'      => 'ini merupakan makanan terbaik untuk kucing',
+            'expired'        => $dateNow,
+            ]
+        );
     }
 }

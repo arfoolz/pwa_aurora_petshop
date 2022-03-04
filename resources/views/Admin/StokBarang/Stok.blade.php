@@ -145,7 +145,7 @@
                                     <table class="table app-table-hover mb-0 text-left">
                                         <thead>
                                             <tr>
-                                                <th class="cell">Kode</th>
+                                                <th class="cell">Kode Barang</th>
                                                 <th class="cell">Nama</th>
                                                 <th class="cell">Jenis</th>
                                                 <th class="cell">Satuan</th>
@@ -155,15 +155,14 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {{-- @foreach ($dtStok as $item)
+                                            @foreach ($dtStok as $item)
                                             <tr>
+                                                <th class="cell">{{ $item->kode_barang }}</th>
                                                 <th class="cell">{{ $item->nama }}</th>
-                                                <th class="cell">{{ $item->level }}</th>
-                                                <th class="cell">{{ $item->jenis_kelamin }}</th>
-                                                <th class="cell">{{ $item->email }}</th>
-                                                <th class="cell">{{ $item->alamat }}</th>
-                                                <th class="cell">{{ $item->no_tlpn }}</th>
-                                                <th>{{ $item->Status }}</th>
+                                                <th class="cell">{{ $item->jenis }}</th>
+                                                <th class="cell">{{ $item->satuan }}</th>
+                                                <th class="cell">{{ $item->stok }}</th>
+                                                <th class="cell">{{ $item->harga_jual }}</th>
                                                 <th>
                                                     <div class="dropdown">
                                                         <a class="btn-sm app-btn-secondary" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
@@ -171,13 +170,13 @@
                                                         </a>
                                                       
                                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                          <li><a class="dropdown-item" href="#">Edit</a></li>
-                                                          <li><a class="dropdown-item" href="#">Delete</a></li>
+                                                          <li><a class="dropdown-item" href="{{ url('edit-stok', $item->id) }}}">Edit</a></li>
+                                                          <li><a class="dropdown-item" href="{{ url('delete-stok', $item->id) }}}">Delete</a></li>
                                                         </ul>
                                                       </div>
                                                 </th>
                                             </tr>
-                                            @endforeach --}}
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div> <!--//table-responsive-->

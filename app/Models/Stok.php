@@ -10,12 +10,13 @@ class Stok extends Model
     use HasFactory;
 
     protected $fillable = [
-        'stok_barang',
+        'kode_barang',
         'nama',
         'jenis',
         'satuan',
         'stok',
         'harga_jual',
+        'harga_beli',
         'gambar',
         'deskripsi',
         'expired',

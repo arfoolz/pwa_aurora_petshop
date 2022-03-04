@@ -52,6 +52,13 @@
                     <div class="row">
                       <div class="col-12 mb-4">
                         <div class="form-group">
+                          <p>Kode Barang</p>
+                          <input type="text" id=kode_barang name=kode_barang class="form-control">
+                        </div>
+                      </div>
+
+                      <div class="col-12 mb-4">
+                        <div class="form-group">
                           <p>Nama Barang</p>
                           <input type="text" id=nama name=nama class="form-control">
                         </div>
@@ -103,7 +110,7 @@
                       <div class="col-12 mb-4">
                         <div class="form-group">
                           <p>Deskripsi</p>
-                          <textarea type="text" id=deksripsi name=deksripsi class="form-control" style="height:100px"></textarea>
+                          <textarea type="text" id=deskripsi name=deskripsi class="form-control" style="height:100px"></textarea>
                         </div>
                       </div>
 
