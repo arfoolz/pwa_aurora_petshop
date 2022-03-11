@@ -46,7 +46,7 @@
               <div class="app-card form ">
                 
                 <div class="app-card-body p-4">
-                  <form action="simpan-create-stok" method="post">
+                  <form action="simpan-create-stok" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
       
                     <div class="row">
@@ -66,10 +66,12 @@
       
                       <div class="col-12 mb-4">
                         <div class="form-group">
-                          <p>Jenis Barang</p>
-                          <select type="text" id=jenis name=jenis class="form-control" aria-label="Default select example" style="height:50px">
-                            <option value="Superadmin">Dog Food</option>
-                            <option value="Admin">Cat Foot</option>
+                          <p>Kategori Barang</p>
+                          <select type="text" id=kategori_id name=kategori_id class="form-control" aria-label="Default select example" style="height:50px">
+                            <option disabled value>Pilih Kategori</option>
+                              @foreach ($dtktgr as $item)
+                              <option value="{{ $item->id }}">{{ $item->kategori }}</option>
+                              @endforeach
                           </select>
                         </div>
                       </div>
@@ -78,9 +80,11 @@
                         <div class="form-group">
                           <p>Satuan Barang</p>
                           <div class="form-group">
-                            <select type="text" id=satuan name=satuan class="form-control" aria-label="Default select example" style="height:50px">
-                              <option value="Pria">Kg</option>
-                              <option value="Perempuan">Sack</option>
+                            <select type="text" id=satuan_id name=satuan_id class="form-control" aria-label="Default select example" style="height:50px">
+                              <option disabled value>Pilih Satuan</option>
+                                @foreach ($dtstn as $item)
+                                <option value="{{ $item->id }}">{{ $item->satuan }}</option>
+                                @endforeach
                             </select>
                           </div>
                         </div>
@@ -122,7 +126,7 @@
                       </div>
 
                       <div class="mb-4">
-                        <input class="form-control" id="formFileSm" type="file">
+                        <input class="form-control" id="gambar" name="gambar" type="file">
                       </div>
                     </div>
 

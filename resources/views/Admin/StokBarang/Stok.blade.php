@@ -43,10 +43,8 @@
                             <div class="row g-2 justify-content-start justify-content-md-end align-items-center">
                                 <div class="col-auto">
                                     <form class="table-search-form row gx-1 align-items-center">
-                                        <div class="col-auto">
-                                            <input type="text" id="search-orders" name="searchorders"
-                                                class="form-control search-orders" placeholder="Search">
-                                        </div>
+                                        
+                                        
                                         <div class="col-auto">
                                             <a href="create-stok" class="btn app-btn-secondary">
                                                 <i class="fa-solid fa-plus"></i> Tambah Barang 
@@ -139,6 +137,72 @@
                                 </datalist>
                             </div> --}}
 
+                            <div class="row g-3 mb-2 align-items-center justify-content-between">
+                                <div class="col-auto">
+                                    <div class="page-utilities">
+                                        <div class="row g-2 justify-content-start justify-content-md-end align-items-center">
+                                            <div class="col-auto">
+                                                <form class="table-search-form row gx-1 align-items-center">
+                                                    <div class="col-auto">
+                                                        <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Jenis">
+                                                        <datalist id="datalistOptions">
+                                                            <option value="San Francisco">
+                                                            <option value="New York">
+                                                            <option value="Seattle">
+                                                            <option value="Los Angeles">
+                                                            <option value="Chicago">
+                                                        </datalist>
+                                                    </div>
+
+                                                    <div class="col-auto">
+                                                        <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Satuan">
+                                                        <datalist id="datalistOptions">
+                                                            <option value="San Francisco">
+                                                            <option value="New York">
+                                                            <option value="Seattle">
+                                                            <option value="Los Angeles">
+                                                            <option value="Chicago">
+                                                        </datalist>
+                                                    </div>
+
+                                                    <div class="col-auto">
+                                                        <input type="text" id="search-orders" name="searchorders"
+                                                            class="form-control search-orders" placeholder="Search">
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div> <!--//row-->
+                                    </div> <!--//table-utilities-->
+                                </div> <!--//col-auto-->
+                            </div> <!--//row-->
+
+                        {{-- <div class="row">
+                            <div class="col-4">
+                                
+                            </div>
+                            <div class="col-4 mb-2">
+                                <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Jenis">
+                                <datalist id="datalistOptions">
+                                <option value="San Francisco">
+                                <option value="New York">
+                                <option value="Seattle">
+                                <option value="Los Angeles">
+                                <option value="Chicago">
+                                </datalist>
+                            </div>
+
+                            <div class="col-4 mb-2">
+                                <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Satuan">
+                                <datalist id="datalistOptions">
+                                <option value="San Francisco">
+                                <option value="New York">
+                                <option value="Seattle">
+                                <option value="Los Angeles">
+                                <option value="Chicago">
+                                </datalist>
+                            </div>
+                        </div> --}}
+
                         <div class="app-card app-card-orders-table shadow-sm mb-5">
                             <div class="app-card-body">
                                 <div class="table-responsive rounded">
@@ -147,10 +211,10 @@
                                             <tr>
                                                 <th class="cell">Kode Barang</th>
                                                 <th class="cell">Nama</th>
-                                                <th class="cell">Jenis</th>
+                                                <th class="cell">Kategori</th>
                                                 <th class="cell">Satuan</th>
                                                 <th class="cell">Stok Barang</th>
-                                                <th class="cell">Harga Jual</th>
+                                                <th class="cell">Gambar</th>
                                                 <th class="cell"></th>
                                             </tr>
                                         </thead>
@@ -159,10 +223,10 @@
                                             <tr>
                                                 <th class="cell">{{ $item->kode_barang }}</th>
                                                 <th class="cell">{{ $item->nama }}</th>
-                                                <th class="cell">{{ $item->jenis }}</th>
-                                                <th class="cell">{{ $item->satuan }}</th>
+                                                <th class="cell">{{ $item->kategori->kategori}}</th>
+                                                <th class="cell">{{ $item->satuan->satuan}}</th>
                                                 <th class="cell">{{ $item->stok }}</th>
-                                                <th class="cell">{{ $item->harga_jual }}</th>
+                                                <th class="cell">{{ $item->gambar }}</th>
                                                 <th>
                                                     <div class="dropdown">
                                                         <a class="btn-sm app-btn-secondary" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">

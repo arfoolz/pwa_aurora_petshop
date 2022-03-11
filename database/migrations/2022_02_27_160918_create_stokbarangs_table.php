@@ -15,10 +15,14 @@ class CreateStokbarangsTable extends Migration
     {
         Schema::create('stoks', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_barang', 255);
+
+            $table->unsignedBigInteger('kategori_id');
+            $table->foreign('kategori_id')->references('id')->on('kategoris');
+            $table->unsignedBigInteger('satuan_id');
+            $table->foreign('satuan_id')->references('id')->on('satuans');
+            
+            $table->string('kode_barang', 100);
             $table->string('nama', 50);
-            $table->string('jenis', 50);
-            $table->string('satuan', 50);
             $table->string('stok', 50);
             $table->string('harga_jual', 100);
             $table->string('harga_beli', 100);

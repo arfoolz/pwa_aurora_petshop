@@ -12,8 +12,8 @@ class Stok extends Model
     protected $fillable = [
         'kode_barang',
         'nama',
-        'jenis',
-        'satuan',
+        'kategori_id',
+        'satuan_id',
         'stok',
         'harga_jual',
         'harga_beli',
@@ -21,4 +21,15 @@ class Stok extends Model
         'deskripsi',
         'expired',
     ];
+
+    public function satuan()
+    {   
+    return $this->belongsTo(Satuan::class);
+    }
+
+    public function kategori()
+    {   
+    return $this->belongsTo(Kategori::class);
+    }
+
 }
