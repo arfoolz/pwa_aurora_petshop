@@ -3,14 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        return view('Admin.Dashboard.Dashboard');
+        // $countpenjualan = DB::table('transaksi')->count();
+        $countusers     = DB::table('users')->count();
+        // $counthewan     = DB::table('pesananhewan')->count();
+        // $countinvoices     = DB::table('users')->count();
+        return view('Admin.Dashboard.Dashboard', compact('countusers'));
     }
 
+    // function countData($table){
+    // }
    
     public function create()
     {

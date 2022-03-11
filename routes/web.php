@@ -50,7 +50,7 @@ Route::group(['middleware' => ['auth','ceklevel:superadmin']], function(){
     Route::get('/user-admin', [App\Http\Controllers\DashboardUserController::class, 'indexAdmin'])->name('user-admin');
     Route::get('/create-admin', [App\Http\Controllers\DashboardUserController::class, 'createAdmin']);
     Route::post('/simpan-create-admin', [App\Http\Controllers\DashboardUserController::class, 'storeAdmin']);
-    Route::get('/user-edit-admin/{id}', [App\Http\Controllers\DashboardUserController::class, 'editAdmin'])->name('user-edit-admin');
+    Route::get('/edit-admin/{id}', [App\Http\Controllers\DashboardUserController::class, 'editAdmin'])->name('edit-admin');
     Route::post('/update-admin/{id}', [App\Http\Controllers\DashboardUserController::class, 'updateAdmin'])->name('update-admin');
     Route::get('/delete-admin/{id}', [App\Http\Controllers\DashboardUserController::class, 'destroyAdmin'])->name('delete-admin');
 
