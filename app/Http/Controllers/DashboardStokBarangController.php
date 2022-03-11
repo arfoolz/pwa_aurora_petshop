@@ -12,10 +12,25 @@ use Illuminate\Support\Str;
 class DashboardStokBarangController extends Controller
 {
     
-    public function index()
+    public function index(Request $request)
     {
-        $dtStok = Stok::With('kategori','satuan')->get();
-        return view('Admin.StokBarang.Stok', compact('dtStok'));
+        // $dtStok = Stok::With('kategori','satuan')->get();
+        // $dtktgr = Kategori::all();
+        // $dtstn = Satuan::all();
+
+
+        if($request->has('search')){
+            $dtStok = Stok::where('nama', 'LIKE', '%' . $request->search . '%')->get();
+            $dtktgr = Kategori::all();
+            $dtstn = Satuan::all();
+            
+        }else{
+            $dtStok = Stok::With('kategori','satuan')->get();
+            $dtktgr = Kategori::all();
+            $dtstn = Satuan::all();
+        }
+
+        return view('Admin.StokBarang.Stok', compact('dtStok', 'dtktgr', 'dtstn'));
     }    
 
    

@@ -142,33 +142,33 @@
                                     <div class="page-utilities">
                                         <div class="row g-2 justify-content-start justify-content-md-end align-items-center">
                                             <div class="col-auto">
-                                                <form class="table-search-form row gx-1 align-items-center">
-                                                    <div class="col-auto">
-                                                        <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Jenis">
-                                                        <datalist id="datalistOptions">
-                                                            <option value="San Francisco">
-                                                            <option value="New York">
-                                                            <option value="Seattle">
-                                                            <option value="Los Angeles">
-                                                            <option value="Chicago">
+                                                <form action="/stok-barang" method="GET" class="table-search-form row gx-1 align-items-center">
+
+                                                    {{-- <div class="col-auto">
+                                                        <input class="form-control" list="datalistKategori" id="exampleDataList" placeholder="Kategori">
+                                                        <datalist id="datalistKategori">
+                                                            <option disabled value>Pilih Kategori</option>
+                                                            @foreach ($dtktgr as $item)
+                                                            <option value="{{ $item->kategori }}"></option>
+                                                            @endforeach
                                                         </datalist>
                                                     </div>
 
                                                     <div class="col-auto">
-                                                        <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Satuan">
-                                                        <datalist id="datalistOptions">
-                                                            <option value="San Francisco">
-                                                            <option value="New York">
-                                                            <option value="Seattle">
-                                                            <option value="Los Angeles">
-                                                            <option value="Chicago">
+                                                        <input class="form-control" list="datalistSatuan" id="exampleDataList" placeholder="Satuan">
+                                                        <datalist id="datalistSatuan">
+                                                            <option disabled value>Pilih Kategori</option>
+                                                            @foreach ($dtstn as $item)
+                                                            <option value="{{ $item->satuan }}"></option>
+                                                            @endforeach
                                                         </datalist>
-                                                    </div>
+                                                    </div> --}}
 
                                                     <div class="col-auto">
-                                                        <input type="text" id="search-orders" name="searchorders"
+                                                        <input type="search" id="search-orders" name="search"
                                                             class="form-control search-orders" placeholder="Search">
-                                                    </div>
+                                                    </div>  
+
                                                 </form>
                                             </div>
                                         </div> <!--//row-->
@@ -176,32 +176,6 @@
                                 </div> <!--//col-auto-->
                             </div> <!--//row-->
 
-                        {{-- <div class="row">
-                            <div class="col-4">
-                                
-                            </div>
-                            <div class="col-4 mb-2">
-                                <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Jenis">
-                                <datalist id="datalistOptions">
-                                <option value="San Francisco">
-                                <option value="New York">
-                                <option value="Seattle">
-                                <option value="Los Angeles">
-                                <option value="Chicago">
-                                </datalist>
-                            </div>
-
-                            <div class="col-4 mb-2">
-                                <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Satuan">
-                                <datalist id="datalistOptions">
-                                <option value="San Francisco">
-                                <option value="New York">
-                                <option value="Seattle">
-                                <option value="Los Angeles">
-                                <option value="Chicago">
-                                </datalist>
-                            </div>
-                        </div> --}}
 
                         <div class="app-card app-card-orders-table shadow-sm mb-5">
                             <div class="app-card-body">
@@ -214,6 +188,7 @@
                                                 <th class="cell">Kategori</th>
                                                 <th class="cell">Satuan</th>
                                                 <th class="cell">Stok Barang</th>
+                                                <th class="cell">Harga Jual</th>
                                                 <th class="cell">Gambar</th>
                                                 <th class="cell"></th>
                                             </tr>
@@ -226,6 +201,7 @@
                                                 <th class="cell">{{ $item->kategori->kategori}}</th>
                                                 <th class="cell">{{ $item->satuan->satuan}}</th>
                                                 <th class="cell">{{ $item->stok }}</th>
+                                                <th class="cell">Rp {{ $item->harga_jual }}</th>
                                                 <th class="cell">{{ $item->gambar }}</th>
                                                 <th>
                                                     <div class="dropdown">
