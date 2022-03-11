@@ -9,14 +9,17 @@ use Illuminate\Support\Facades\Hash;
 
 class DashboardUserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function indexAdmin()
+    
+    public function indexAdmin(Request $request)
     {
-        $dtAdmin = Admin::all();
+
+        if($request->has('search')){
+            $dtAdmin = Admin::where('nama', 'LIKE', '%' . $request->search . '%')->get();
+            
+        }else{
+            $dtAdmin = Admin::all();
+        }
+
         return view('Admin.User.Admin.User_Admin',compact('dtAdmin'));
     }
 
@@ -26,11 +29,7 @@ class DashboardUserController extends Controller
         return view('Admin.User.Pengguna.User_Pengguna',compact('dtUser'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function createAdmin()
     {
         return view('Admin.User.Admin.Create_Admin');
@@ -41,12 +40,7 @@ class DashboardUserController extends Controller
         return view('Admin.User.Admin.Create_Pengguna');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function storeAdmin(Request $request)
     {
         // dd($request->all());
@@ -67,6 +61,16 @@ class DashboardUserController extends Controller
     public function storePengguna(Request $request)
     {
 
+        // $validateData = $request->validate([
+        //     'nama' => 'required|max:20',
+        //     'level' => 'required',
+        //     'jenis_kelamin' => 'required',
+        //     'email' => 'required|unique:admins',
+        //     'alamat' => 'required|max:225',
+        //     'no_tlpn' => 'required|max:13',
+        //     'password' => 'required',
+        // ]);
+
         User::Create([
             'nama' => $request->nama,
             'level' => $request->level,
@@ -79,43 +83,24 @@ class DashboardUserController extends Controller
 
         return redirect('/user-pengguna');
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function editAdmin($id)
     {
         $siadmin = Admin::findorfail($id);
-        return view('Admin.User.Edit_Admin',compact('siadmin'));
+        return view('Admin.User.Admin.Edit_Admin',compact('siadmin'));
     }
 
     public function editPengguna($id)
     {
         $siadmin = User::findorfail($id);
-        return view('Admin.User.Edit_Pengguna',compact('siPengguna'));
+        return view('Admin.User.Admin.Edit_Pengguna',compact('siPengguna'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function updateAdmin(Request $request, $id)
     {
         $siadmin = Admin::findorfail($id);
@@ -129,13 +114,7 @@ class DashboardUserController extends Controller
         $siadmin->update($request->all());
         return redirect('user-pengguna');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function destroyAdmin($id)
     {
         $siadmin = Admin::findorfail($id);
