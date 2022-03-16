@@ -79,12 +79,15 @@
                         <div class="page-utilities">
                             <div class="row g-2 justify-content-start justify-content-md-end align-items-center">
                                 <div class="col-auto">
+
+                                    {{-- Search --}}
                                     <form action="/user-admin" method="GET" class="table-search-form row gx-1 align-items-center">
                                         <div class="col-auto">
                                             <input type="search" id="search-orders" name="search"
                                                 class="form-control search-orders" placeholder="Search">
                                         </div>                                    
                                     </form>
+
                                 </div>                       
                             </div> <!--//row-->
 
@@ -103,6 +106,7 @@
                                     <table class="table app-table-hover mb-0 text-left">
                                         <thead>
                                             <tr>
+                                                <th class="cell">ID</th>
                                                 <th class="cell">Nama</th>
                                                 <th class="cell">Level</th>
                                                 <th class="cell">Jenis Kelamin</th>
@@ -115,7 +119,8 @@
                                         <tbody>
                                             @foreach ($dtAdmin as $item)
                                             <tr>
-                                                <th class="cell">{{ $item->nama }}</th>
+                                                <th class="cell">{{ $item->kode_admin }}</th>
+                                                <th class="cell">{{ $item->nama_admin }}</th>
                                                 <th class="cell">{{ $item->level }}</th>
                                                 <th class="cell">{{ $item->jenis_kelamin }}</th>
                                                 <th class="cell">{{ $item->email }}</th>

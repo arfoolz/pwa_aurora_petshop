@@ -79,12 +79,15 @@
                         <div class="page-utilities">
                             <div class="row g-2 justify-content-start justify-content-md-end align-items-center">
                                 <div class="col-auto">
-                                    <form class="table-search-form row gx-1 align-items-center">
+
+                                    {{-- Search --}}
+                                    <form action="/user-pengguna" method="GET" class="table-search-form row gx-1 align-items-center">
                                         <div class="col-auto">
-                                            <input type="text" id="search-orders" name="searchorders"
+                                            <input type="search" id="search-orders" name="search"
                                                 class="form-control search-orders" placeholder="Search">
                                         </div>                                    
                                     </form>
+
                                 </div>                       
                             </div> <!--//row-->
 
@@ -103,6 +106,7 @@
                                     <table class="table app-table-hover mb-0 text-left">
                                         <thead>
                                             <tr>
+                                                <th class="cell">ID</th>
                                                 <th class="cell">Nama</th>
                                                 <th class="cell">Jenis Kelamin</th>
                                                 <th class="cell">Email</th>
@@ -114,7 +118,8 @@
                                         <tbody>
                                             @foreach ($dtUser as $item)
                                             <tr>
-                                                <th class="cell">{{ $item->nama }}</th>
+                                                <th class="cell">{{ $item->kode_user }}</th>
+                                                <th class="cell">{{ $item->nama_user }}</th>
                                                 <th class="cell">{{ $item->jenis_kelamin }}</th>
                                                 <th class="cell">{{ $item->email }}</th>
                                                 <th class="cell">{{ $item->alamat }}</th>
@@ -127,8 +132,8 @@
                                                         </a>
                                                       
                                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                          <li><a class="dropdown-item" href="#">Edit</a></li>
-                                                          <li><a class="dropdown-item" href="#">Delete</a></li>
+                                                          <li><a class="dropdown-item" href="{{ url('edit-user', $item->id) }}}">Edit</a></li>
+                                                          <li><a class="dropdown-item" href="{{ url('delete-admin', $item->id) }}}">Delete</a></li>
                                                         </ul>
                                                       </div>
                                                 </th>

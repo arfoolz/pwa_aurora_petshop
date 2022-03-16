@@ -53,7 +53,7 @@
                       <div class="col-12 mb-4">
                         <div class="form-group">
                           <p>Nama</p>
-                          <input type="text" id=nama name=nama class="form-control">
+                          <input type="text" id=nama_admin name=nama_admin class="form-control">
                         </div>
                       </div>
       

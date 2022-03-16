@@ -7,7 +7,8 @@ use App\Models\Stok;
 use App\Models\Kategori;
 use App\Models\Satuan;
 use Illuminate\Support\Str;
-// use App\Helpers\Helper;
+use App\Helpers\Helper;
+use Haruncpi\LaravelIdGenerator\IdGenerator;
 
 class DashboardStokBarangController extends Controller
 {
@@ -45,12 +46,29 @@ class DashboardStokBarangController extends Controller
     {
         // dd($request->all());
 
-        // $nm = $request->gambar;
-        // $namaFile = $nm->getClientOriginalName();
+        // -------------------------- BamaraID ( Masih Eror di Simpan Gambar menjadi Tmp ) ----------------------------
+        
+        $nm = $request->gambar;
+        $namaFile = $nm->getClientOriginalName();
+        // $dtUpload = new Stok;
+        // $dtUpload->nama = $request->nama;
+        // $dtUpload->gambar = $namaFile;
+        // $dtUpload->save();
+        $nm->move(public_path().'/img-Stok', $namaFile);
+        
+    
+        // -------------------------- Pixel Developer ( Error di Call Member Method ) ---------------------------------
 
+        // $file_name = $request->gambar->getClientOriginalName();
+        // $gambar = $request->image->storeAS('/img-Stok', $file_name);\
+        
+       
+
+        $config = ['table'=>'stoks','field'=>'kode_barang', 'length'=>7,'prefix'=>'KB-'];
+        $kode_barang = IdGenerator::generate($config);
 
         Stok::Create([
-            'kode_barang' => $request->kode_barang,
+            'kode_barang' => $kode_barang,
             'nama'        => $request->nama,
             'kategori_id' => $request->kategori_id,
             'satuan_id'   => $request->satuan_id,
@@ -58,7 +76,7 @@ class DashboardStokBarangController extends Controller
             'harga_jual'  => $request->harga_jual,
             'harga_beli'  => $request->harga_beli,
             'deskripsi'   => $request->deskripsi,
-            'gambar'      => $request->gambar,
+            'gambar'      => $namaFile,
             'expired'     => $request->expired,
         ]);
 
@@ -75,7 +93,9 @@ class DashboardStokBarangController extends Controller
     public function edit($id)
     {
         $stkbrg = Stok::findorfail($id);
-        return view('Admin.Stok_Edit_Admin');
+        $dtktgr = Kategori::all();
+        $dtstn = Satuan::all();
+        return view('Admin.StokBarang.Edit_Stok', compact('dtktgr', 'dtstn'));
     }
 
     

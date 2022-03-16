@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Hash;
+use Haruncpi\LaravelIdGenerator\IdGenerator;
 
 class DashboardUserController extends Controller
 {
@@ -14,7 +15,7 @@ class DashboardUserController extends Controller
     {
 
         if($request->has('search')){
-            $dtAdmin = Admin::where('nama', 'LIKE', '%' . $request->search . '%')->get();
+            $dtAdmin = Admin::where('nama_admin', 'LIKE', '%' . $request->search . '%')->get();
             
         }else{
             $dtAdmin = Admin::all();
@@ -23,9 +24,16 @@ class DashboardUserController extends Controller
         return view('Admin.User.Admin.User_Admin',compact('dtAdmin'));
     }
 
-    public function indexPengguna()
+    public function indexPengguna(Request $request)
     {
-        $dtUser = User::all();
+
+        if($request->has('search')){
+            $dtUser = User::where('nama_user', 'LIKE', '%' . $request->search . '%')->get();
+            
+        }else{
+            $dtUser = User::all();
+        }
+
         return view('Admin.User.Pengguna.User_Pengguna',compact('dtUser'));
     }
 
@@ -45,8 +53,12 @@ class DashboardUserController extends Controller
     {
         // dd($request->all());
 
+        $config = ['table'=>'admins','field'=>'kode_admin', 'length'=>7,'prefix'=>'adm-'];
+        $kode_admin = IdGenerator::generate($config);
+
         Admin::Create([
-            'nama' => $request->nama,
+            'kode_admin' => $kode_admin,
+            'nama_admin' => $request->nama_admin,
             'level' => $request->level,
             'jenis_kelamin' => $request->jenis_kelamin,
             'email' => $request->email,
@@ -91,6 +103,8 @@ class DashboardUserController extends Controller
 
     public function editAdmin($id)
     {
+        
+
         $siadmin = Admin::findorfail($id);
         return view('Admin.User.Admin.Edit_Admin',compact('siadmin'));
     }

@@ -121,21 +121,34 @@
                     <div class="tab-pane fade show active" id="orders-all" role="tabpanel"
                         aria-labelledby="orders-all-tab">
 
-                        {{-- <p>
-                            <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                              Link with href
-                            </a>
-                        </p>
+                        {{-- FILTER --}}
+                        {{-- <div>
+                            <p>
+                                <a class="btn btn-primary" style="color:white" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                  Filter
+                                </a>
+                            </p>
+
                             <div class="collapse" id="collapseExample">
-                                <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
-                                <datalist id="datalistOptions">
-                                    <option value="San Francisco">
-                                    <option value="New York">
-                                    <option value="Seattle">
-                                    <option value="Los Angeles">
-                                    <option value="Chicago">
+                                <input class="form-control" list="datalistKategori" id="exampleDataList" placeholder="Kategori">
+                                <datalist id="datalistKategori">
+                                    <option disabled value>Pilih Kategori</option>
+                                        @foreach ($dtktgr as $item)
+                                        <option value="{{ $item->kategori }}"></option>
+                                        @endforeach
                                 </datalist>
-                            </div> --}}
+                            </div>
+
+                            <div class="collapse" id="collapseExample">
+                                <input class="form-control" list="datalistSatuan" id="exampleDataList" placeholder="Satuan">
+                                <datalist id="datalistSatuan">
+                                    <option disabled value>Pilih Satuan</option>
+                                    @foreach ($dtstn as $item)
+                                    <option value="{{ $item->satuan }}"></option>
+                                    @endforeach
+                                </datalist>
+                            </div>
+                        </div> --}}
 
                             <div class="row g-3 mb-2 align-items-center justify-content-between">
                                 <div class="col-auto">
@@ -143,32 +156,10 @@
                                         <div class="row g-2 justify-content-start justify-content-md-end align-items-center">
                                             <div class="col-auto">
                                                 <form action="/stok-barang" method="GET" class="table-search-form row gx-1 align-items-center">
-
-                                                    {{-- <div class="col-auto">
-                                                        <input class="form-control" list="datalistKategori" id="exampleDataList" placeholder="Kategori">
-                                                        <datalist id="datalistKategori">
-                                                            <option disabled value>Pilih Kategori</option>
-                                                            @foreach ($dtktgr as $item)
-                                                            <option value="{{ $item->kategori }}"></option>
-                                                            @endforeach
-                                                        </datalist>
-                                                    </div>
-
-                                                    <div class="col-auto">
-                                                        <input class="form-control" list="datalistSatuan" id="exampleDataList" placeholder="Satuan">
-                                                        <datalist id="datalistSatuan">
-                                                            <option disabled value>Pilih Kategori</option>
-                                                            @foreach ($dtstn as $item)
-                                                            <option value="{{ $item->satuan }}"></option>
-                                                            @endforeach
-                                                        </datalist>
-                                                    </div> --}}
-
                                                     <div class="col-auto">
                                                         <input type="search" id="search-orders" name="search"
                                                             class="form-control search-orders" placeholder="Search">
                                                     </div>  
-
                                                 </form>
                                             </div>
                                         </div> <!--//row-->
@@ -202,7 +193,8 @@
                                                 <th class="cell">{{ $item->satuan->satuan}}</th>
                                                 <th class="cell">{{ $item->stok }}</th>
                                                 <th class="cell">Rp {{ $item->harga_jual }}</th>
-                                                <th class="cell">{{ $item->gambar }}</th>
+                                                <th width="30%" class="cell"> 
+                                                    <img src="{{ asset('img-Stok'. $item->gambar) }}"></th>                                     
                                                 <th>
                                                     <div class="dropdown">
                                                         <a class="btn-sm app-btn-secondary" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">

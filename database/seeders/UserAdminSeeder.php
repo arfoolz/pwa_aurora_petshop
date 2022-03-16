@@ -22,7 +22,8 @@ class UserAdminSeeder extends Seeder
         Admin::truncate();
         Admin::create (
             [
-            'nama'           => 'arya',
+            'kode_admin'     => 'adm-001',
+            'nama_admin'     => 'arya',
             'level'          => 'superadmin',
             'jenis_kelamin'  => 'Laki-Laki',
             'email'          => 'arya@gmail.com',
@@ -34,7 +35,8 @@ class UserAdminSeeder extends Seeder
         );
         Admin::create (
             [
-            'nama'           => 'ucok',
+            'kode_admin'     => 'adm-002',
+            'nama_admin'     => 'ucok',
             'level'          => 'admin',
             'jenis_kelamin'  => 'Laki-Laki',
             'email'          => 'ucok@gmail.com',
@@ -46,13 +48,53 @@ class UserAdminSeeder extends Seeder
         );
         Admin::create (
             [
-            'nama'           => 'mei',
+            'kode_admin'     => 'adm-003',
+            'nama_admin'     => 'mei',
             'level'          => 'kasir',
             'jenis_kelamin'  => 'Perempuan',
             'email'          => 'mei@gmail.com',
             'alamat'         => 'Tangerang Barat',
             'no_tlpn'        => '082211334455',
             'password'       => bcrypt('kasir'),
+            'remember_token' => Str::random(60),
+            ]
+        );
+
+
+        User::truncate();
+        User::create (
+            [
+            'kode_user'      => 'usr-001',
+            'nama_user'      => 'agus',
+            'jenis_kelamin'  => 'Laki-Laki',
+            'email'          => 'agus@gmail.com',
+            'alamat'         => 'Griya Parung panjang',
+            'no_tlpn'        => '081293209055',
+            'password'       => bcrypt('agus1'),
+            'remember_token' => Str::random(60),
+            ]
+        );
+        User::create (
+            [
+            'kode_user'      => 'usr-002',
+            'nama_user'      => 'mel',
+            'jenis_kelamin'  => 'Laki-Laki',
+            'email'          => 'mel@gmail.com',
+            'alamat'         => 'Legok Permai',
+            'no_tlpn'        => '081234567890',
+            'password'       => bcrypt('mel2'),
+            'remember_token' => Str::random(60),
+            ]
+        );
+        User::create (
+            [
+            'kode_user'      => 'usr-003',
+            'nama_user'      => 'rian3',
+            'jenis_kelamin'  => 'Perempuan',
+            'email'          => 'rian@gmail.com',
+            'alamat'         => 'Tangerang Barat',
+            'no_tlpn'        => '082211334455',
+            'password'       => bcrypt('rian3'),
             'remember_token' => Str::random(60),
             ]
         );

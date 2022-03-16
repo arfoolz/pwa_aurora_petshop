@@ -50,12 +50,12 @@
                     {{ csrf_field() }}
       
                     <div class="row">
-                      <div class="col-12 mb-4">
+                      {{-- <div class="col-12 mb-4">
                         <div class="form-group">
                           <p>Kode Barang</p>
                           <input type="text" id=kode_barang name=kode_barang class="form-control">
                         </div>
-                      </div>
+                      </div> --}}
 
                       <div class="col-12 mb-4">
                         <div class="form-group">
@@ -93,7 +93,7 @@
                       <div class="col-12 mb-4">
                         <div class="form-group">
                           <p>Stok Barang</p>
-                          <input type="text" id=stok name=stok class="form-control">
+                          <input type="text" id=stok name=stok class="form-control" onkeypress="return isNumber(event)">
                         </div>
                       </div>
  
