@@ -15,12 +15,12 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            $table->string('kode_user', 50);
+            $table->string('nama_user', 50);
 
             $table->unsignedBigInteger('gender_id');
             $table->foreign('gender_id')->references('id')->on('genders');
 
-            $table->string('kode_user', 50);
-            $table->string('nama_user', 50);
             $table->string('email', 50)->unique();
             $table->string('alamat', 255);
             $table->string('no_tlpn');

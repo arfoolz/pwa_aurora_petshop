@@ -120,7 +120,7 @@
                                             <tr>
                                                 <th class="cell">{{ $item->kode_user }}</th>
                                                 <th class="cell">{{ $item->nama_user }}</th>
-                                                <th class="cell">{{ $item->jenis_kelamin }}</th>
+                                                <th class="cell">{{ $item->gender->gender }}</th>
                                                 <th class="cell">{{ $item->email }}</th>
                                                 <th class="cell">{{ $item->alamat }}</th>
                                                 <th class="cell">{{ $item->no_tlpn }}</th>

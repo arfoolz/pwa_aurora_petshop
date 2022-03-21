@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Model;
 
 class Admin extends Authenticatable
 {
@@ -21,7 +22,7 @@ class Admin extends Authenticatable
         'kode_admin',
         'nama_admin',
         'level',
-        'jenis_kelamin',
+        'gender_id',
         'email',
         'alamat',
         'no_tlpn',

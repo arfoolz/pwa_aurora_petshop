@@ -47,12 +47,12 @@ Route::group(['middleware' => ['auth','ceklevel:superadmin']], function(){
     Route::post('/update-stok/{id}', [App\Http\Controllers\DashboardStokBarangController::class, 'update'])->name('update-stok');
     Route::get('/delete-stok/{id}', [App\Http\Controllers\DashboardStokBarangController::class, 'destroy'])->name('delete-stok');
 
-    Route::get('/user-admin', [App\Http\Controllers\DashboardUserController::class, 'indexAdmin'])->name('user-admin');
-    Route::get('/create-admin', [App\Http\Controllers\DashboardUserController::class, 'createAdmin']);
-    Route::post('/simpan-create-admin', [App\Http\Controllers\DashboardUserController::class, 'storeAdmin']);
-    Route::get('/edit-admin/{id}', [App\Http\Controllers\DashboardUserController::class, 'editAdmin'])->name('edit-admin');
-    Route::post('/update-admin/{id}', [App\Http\Controllers\DashboardUserController::class, 'updateAdmin'])->name('update-admin');
-    Route::get('/delete-admin/{id}', [App\Http\Controllers\DashboardUserController::class, 'destroyAdmin'])->name('delete-admin');
+    Route::get('/user-admin', [App\Http\Controllers\DashboardAdminController::class, 'indexAdmin'])->name('user-admin');
+    Route::get('/create-admin', [App\Http\Controllers\DashboardAdminController::class, 'createAdmin']);
+    Route::post('/simpan-create-admin', [App\Http\Controllers\DashboardAdminController::class, 'storeAdmin']);
+    Route::get('/edit-admin/{id}', [App\Http\Controllers\DashboardAdminController::class, 'editAdmin'])->name('edit-admin');
+    Route::post('/update-admin/{id}', [App\Http\Controllers\DashboardAdminController::class, 'updateAdmin'])->name('update-admin');
+    Route::get('/delete-admin/{id}', [App\Http\Controllers\DashboardAdminController::class, 'destroyAdmin'])->name('delete-admin');
 
     Route::get('/user-pengguna', [App\Http\Controllers\DashboardUserController::class, 'indexPengguna'])->name('user-pengguna');
 

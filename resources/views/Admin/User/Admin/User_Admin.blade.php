@@ -122,7 +122,7 @@
                                                 <th class="cell">{{ $item->kode_admin }}</th>
                                                 <th class="cell">{{ $item->nama_admin }}</th>
                                                 <th class="cell">{{ $item->level }}</th>
-                                                <th class="cell">{{ $item->jenis_kelamin }}</th>
+                                                <th class="cell">{{ $item->gender->gender }}</th>
                                                 <th class="cell">{{ $item->email }}</th>
                                                 <th class="cell">{{ $item->alamat }}</th>
                                                 <th class="cell">{{ $item->no_tlpn }}</th>

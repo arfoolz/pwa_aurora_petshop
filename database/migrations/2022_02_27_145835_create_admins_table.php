@@ -15,12 +15,12 @@ class CreateAdminsTable extends Migration
     {
         Schema::create('admins', function (Blueprint $table) {
             $table->id();
+            $table->string('kode_admin', 100)->unique();
+            $table->string('nama_admin', 50);
 
             $table->unsignedBigInteger('gender_id');
             $table->foreign('gender_id')->references('id')->on('genders');
 
-            $table->string('kode_admin', 100)->unique();
-            $table->string('nama_admin', 50);
             $table->string('level', 50);
             $table->string('email', 50)->unique();
             $table->string('alamat', 255);
