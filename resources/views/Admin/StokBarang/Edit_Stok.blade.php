@@ -60,7 +60,7 @@
                       <div class="col-12 mb-4">
                         <div class="form-group">
                           <p>Nama Barang</p>
-                          <input type="text" id=nama name=nama class="form-control" value={{ $dtStok->nama_barang }}>
+                          <input type="text" id=nama name=nama class="form-control" value={{ $stkbrg->nama_barang }}>
                         </div>
                       </div>
       
@@ -93,35 +93,35 @@
                       <div class="col-12 mb-4">
                         <div class="form-group">
                           <p>Stok Barang</p>
-                          <input type="text" id=stok name=stok class="form-control" onkeypress="return isNumber(event)">
+                          <input type="text" id=stok name=stok class="form-control" value={{ $stkbrg->stok }} onkeypress="return isNumber(event)">
                         </div>
                       </div>
  
                       <div class="col-12 mb-4">
                         <div class="form-group">
                           <p>Harga Jual</p>
-                          <input type="text" id=harga_jual name=harga_jual class="form-control">
+                          <input type="text" id=harga_jual name=harga_jual class="form-control" value={{ $stkbrg->harga_jual }}>
                         </div>
                       </div>
 
                       <div class="col-12 mb-4">
                         <div class="form-group">
                           <p>Harga Beli</p>
-                          <input type="text" id=harga_beli name=harga_beli class="form-control">
+                          <input type="text" id=harga_beli name=harga_beli class="form-control" value={{ $stkbrg->harga_beli }}>
                         </div>
                       </div>
 
                       <div class="col-12 mb-4">
                         <div class="form-group">
                           <p>Deskripsi</p>
-                          <textarea type="text" id=deskripsi name=deskripsi class="form-control" style="height:100px"></textarea>
+                          <textarea type="text" id=deskripsi name=deskripsi class="form-control" style="height:100px" value={{ $stkbrg->deskripsi }}></textarea>
                         </div>
                       </div>
 
                       <div class="col-12 mb-4">
                         <div class="form-group">
                           <p>Expired</p>
-                          <input type="date" id=expired name=expired class="form-control">
+                          <input type="date" id=expired name=expired class="form-control" value={{ $stkbrg->expired }}>
                         </div>
                       </div>
 

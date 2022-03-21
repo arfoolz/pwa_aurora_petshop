@@ -60,7 +60,7 @@
                       <div class="col-12 mb-4">
                         <div class="form-group">
                           <p>Nama Barang</p>
-                          <input type="text" id=nama name=nama class="form-control">
+                          <input type="text" id=nama_barang name=nama_barang class="form-control">
                         </div>
                       </div>
       

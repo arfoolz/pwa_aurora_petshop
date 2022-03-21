@@ -48,28 +48,38 @@ class DashboardStokBarangController extends Controller
 
         // -------------------------- BamaraID ( Masih Eror di Simpan Gambar menjadi Tmp ) ----------------------------
         
-        $nm = $request->gambar;
-        $namaFile = $nm->getClientOriginalName();
+        // $nm = $request->gambar;
+        // $namaFile = $nm->getClientOriginalName();
         // $dtUpload = new Stok;
         // $dtUpload->nama = $request->nama;
         // $dtUpload->gambar = $namaFile;
         // $dtUpload->save();
-        $nm->move(public_path().'/img-Stok', $namaFile);
+        // $nm->move(public_path().'/img-Stok', $namaFile);
         
     
         // -------------------------- Pixel Developer ( Error di Call Member Method ) ---------------------------------
 
-        // $file_name = $request->gambar->getClientOriginalName();
-        // $gambar = $request->image->storeAS('/img-Stok', $file_name);\
         
+        // $file_name = $request->gambar->getClientOriginalName();
+        // $gambar = $request->image->storeAS('/img-Stok', $file_name);
+        
+
+        // -------------------------- Funda Of Web It ( FIXED ) --------------------------------------------------------
+
+        if($request->hasfile('gambar'))
+        {
+            $file = $request->file('gambar');
+            $namaFile = $file->getClientOriginalName();
+            $file->move('/img-Stok', $namaFile);
+        }
        
 
-        $config = ['table'=>'stoks','field'=>'kode_barang', 'length'=>7,'prefix'=>'KB-'];
+        $config = ['table'=>'stoks','field'=>'kode_barang', 'length'=>6,'prefix'=>'KB-'];
         $kode_barang = IdGenerator::generate($config);
 
         Stok::Create([
             'kode_barang' => $kode_barang,
-            'nama'        => $request->nama,
+            'nama_barang' => $request->nama_barang,
             'kategori_id' => $request->kategori_id,
             'satuan_id'   => $request->satuan_id,
             'stok'        => $request->stok,
@@ -95,7 +105,7 @@ class DashboardStokBarangController extends Controller
         $stkbrg = Stok::findorfail($id);
         $dtktgr = Kategori::all();
         $dtstn = Satuan::all();
-        return view('Admin.StokBarang.Edit_Stok', compact('dtktgr', 'dtstn'));
+        return view('Admin.StokBarang.Edit_Stok', compact('stkbrg','dtktgr', 'dtstn'));
     }
 
     

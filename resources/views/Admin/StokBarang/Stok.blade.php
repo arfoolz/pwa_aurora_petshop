@@ -151,6 +151,7 @@
                         </div> --}}
 
                             <div class="row g-3 mb-2 align-items-center justify-content-between">
+                                <div class="col-auto"></div>
                                 <div class="col-auto">
                                     <div class="page-utilities">
                                         <div class="row g-2 justify-content-start justify-content-md-end align-items-center">
@@ -173,7 +174,7 @@
                                 <div class="table-responsive rounded">
                                     <table class="table app-table-hover mb-0 text-left">
                                         <thead>
-                                            <tr>
+                                            <tr style="text-align: center;">
                                                 <th class="cell">Kode Barang</th>
                                                 <th class="cell">Nama</th>
                                                 <th class="cell">Kategori</th>
@@ -186,15 +187,14 @@
                                         </thead>
                                         <tbody>
                                             @foreach ($dtStok as $item)
-                                            <tr>
+                                            <tr style="text-align: center;">
                                                 <th class="cell">{{ $item->kode_barang }}</th>
-                                                <th class="cell">{{ $item->nama }}</th>
+                                                <th class="cell">{{ $item->nama_barang }}</th>
                                                 <th class="cell">{{ $item->kategori->kategori}}</th>
                                                 <th class="cell">{{ $item->satuan->satuan}}</th>
                                                 <th class="cell">{{ $item->stok }}</th>
                                                 <th class="cell">Rp {{ $item->harga_jual }}</th>
-                                                <th width="30%" class="cell"> 
-                                                    <img src="{{ asset('img-Stok'. $item->gambar) }}"></th>                                     
+                                                <th width=30% class="cell"> <img src="{{ asset('img-Stok/'. $item->gambar) }}" height="10%" width="40%" alt="" srcset=""> </th>                                     
                                                 <th>
                                                     <div class="dropdown">
                                                         <a class="btn-sm app-btn-secondary" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">

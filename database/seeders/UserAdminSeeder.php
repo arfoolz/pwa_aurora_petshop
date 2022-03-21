@@ -9,6 +9,7 @@ use App\Models\Kategori;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class UserAdminSeeder extends Seeder
 {
@@ -65,7 +66,7 @@ class UserAdminSeeder extends Seeder
         User::create (
             [
             'kode_user'      => 'usr-001',
-            'nama_user'      => 'agus',
+            'nama_user'      => 'Agus',
             'jenis_kelamin'  => 'Laki-Laki',
             'email'          => 'agus@gmail.com',
             'alamat'         => 'Griya Parung panjang',
@@ -99,52 +100,88 @@ class UserAdminSeeder extends Seeder
             ]
         );
 
+        DB::table('genders')->insert([
+            'gender' => 'Laki-Laki',
+        ]);
+        DB::table('genders')->insert([
+            'gender' => 'Perempuan',
+        ]);
 
-        // Kategori::truncate();
-        // Kategori::create (
-        //     [
-        //     'nama'           => 'Dog Food',
-        //     ]
-        // );
-        // Kategori::create (
-        //     [
-        //     'nama'           => 'Cat Food',
-        //     ]
-        // );
+
+        DB::table('kategoris')->insert([
+            'kategori' => 'Dog Food',
+        ]);
+        DB::table('kategoris')->insert([
+            'kategori' => 'Cat Food',
+        ]);
+        DB::table('kategoris')->insert([
+            'kategori' => 'Aksesoris',
+        ]);
+
         
+        DB::table('satuans')->insert([
+            'satuan' => 'Kg',
+        ]);
+        DB::table('satuans')->insert([
+            'satuan' => 'Pack',
+        ]);
+        DB::table('satuans')->insert([
+            'satuan' => 'Sack',
+        ]);
 
-        // $dt = Carbon::now();
-        // $dateNow = $dt->toDateTimeString();
 
-        // Stok::truncate();
-        // Stok::create (
-        //     [
-        //     'kode_barang'    => Str::random(20),
-        //     'nama'           => 'Sakura',
-        //     'jenis'          => 'dog food',
-        //     'satuan'         => 'Kg',
-        //     'stok'           => '50',
-        //     'harga_jual'     => 'Rp 50.000',
-        //     'harga_beli'     => 'Rp 100.000',
-        //     'deskripsi'      => 'makannan terjangkau untung anjing anda',
-        //     'gambar'         => 'ssd',
-        //     'expired'        => $dateNow,
-        //     ]
-        // );
+        DB::table('paystats')->insert([
+            'paystat' => 'Paid',
+        ]);
+        DB::table('satuans')->insert([
+            'paystat' => 'Unpaid',
+        ]);
+        DB::table('satuans')->insert([
+            'paystat' => 'Cancel',
+        ]);
 
-        // Stok::create (
-        //     [
-        //     'kode_barang'    => Str::random(20),
-        //     'nama'           => 'Bottime',
-        //     'jenis'          => 'cat food',
-        //     'satuan'         => 'Kg',
-        //     'stok'           => '50',
-        //     'harga_jual'     => 'Rp 40.000',
-        //     'harga_beli'     => 'Rp 200.000',
-        //     'gambar'         => 'ssd',
-        //     'deskripsi'      => 'ini merupakan makanan terbaik untuk kucing',
-        //     'expired'        => $dateNow,
-        //     ]
-        // );
+        
+        $dt = Carbon::now();
+        $dateNow = $dt->toDateTimeString();
+        Stok::truncate();
+
+        DB::table('stoks')->insert([
+            'kategori_id' => '1',
+            'satuan_id'   => '1',
+            'kode_barang' => 'KB-001',
+            'nama_barang' => 'Sakura',
+            'stok'        => '10',
+            'harga_jual'  => '110.000',
+            'harga_beli'  => '100.000',
+            'deskripsi'   => 'makannan terjangkau untung anjing anda',
+            'gambar'      => 'ssd',
+            'expired'     => $dateNow,
+        ]);
+
+        DB::table('stoks')->insert([
+            'kategori_id'    => '2',
+            'satuan_id'      => '2',
+            'kode_barang'    => 'KB-002',
+            'nama_barang'    => 'Proplan',
+            'stok'           => '20',
+            'harga_jual'     => '220.000',
+            'harga_beli'     => '200.000',
+            'gambar'         => 'ssai',
+            'deskripsi'      => 'ini merupakan makanan terbaik untuk kucing',
+            'expired'        => $dateNow,
+        ]);
+
+        DB::table('stoks')->insert([
+            'kode_barang'    => 'KB-003',
+            'kategori_id'    => '3',
+            'satuan_id'      => '3',
+            'nama_barang'    => 'Bottime',
+            'stok'           => '30',
+            'harga_jual'     => '330.000',
+            'harga_beli'     => '300.000',
+            'gambar'         => 'sssat',
+            'deskripsi'      => 'ini merupakan makanan terbaik untuk kucing dan anjing',
+            'expired'        => $dateNow,
+        ]);
     }
 }

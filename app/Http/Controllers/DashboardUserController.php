@@ -57,14 +57,14 @@ class DashboardUserController extends Controller
         $kode_admin = IdGenerator::generate($config);
 
         Admin::Create([
-            'kode_admin' => $kode_admin,
-            'nama_admin' => $request->nama_admin,
-            'level' => $request->level,
+            'kode_admin'    => $kode_admin,
+            'nama_admin'    => $request->nama_admin,
+            'level'         => $request->level,
             'jenis_kelamin' => $request->jenis_kelamin,
-            'email' => $request->email,
-            'alamat' => $request->alamat,
-            'no_tlpn' => $request->no_tlpn,
-            'password' => Hash::make($request->password),
+            'email'         => $request->email,
+            'alamat'        => $request->alamat,
+            'no_tlpn'       => $request->no_tlpn,
+            'password'      => Hash::make($request->password),
         ]);
 
         return redirect('/user-admin');
@@ -84,13 +84,13 @@ class DashboardUserController extends Controller
         // ]);
 
         User::Create([
-            'nama' => $request->nama,
-            'level' => $request->level,
+            'nama'          => $request->nama,
+            'level'         => $request->level,
             'jenis_kelamin' => $request->jenis_kelamin,
-            'email' => $request->email,
-            'alamat' => $request->alamat,
-            'no_tlpn' => $request->no_tlpn,
-            'password' => Hash::make($request->password),
+            'email'         => $request->email,
+            'alamat'        => $request->alamat,
+            'no_tlpn'       => $request->no_tlpn,
+            'password'      => Hash::make($request->password),
         ]);
 
         return redirect('/user-pengguna');
