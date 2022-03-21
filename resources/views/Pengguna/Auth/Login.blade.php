@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +19,7 @@
             {{-- <img src="{{ asset('StrapDashUser/assets/images/logo.svg')}}" alt="logo" class="logo"> --}}
           </div>
           <div class="login-wrapper my-auto">
-            <h1 class="login-title">Log in</h1>
+            <h1 class="login-title">Masuk</h1>
             <form action="#!">
               <div class="form-group">
                 <label for="email">Email</label>
@@ -30,14 +29,14 @@
                 <label for="password">Password</label>
                 <input type="password" name="password" id="password" class="form-control" placeholder="enter your passsword">
               </div>
-              <input name="login" id="login" class="btn btn-block login-btn" type="button" value="Login">
+              <input  name="login" id="login" class="btn btn-block login-btn" type="button" value="Masuk">
             </form>
-            <a href="#!" class="forgot-password-link">Forgot password?</a>
-            <p class="login-wrapper-footer-text">Don't have an account? <a href="#!" class="text-reset">Register here</a></p>
+            {{-- <a href="#!" class="forgot-password-link">Lupa password?</a> --}}
+            <p class="login-wrapper-footer-text">Belum Punya Akun? <a href="#!" class="text-reset">Daftar Disini</a></p>
           </div>
         </div>
         <div class="col-sm-6 px-0 d-none d-sm-block">
-          <img src="{{ asset('StrapDashUser/assets/images/login.jpg')}}" alt="login image" class="login-img">
+          <img src="{{ asset('StrapDashUser/assets/images/login-cus.jpg')}}" alt="login image" class="login-img">
         </div>
       </div>
     </div>

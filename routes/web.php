@@ -43,7 +43,7 @@ Route::group(['middleware' => ['auth','ceklevel:superadmin']], function(){
     Route::get('/stok-barang', [App\Http\Controllers\DashboardStokBarangController::class, 'index']);
     Route::get('/create-stok', [App\Http\Controllers\DashboardStokBarangController::class, 'create']);
     Route::post('/simpan-create-stok', [App\Http\Controllers\DashboardStokBarangController::class, 'store']);
-    Route::get('/edit-stok', [App\Http\Controllers\DashboardStokBarangController::class, 'edit'])->name('edit-stok');
+    Route::get('/edit-stok/{id}', [App\Http\Controllers\DashboardStokBarangController::class, 'edit'])->name('edit-stok');
     Route::post('/update-stok/{id}', [App\Http\Controllers\DashboardStokBarangController::class, 'update'])->name('update-stok');
     Route::get('/delete-stok/{id}', [App\Http\Controllers\DashboardStokBarangController::class, 'destroy'])->name('delete-stok');
 
@@ -65,9 +65,21 @@ Route::group(['middleware' => ['auth','ceklevel:superadmin,admin']], function(){
 
 
 //Pengguna
-Route::get('/login', function () {
-    return view('Pengguna.Login');
-})->name('login');
+// Route::get('/login', function () {
+//     return view('Pengguna.Auth.Login');
+// })->name('login');
+
+// Route::get('/daftar', function () {
+//     return view('Pengguna.Auth.Register');
+// })->name('daftar');
+
+Route::get('/daftar', [App\Http\Controllers\UserProfileController::class, 'index']);
+Route::post('/simpan-user', [App\Http\Controllers\UserProfileController::class, 'store']);
+// `Route::get('/edit-stok/{id}', [App\Http\Controllers\DashboardStokBarangController::class, 'edit'])->name('edit-stok');
+// Route::post('/update-stok/{id}', [App\Http\Controllers\DashboardStokBarangController::class, 'update'])->name('update-stok');
+// Route::get('/delete-stok/{id}', [App\Http\Controllers\DashboardStokBarangController::class, 'destroy'])->name('delete-stok');`
+
+
 
 Route::get('/beranda', function () {
     return view('Pengguna.Beranda');
