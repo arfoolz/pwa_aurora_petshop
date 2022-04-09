@@ -71,9 +71,10 @@
                         <div class="form-group">
                           <p>Jenis Kelamin</p>
                           <div class="form-group">
-                            <select type="text" id=jenis_kelamin name=jenis_kelamin class="form-control" aria-label="Default select example">
-                              <option value="Pria">Pria</option>
-                              <option value="Perempuan">Perempuan</option>
+                            <select type="text" id=gender_id name=gender_id class="form-control" aria-label="Default select example">
+                              @foreach ($dtGender as $item)
+                              <option value="{{ $item->id }}">{{ $item->gender }}</option>
+                              @endforeach
                             </select>
                           </div>
                         </div>
@@ -116,12 +117,7 @@
 
                   </form>
                 </div><!--//app-card-body-->
-            </div><!--//app-card-->
-
-                
-
-
-                
+            </div><!--//app-card-->            
             </div> <!--//container-fluid-->
         </div> <!--//app-content-->
     </div> <!--//app-wrapper-->

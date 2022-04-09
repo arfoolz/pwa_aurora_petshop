@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Admin;
 use App\Models\Gender;
 use Illuminate\Support\Facades\Hash;
+use Haruncpi\LaravelIdGenerator\IdGenerator;
 
 class DashboardAdminController extends Controller
 {
@@ -27,7 +28,8 @@ class DashboardAdminController extends Controller
 
     public function createAdmin()
     {
-        return view('Admin.User.Admin.Create_Admin');
+        $dtGender = Gender::all();
+        return view('Admin.User.Admin.Create_Admin', compact('dtGender'));
     }
 
 
@@ -42,7 +44,7 @@ class DashboardAdminController extends Controller
             'kode_admin'    => $kode_admin,
             'nama_admin'    => $request->nama_admin,
             'level'         => $request->level,
-            'jenis_kelamin' => $request->jenis_kelamin,
+            'gender_id'     => $request->gender_id,
             'email'         => $request->email,
             'alamat'        => $request->alamat,
             'no_tlpn'       => $request->no_tlpn,

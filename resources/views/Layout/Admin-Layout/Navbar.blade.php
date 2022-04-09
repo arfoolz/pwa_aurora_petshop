@@ -170,6 +170,7 @@
                           role="button" aria-expanded="false"><img src="AdminPortal/assets/images/user.png"
                               alt="user profile"></a>
                       <ul class="dropdown-menu" aria-labelledby="user-dropdown-toggle">
+                          <li><a class="dropdown-item" href="#">{{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}</a></li>
                           <li><a class="dropdown-item" href="account.html">Account</a></li>
                           <li><a class="dropdown-item" href="settings.html">Settings</a></li>
                           <li>
