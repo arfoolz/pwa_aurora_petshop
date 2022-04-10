@@ -205,7 +205,7 @@
                                                           <li><a class="dropdown-item" href="{{ url('edit-stok', $item->id) }}}">Edit</a></li>
                                                           <li><a class="dropdown-item" href="{{ url('delete-stok', $item->id) }}}">Delete</a></li>
                                                         </ul>
-                                                      </div>
+                                                    </div>
                                                 </th>
                                             </tr>
                                             @endforeach

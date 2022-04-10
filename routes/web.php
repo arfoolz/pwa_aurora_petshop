@@ -47,14 +47,19 @@ Route::group(['middleware' => ['auth','ceklevel:superadmin']], function(){
     Route::post('/update-stok/{id}', [App\Http\Controllers\DashboardStokBarangController::class, 'update'])->name('update-stok');
     Route::get('/delete-stok/{id}', [App\Http\Controllers\DashboardStokBarangController::class, 'destroy'])->name('delete-stok');
 
-    Route::get('/user-admin', [App\Http\Controllers\DashboardAdminController::class, 'indexAdmin'])->name('user-admin');
-    Route::get('/create-admin', [App\Http\Controllers\DashboardAdminController::class, 'createAdmin']);
-    Route::post('/simpan-create-admin', [App\Http\Controllers\DashboardAdminController::class, 'storeAdmin']);
-    Route::get('/edit-admin/{id}', [App\Http\Controllers\DashboardAdminController::class, 'editAdmin'])->name('edit-admin');
-    Route::post('/update-admin/{id}', [App\Http\Controllers\DashboardAdminController::class, 'updateAdmin'])->name('update-admin');
-    Route::get('/delete-admin/{id}', [App\Http\Controllers\DashboardAdminController::class, 'destroyAdmin'])->name('delete-admin');
+    Route::get('/user-admin', [App\Http\Controllers\DashboardAdminController::class, 'index'])->name('user-admin');
+    Route::get('/create-admin', [App\Http\Controllers\DashboardAdminController::class, 'create']);
+    Route::post('/simpan-create-admin', [App\Http\Controllers\DashboardAdminController::class, 'store']);
+    Route::get('/edit-admin/{id}', [App\Http\Controllers\DashboardAdminController::class, 'edit'])->name('edit-admin');
+    Route::post('/update-admin/{id}', [App\Http\Controllers\DashboardAdminController::class, 'update'])->name('update-admin');
+    Route::get('/delete-admin/{id}', [App\Http\Controllers\DashboardAdminController::class, 'destroy'])->name('delete-admin');
 
-    Route::get('/user-pengguna', [App\Http\Controllers\DashboardUserController::class, 'indexPengguna'])->name('user-pengguna');
+    Route::get('/user-pengguna', [App\Http\Controllers\DashboardUserController::class, 'index']);
+    Route::get('/create-user', [App\Http\Controllers\DashboardUserController::class, 'create']);
+    Route::post('/simpan-create-user', [App\Http\Controllers\DashboardUserController::class, 'store']);
+    Route::get('/edit-user/{id}', [App\Http\Controllers\DashboardUserController::class, 'index'])->name('edit-user');
+    Route::post('/update-user/{id}', [App\Http\Controllers\DashboardUserController::class, 'index'])->name('update-user');
+    Route::get('/delete-user/{id}', [App\Http\Controllers\DashboardUserController::class, 'index'])->name('delete-user');
 
     Route::get('/report', [App\Http\Controllers\DashboardReportController::class, 'index']);
 });
@@ -65,6 +70,10 @@ Route::group(['middleware' => ['auth','ceklevel:superadmin,admin']], function(){
 
 
 //Pengguna
+
+Route::get('/product', [App\Http\Controllers\PenggunaProduct::class, 'index']);
+Route::get('/detail-product/{id}', [App\Http\Controllers\PenggunaProduct::class, 'detail']);
+
 // Route::get('/login', function () {
 //     return view('Pengguna.Auth.Login');
 // })->name('login');
@@ -73,12 +82,12 @@ Route::group(['middleware' => ['auth','ceklevel:superadmin,admin']], function(){
 //     return view('Pengguna.Auth.Register');
 // })->name('daftar');
 
-Route::get('/daftar', [App\Http\Controllers\UserProfileController::class, 'index']);
-Route::post('/simpan-user', [App\Http\Controllers\UserProfileController::class, 'store']);
-// `Route::get('/edit-stok/{id}', [App\Http\Controllers\DashboardStokBarangController::class, 'edit'])->name('edit-stok');
-// Route::post('/update-stok/{id}', [App\Http\Controllers\DashboardStokBarangController::class, 'update'])->name('update-stok');
-// Route::get('/delete-stok/{id}', [App\Http\Controllers\DashboardStokBarangController::class, 'destroy'])->name('delete-stok');`
 
+Route::get('/register', [App\Http\Controllers\PenggunaRegister::class, 'create']);
+Route::post('/simpan-create-user', [App\Http\Controllers\PenggunaRegister::class, 'store']);
+// Route::get('/edit-user/{id}', [App\Http\Controllers\DashboardUserController::class, 'index'])->name('edit-user');
+// Route::post('/update-user/{id}', [App\Http\Controllers\DashboardUserController::class, 'index'])->name('update-user');
+// Route::get('/delete-user/{id}', [App\Http\Controllers\DashboardUserController::class, 'index'])->name('delete-user');
 
 
 Route::get('/beranda', function () {
@@ -88,3 +97,11 @@ Route::get('/beranda', function () {
 Route::get('/about', function () {
     return view('Pengguna.about');
 })->name('about');
+
+// Route::get('/product', function () {
+//     return view('Pengguna.Product');
+// })->name('product');
+
+Route::get('/petcare', function () {
+    return view('Pengguna.PetCare');
+})->name('petcare');
