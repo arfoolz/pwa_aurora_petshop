@@ -20,19 +20,52 @@
           </div>
           <div class="login-wrapper my-auto">
             <h1 class="login-title">Daftar</h1>
+
             <form action="simpan-create-user" method="post">
+
+              {{ csrf_field() }}
+
               <div class="form-group">
-                <label for="email">Email</label>
+                <label for="nama">Nama <span style="color: red">*</span></label>
+                <input type="text" name="nama_user" id="nama_user" class="form-control" placeholder="">
+              </div>
+
+              <div class="form-group">
+                <label for="nama">Jenis Kelamin <span style="color: red">*</span></label>
+                <select type="text" id=gender_id name=gender_id class="form-control" aria-label="Default select example">
+                  @foreach ($dtGender as $item)
+                  <option value="{{ $item->id }}">{{ $item->gender }}</option>
+                  @endforeach
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email <span style="color: red">*</span></label>
                 <input type="email" name="email" id="email" class="form-control" placeholder="email@example.com">
               </div>
+
+              {{-- <div class="form-group">
+                <label for="email">Nomor Handphone</label>
+                <input type="email" name="nama_pengguna" id="nama_pengguna" class="form-control" placeholder="">
+              </div>
+
+              <div class="form-group">
+                <label for="email">Alamat </label>
+                <input type="email" name="nama_pengguna" id="nama_pengguna" class="form-control" placeholder="">
+              </div> --}}
+
               <div class="form-group mb-4">
-                <label for="password">Password</label>
+                <label for="password">Password <span style="color: red">*</span></label>
                 <input type="password" name="password" id="password" class="form-control" placeholder="enter your passsword">
               </div>
-              <input  name="login" id="login" class="btn btn-block login-btn" type="button" value="Masuk">
+
+              <div class="mb-1">
+                <button type="submit" class="btn btn-block btn-outline-success">Submit</button>
+              </div>
             </form>
+            
             {{-- <a href="#!" class="forgot-password-link">Lupa password?</a> --}}
-            <p class="login-wrapper-footer-text">Sudah Punya Akun? <a href="/login" class="text-reset">Daftar Disini</a></p>
+            <p class="login-wrapper-footer-text">Sudah Punya Akun? <a href="/login" class="text-reset">Masuk Disini</a></p>
           </div>
         </div>
         <div class="col-sm-6 px-0 d-none d-sm-block">
