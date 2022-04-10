@@ -54,6 +54,8 @@ class UserAdminSeeder extends Seeder
         DB::table('paystats')->insert([
             'paystat' => 'Paid',
         ]);
+
+        
         // DB::table('satuans')->insert([
         //     'paystat' => 'Unpaid',
         // ]);
