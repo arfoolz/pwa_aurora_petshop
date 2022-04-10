@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Admin | Stok Barang</title>
+    <title>Admin | User Pengguna</title>
 
     <!-- Meta -->
     <meta charset="utf-8">
@@ -47,7 +47,7 @@
                                 <div class="col-auto">
                                     <form class="table-search-form row gx-1 align-items-center">
                                         <div class="col-auto">
-                                            <a href="create-admin" class="btn app-btn-secondary">
+                                            <a href="create-user" class="btn app-btn-secondary">
                                                 <i class="fa-solid fa-plus"></i> Tambah User 
                                             </a>
                                         </div>
@@ -124,7 +124,7 @@
                                                 <th class="cell">{{ $item->email }}</th>
                                                 <th class="cell">{{ $item->alamat }}</th>
                                                 <th class="cell">{{ $item->no_tlpn }}</th>
-                                                
+                                                <th>{{ $item->Status }}</th>
                                                 <th>
                                                     <div class="dropdown">
                                                         <a class="btn-sm app-btn-secondary" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
@@ -133,7 +133,7 @@
                                                       
                                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                                           <li><a class="dropdown-item" href="{{ url('edit-user', $item->id) }}}">Edit</a></li>
-                                                          <li><a class="dropdown-item" href="{{ url('delete-admin', $item->id) }}}">Delete</a></li>
+                                                          <li><a class="dropdown-item" href="{{ url('delete-user', $item->id) }}}">Delete</a></li>
                                                         </ul>
                                                       </div>
                                                 </th>

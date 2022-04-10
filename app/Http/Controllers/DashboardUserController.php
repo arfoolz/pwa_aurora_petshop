@@ -4,14 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-// use App\Models\Admin;
 use App\Models\Gender;
 use Illuminate\Support\Facades\Hash;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 
 class DashboardUserController extends Controller
 {
-    public function indexPengguna(Request $request)
+    public function index(Request $request)
     {
 
         if($request->has('search')){
@@ -19,7 +18,7 @@ class DashboardUserController extends Controller
             $dtGender = Gender::all();
 
         }else{
-            $dtUser = User::with('gender')->get();
+            $dtUser = User::With('gender')->get();
             $dtGender = Gender::all();
         }
 
@@ -27,29 +26,24 @@ class DashboardUserController extends Controller
     }
 
 
-    public function createPengguna()
+    public function create()
     {
-        return view('Admin.User.Admin.Create_Pengguna');
+        $dtGender = Gender::all();
+        return view('Admin.User.Pengguna.Create_Pengguna', compact('dtGender'));
     }
 
 
-    public function storePengguna(Request $request)
+    public function store(Request $request)
     {
+        // dd($request->all());
 
-        // $validateData = $request->validate([
-        //     'nama' => 'required|max:20',
-        //     'level' => 'required',
-        //     'jenis_kelamin' => 'required',
-        //     'email' => 'required|unique:admins',
-        //     'alamat' => 'required|max:225',
-        //     'no_tlpn' => 'required|max:13',
-        //     'password' => 'required',
-        // ]);
+        $config = ['table'=>'users','field'=>'kode_user', 'length'=>7,'prefix'=>'usr-'];
+        $kode_admin = IdGenerator::generate($config);
 
-        User::Create([
-            'nama'          => $request->nama,
-            'level'         => $request->level,
-            'jenis_kelamin' => $request->jenis_kelamin,
+        Admin::Create([
+            'kode_user'     => $kode_user,
+            'nama_user'     => $request->nama_user,
+            'gender_id'     => $request->gender_id,
             'email'         => $request->email,
             'alamat'        => $request->alamat,
             'no_tlpn'       => $request->no_tlpn,
@@ -58,6 +52,7 @@ class DashboardUserController extends Controller
 
         return redirect('/user-pengguna');
     }
+
    
     public function show($id)
     {
@@ -65,22 +60,22 @@ class DashboardUserController extends Controller
     }
 
 
-    public function editPengguna($id)
+    public function edit($id)
     {
-        $siadmin = User::findorfail($id);
-        return view('Admin.User.Admin.Edit_Pengguna',compact('siPengguna'));
+        $siuser = Admin::findorfail($id);
+        return view('Admin.User.Admin.Edit_Pengguna',compact('siuser'));
     }
 
 
-    public function updatePengguna(Request $request, $id)
+    public function update(Request $request, $id)
     {
-        $siadmin = User::findorfail($id);
-        $siadmin->update($request->all());
+        $siuser = User::findorfail($id);
+        $siuser->update($request->all());
         return redirect('user-pengguna');
     }
-    
-    
-    public function destroyPengguna($id)
+
+
+    public function destroy($id)
     {
         $siadmin = User::findorfail($id);
         $siadmin->delete();

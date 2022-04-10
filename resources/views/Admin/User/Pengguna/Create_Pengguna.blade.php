@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Admin | Tambah User Admin</title>
+    <title>Admin | Tambah User Pengguna</title>
 
     <!-- Meta -->
     <meta charset="utf-8">
@@ -39,31 +39,21 @@
 
               <div class="row g-3 mb-4 align-items-center justify-content-between">
                 <div class="col-auto">
-                    <h1 class="app-page-title mb-0">Tambah User Admin</h1>
+                    <h1 class="app-page-title mb-0">Tambah User Pengguna</h1>
                 </div>
               </div> <!--//row-->
 
               <div class="app-card form ">
                 
                 <div class="app-card-body p-4">
-                  <form action="simpan-create-admin" method="post">
+                  <form action="simpan-create-user" method="post">
                     {{ csrf_field() }}
       
                     <div class="row">
                       <div class="col-6 mb-4">
                         <div class="form-group">
                           <p>Nama</p>
-                          <input type="text" id=nama name=nama class="form-control">
-                        </div>
-                      </div>
-      
-                      <div class="col-6 mb-4">
-                        <div class="form-group">
-                          <p>Level</p>
-                          <select type="text" id=level name=level class="form-control" aria-label="Default select example">
-                            <option value="Superadmin">Superadmin</option>
-                            <option value="Admin">Admin</option>
-                          </select>
+                          <input type="text" id=nama_user name=nama_user class="form-control">
                         </div>
                       </div>
                       
@@ -71,9 +61,10 @@
                         <div class="form-group">
                           <p>Jenis Kelamin</p>
                           <div class="form-group">
-                            <select type="text" id=jenis_kelamin name=jenis_kelamin class="form-control" aria-label="Default select example">
-                              <option value="Pria">Pria</option>
-                              <option value="Perempuan">Perempuan</option>
+                            <select type="text" id=gender_id name=gender_id class="form-control" aria-label="Default select example">
+                              @foreach ($dtGender as $item)
+                              <option value="{{ $item->id }}">{{ $item->gender }}</option>
+                              @endforeach
                             </select>
                           </div>
                         </div>
