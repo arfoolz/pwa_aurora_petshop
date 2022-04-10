@@ -10,7 +10,7 @@ use Haruncpi\LaravelIdGenerator\IdGenerator;
 
 class DashboardAdminController extends Controller
 {
-    public function indexAdmin(Request $request)
+    public function index(Request $request)
     {
 
         if($request->has('search')){
@@ -26,14 +26,14 @@ class DashboardAdminController extends Controller
     }
 
 
-    public function createAdmin()
+    public function create()
     {
         $dtGender = Gender::all();
         return view('Admin.User.Admin.Create_Admin', compact('dtGender'));
     }
 
 
-    public function storeAdmin(Request $request)
+    public function store(Request $request)
     {
         // dd($request->all());
 
@@ -61,16 +61,14 @@ class DashboardAdminController extends Controller
     }
 
 
-    public function editAdmin($id)
+    public function edit($id)
     {
-        
-
         $siadmin = Admin::findorfail($id);
         return view('Admin.User.Admin.Edit_Admin',compact('siadmin'));
     }
 
 
-    public function updateAdmin(Request $request, $id)
+    public function update(Request $request, $id)
     {
         $siadmin = Admin::findorfail($id);
         $siadmin->update($request->all());
@@ -78,7 +76,7 @@ class DashboardAdminController extends Controller
     }
 
 
-    public function destroyAdmin($id)
+    public function destroy($id)
     {
         $siadmin = Admin::findorfail($id);
         $siadmin->delete();

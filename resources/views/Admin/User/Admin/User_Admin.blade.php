@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Admin | Stok Barang</title>
+    <title>Admin | User Admin</title>
 
     <!-- Meta -->
     <meta charset="utf-8">
