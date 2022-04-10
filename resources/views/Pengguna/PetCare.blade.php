@@ -53,7 +53,7 @@ https://templatemo.com/tm-559-zay-shop
     @include('Layout.Pengguna-Layout.Navbar')
     <!-- Close Header -->
 
-    <!-- Modal -->
+    <!-- Modal Search Bar -->
     {{-- <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="w-100 pt-1 mb-5 text-right">
@@ -70,87 +70,9 @@ https://templatemo.com/tm-559-zay-shop
         </div>
     </div> --}}
 
-    <!-- Start Banner Hero -->
-    <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
-            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
-            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="container">
-                    <div class="row p-5">
-                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" style="margin-left: 20%" src="Zay//assets/img/carousel/pet_01_black.png" alt="">
-                        </div>
-                        <div class="col-lg-6 mb-0 d-flex align-items-center">
-                            <div class="text-align-left align-self-center">
-                                <h1 class="h1 text-success"><b>Aurora</b> Petshop</h1>
-                                <h3 class="h2">Tempat Aman dan Nyaman untuk hewan kesayangan anda </h3>
-                                <p>
-                                    Aurora Petshop sudah berdiri sejak tahun 2018. Sudah banyak yang puas atas kinerja kami.
-
-                                    Anda dapat mencari kami dangan cara, menghubungi <a rel="sponsored" class="text-success" target="_blank">0857-1578-0142</a> 
-                                    Atau dapat mengujingi kami langsung <a rel="sponsored" class="text-success" href="https://goo.gl/maps/srJLoywY6FRVPrRx9" target="_blank">Disini</a>.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="container">
-                    <div class="row p-5">
-                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src="Zay/assets/img/carousel/pet_0311.png" alt="">
-                        </div>
-                        <div class="col-lg-6 mb-0 d-flex align-items-center">
-                            <div class="text-align-left">
-                                <h1 class="h1">Banyak Pelanggan Puas!</h1>
-                                <h3 class="h2">Pengerjaan Sepenuh Hati</h3>
-                                <p>
-                                    Sejak petshop ini berdiri kami bertekad untuk menjaga dan memelihara binatang dengan sepenuh hati. 
-                                    You are <strong>not permitted</strong> to re-distribute the template ZIP file in any kind of template collection websites.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="container">
-                    <div class="row p-5">
-                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" style="margin-left: 60%" width="55%" src="Zay/assets/img/carousel/pet_02.png" alt="">
-                        </div>
-                        <div class="col-lg-6 mb-0 d-flex align-items-center">
-                            <div class="text-align-left">
-                                <h1 class="h1">OH IYA!!!</h1>
-                                <h3 class="h2">KITA JUGA MEMBUKA TEMPAT PENITIPAN HEWAN LHO!</h3>
-                                <p>
-                                    Jangan ragu untuk menitipkan anabul anda kepada kami.
-                                </p>
-        
-                                <a href="/petcare" class="btn btn-outline-success" role="button">Pesan Sekarang</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">
-            <i class="fas fa-chevron-left"></i>
-        </a>
-        <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next">
-            <i class="fas fa-chevron-right"></i>
-        </a>
-    </div>
-    <!-- End Banner Hero -->
-
     <!-- Start Categories of The Month -->
-    {{-- <section class="container py-5">
-        <div class="row text-center pt-3">
+    <section class="container py-5">
+        <div class="row text-center pt-3 mb-5">
             <div class="col-lg-6 m-auto">
                 <h1 class="h1">Categories of The Month</h1>
                 <p>
@@ -159,25 +81,125 @@ https://templatemo.com/tm-559-zay-shop
                 </p>
             </div>
         </div>
-        
-        <div class="row">
-            <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src="Zay/assets/img/category_img_01.jpg" class="rounded-circle img-fluid border"></a>
-                <h5 class="text-center mt-3 mb-3">Watches</h5>
-                <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
+
+        <h4>Data Pemesan</h4>
+        <div class="row mb-5" style="background-color: #EFEFEF">
+            <div class="col-6 mb-4 mt-4">
+              <div class="form-group">
+                <p>Nama Kontak</p>
+                <input type="text" id=nama_admin name=nama_admin class="form-control">
+              </div>
             </div>
-            <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src="Zay/assets/img/category_img_02.jpg" class="rounded-circle img-fluid border"></a>
-                <h2 class="h5 text-center mt-3 mb-3">Shoes</h2>
-                <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
+
+            <div class="col-6 mb-4">
+                <div class="form-group">
+                </div>
             </div>
-            <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src="Zay/assets/img/category_img_03.jpg" class="rounded-circle img-fluid border"></a>
-                <h2 class="h5 text-center mt-3 mb-3">Accessories</h2>
-                <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
+            
+            <div class="col-6 mb-4">
+                <div class="form-group">
+                  <p>Tanggal Checkin</p>
+                  <input type="date" id=nama_admin name=nama_admin class="form-control">
+                </div>
+            </div>
+
+            <div class="col-6 mb-4">
+                <div class="form-group">
+                  <p>Tanggal Checkout</p>
+                  <input type="date" id=nama_admin name=nama_admin class="form-control">
+                </div>
+            </div>
+
+            <div class="col-12 mb-4">
+              <div class="form-group">
+                <p>No Telepon</p>
+                <input type="text" id=no_tlpn name=no_tlpn class="form-control">
+                <div id="numberHelp" class="form-text">Pastikan nomor yang ada masukan dapat dihubungi.</div>
+              </div>
+            </div>
+
+            <div class="col-12 mb-4">
+              <div class="form-group">
+                <p>Alamat</p>
+                <textarea type="text" id=alamat name=alamat class="form-control" style="height:100px"></textarea>
+              </div>
+            </div>
+
+            {{-- <div class="col-3 mb-4">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                </div>
+                <div>
+                    <label class="form-check-label" for="flexSwitchCheckChecked">Hewan Dalam Keadaan Sakit</label>
+                </div>
+            </div>
+
+            <div class="col-9 mb-4">
+                <div class="form-group">
+                  <p>Keterangan Penyakit</p>
+                  <textarea type="text" id=alamat name=alamat class="form-control" style="height:100px"></textarea>
+                </div>
+            </div> --}}
+        </div>
+
+        <h4>Kebijakan Pemesanan</h4>
+        <div class="row mb-5" style="background-color: #EFEFEF">
+            <div class="col-12 mt-4">
+              <div class="form-group">
+                <p>Pembatalan</p>
+                <input type="text" id=nama_admin name=nama_admin class="form-control" disabled style="background-color: white"
+                value="Dengan ini menyatakan pemesanan tidak bisa di cancel maupun di-refund.">
+              </div>
+            </div>
+            <div class="col-12 mb-4 mt-4">
+                <div class="form-group">
+                  <p>Reschedule</p>
+                  <input type="text" id=nama_admin name=nama_admin class="form-control" disabled style="background-color: white"
+                  value="Dengan ini menyatakan pemesanan tidak bisa di Reschedule.">
+                </div>
+              </div>
+        </div>
+
+        <h4>Rincian</h4>
+        <div class="row" style="background-color: #EFEFEF">
+            {{-- <div class="col-6 mb-4 mt-4">
+              <div class="form-group">
+                <p>Total Harga</p>
+                <input type="text" id=nama_admin name=nama_admin class="form-control">
+              </div>
+            </div> --}}
+
+            <div class="col-12 mb-4 mt-4">
+                <p>
+                    <a class="btn btn-primary" style="width: 1300px" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                      Total Harga
+                    </a>
+                  </p>
+                  <div class="collapse" id="collapseExample">
+                    <div class="card card-body">
+                      Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+                    </div>
+                  </div>
+            </div>
+
+            <div class="col-6 mb-4">
+                <div class="form-group">
+                </div>
             </div>
         </div>
-    </section> --}}
+
+        <div class="row">
+            <div class="col-6 mb-4">
+                <div class="form-group">
+                </div>
+            </div>
+
+            <div class="d-grid gap-2 col-6 mx-auto mt-3 mb-4">
+                <button class="btn btn-outline-success" type="button">Button</button>
+            </div>
+        </div>
+
+    </section>
     <!-- End Categories of The Month -->
 
 

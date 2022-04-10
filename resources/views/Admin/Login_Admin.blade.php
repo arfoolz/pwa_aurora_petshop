@@ -32,17 +32,17 @@
 
                 {{ csrf_field() }}
 
-                  <div class="form-group">
-                    <label for="email" class="sr-only">Email</label>
-                    <input type="email" name="email" id="email" class="form-control" placeholder="Email address">
-                  </div>
-                  <div class="form-group mb-4">
-                    <label for="password" class="sr-only">Password</label>
-                    <input type="password" name="password" id="password" class="form-control" placeholder="***********">
-                  </div>
-                  <input name="login" id="login" class="btn btn-block login-btn mb-4" type="submit">
-                </form>
-                <a href="" class="forgot-password-link">Lupa Password?</a>
+                <div class="form-group">
+                  <label for="email" class="sr-only">Email</label>
+                  <input type="email" name="email" id="email" class="form-control" placeholder="Email address">
+                </div>
+                <div class="form-group mb-4">
+                  <label for="password" class="sr-only">Password</label>
+                  <input type="password" name="password" id="password" class="form-control" placeholder="***********">
+                </div>
+                <input name="login" id="login" class="btn btn-block login-btn mb-4" type="submit">
+              </form>
+              <a href="" class="forgot-password-link">Lupa Password?</a>
             </div>
           </div>
         </div>
