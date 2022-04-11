@@ -15,6 +15,11 @@ class Login_UserController extends Controller
             return redirect('/beranda');
         }
         return redirect('beranda');
+
+        // if (Auth::guard('user')->attempt(['email' => $request->email, 'password' => $request->password])) {
+        //     return redirect('/about');
+        // }
+        // return redirect('/beranda');
     }
 
     public function logout (Request $request)

@@ -21,7 +21,7 @@ class Admin extends Authenticatable
     protected $fillable = [
         'kode_admin',
         'nama_admin',
-        'level',
+        'level_id',
         'gender_id',
         'email',
         'alamat',
@@ -51,5 +51,10 @@ class Admin extends Authenticatable
     public function gender()
     {   
     return $this->belongsTo(Gender::class);
+    }
+
+    public function level()
+    {   
+    return $this->belongsTo(Level::class);
     }
 }

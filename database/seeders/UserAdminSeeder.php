@@ -29,6 +29,17 @@ class UserAdminSeeder extends Seeder
         ]);
 
 
+        DB::table('levels')->insert([
+            'level' => 'Superadmin',
+        ]);
+        DB::table('levels')->insert([
+            'level' => 'Admin',
+        ]);
+        DB::table('levels')->insert([
+            'level' => 'Kasir',
+        ]);
+
+
         DB::table('kategoris')->insert([
             'kategori' => 'Dog Food',
         ]);
@@ -69,7 +80,7 @@ class UserAdminSeeder extends Seeder
             [
             'kode_admin'     => 'adm-001',
             'nama_admin'     => 'arya',
-            'level'          => 'superadmin',
+            'level'          => '1',
             'gender_id'      => '1',
             'email'          => 'arya@gmail.com',
             'alamat'         => 'Griya Parung panjang',
@@ -82,7 +93,7 @@ class UserAdminSeeder extends Seeder
             [
             'kode_admin'     => 'adm-002',
             'nama_admin'     => 'ucok',
-            'level'          => 'admin',
+            'level'          => '2',
             'gender_id'      => '1',
             'email'          => 'ucok@gmail.com',
             'alamat'         => 'Legok Permai',
@@ -95,7 +106,7 @@ class UserAdminSeeder extends Seeder
             [
             'kode_admin'     => 'adm-003',
             'nama_admin'     => 'mei',
-            'level'          => 'kasir',
+            'level'          => '3',
             'gender_id'      => '2',
             'email'          => 'mei@gmail.com',
             'alamat'         => 'Tangerang Barat',

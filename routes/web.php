@@ -33,7 +33,7 @@ Route::get('/login-admin', function () {
 //     Route::get('/stok-barang', [App\Http\Controllers\DashboardController::class, 'stok_barang']);
 // });
 
-Route::group(['middleware' => ['auth','ceklevel:superadmin']], function(){
+Route::group(['middleware' => ['auth','ceklevel:1']], function(){
     Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index']);
 
     Route::get('/pesanan-barang', [App\Http\Controllers\DashboardPesananController::class, 'indexPesananBarang']);
@@ -64,7 +64,7 @@ Route::group(['middleware' => ['auth','ceklevel:superadmin']], function(){
     Route::get('/report', [App\Http\Controllers\DashboardReportController::class, 'index']);
 });
 
-Route::group(['middleware' => ['auth','ceklevel:superadmin,admin']], function(){
+Route::group(['middleware' => ['auth','ceklevel:1,2']], function(){
     Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index']);
 });
 
@@ -72,7 +72,7 @@ Route::group(['middleware' => ['auth','ceklevel:superadmin,admin']], function(){
 //Pengguna
 
 Route::post('/postlogin_user', [App\Http\Controllers\Login_UserController::class, 'postlogin_user'])->name('postlogin_user');
-Route::get('/logout', [App\Http\Controllers\Login_UserController::class, 'logout'])->name('logout');
+Route::get('/logout_user', [App\Http\Controllers\Login_UserController::class, 'logout'])->name('logout_user');
 
 Route::get('/beranda', [App\Http\Controllers\PenggunaBeranda::class, 'index']);
 
