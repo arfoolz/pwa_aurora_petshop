@@ -45,10 +45,17 @@
                 </a> --}}
 
                 <!-- Ikon Keranjang -->
-                <a class="nav-icon position-relative text-decoration-none" href="#">
-                    <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
-                    <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
-                </a>
+                <div class="dropdown">
+                    <a class="nav-icon position-relative text-decoration-none" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
+                    </a>
+                  
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <li><a class="dropdown-item" href="#">Edit</a></li>
+                      <li><a class="dropdown-item" href="#">Delete</a></li>
+                    </ul>
+                </div>
 
                 <!-- Ikon User -->
                 {{-- <a class="nav-icon position-relative text-decoration-none" href="#">
@@ -78,11 +85,27 @@
                 </div> --}}
 
                 <!-- Button login trigger modal -->
-                <button type="button"  class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                {{-- <button type="button"  class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Masuk
-                </button>
+                </button> --}}
 
-                {{-- <a href="#">{{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}</a> --}}
+                @if (Auth::guest())
+                    <button type="button"  class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Masuk
+                    </button>
+                @else
+                    <div class="dropdown">
+                        <a class="nav-icon position-relative text-decoration-none" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                            {{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}
+                        </a>
+                    
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li><a class="dropdown-item" href="#">Profil</a></li>
+                        <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
+                        </ul>
+                    </div>
+                @endif
   
                 <!-- Modal Login -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -93,7 +116,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form action="#" method="post">
+                                <form action="{{ route('postlogin_user') }}" method="post">
 
                                     {{ csrf_field() }}
                     

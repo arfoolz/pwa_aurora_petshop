@@ -71,17 +71,10 @@ Route::group(['middleware' => ['auth','ceklevel:superadmin,admin']], function(){
 
 //Pengguna
 
-Route::get('/product', [App\Http\Controllers\PenggunaProduct::class, 'index']);
-Route::get('/detail-product/{id}', [App\Http\Controllers\PenggunaProduct::class, 'detail']);
+Route::post('/postlogin_user', [App\Http\Controllers\Login_UserController::class, 'postlogin_user'])->name('postlogin_user');
+Route::get('/logout', [App\Http\Controllers\Login_UserController::class, 'logout'])->name('logout');
 
-// Route::get('/login', function () {
-//     return view('Pengguna.Auth.Login');
-// })->name('login');
-
-// Route::get('/daftar', function () {
-//     return view('Pengguna.Auth.Register');
-// })->name('daftar');
-
+Route::get('/beranda', [App\Http\Controllers\PenggunaBeranda::class, 'index']);
 
 Route::get('/register', [App\Http\Controllers\PenggunaRegister::class, 'create']);
 Route::post('/simpan-create-user', [App\Http\Controllers\PenggunaRegister::class, 'store']);
@@ -89,18 +82,20 @@ Route::post('/simpan-create-user', [App\Http\Controllers\PenggunaRegister::class
 // Route::post('/update-user/{id}', [App\Http\Controllers\DashboardUserController::class, 'index'])->name('update-user');
 // Route::get('/delete-user/{id}', [App\Http\Controllers\DashboardUserController::class, 'index'])->name('delete-user');
 
+Route::get('/product', [App\Http\Controllers\PenggunaProduct::class, 'index']);
+Route::get('/detail-product/{id}', [App\Http\Controllers\PenggunaProduct::class, 'detail']);
 
-Route::get('/beranda', function () {
-    return view('Pengguna.Beranda');
-})->name('beranda');
+// Route::get('/login', function () {
+//     return view('Pengguna.Auth.Login');
+// })->name('login');
+
+// Route::get('/beranda', function () {
+//     return view('Pengguna.Beranda');
+// })->name('beranda');
 
 Route::get('/about', function () {
     return view('Pengguna.about');
 })->name('about');
-
-// Route::get('/product', function () {
-//     return view('Pengguna.Product');
-// })->name('product');
 
 Route::get('/petcare', function () {
     return view('Pengguna.PetCare');
