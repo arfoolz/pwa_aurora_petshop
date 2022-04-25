@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Admin;
 use App\Models\User;
 use App\Models\Stok;
+use App\Models\Report;
 use App\Models\Kategori;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
@@ -38,6 +39,10 @@ class UserAdminSeeder extends Seeder
         DB::table('levels')->insert([
             'level' => 'Kasir',
         ]);
+        // ---------------------------
+        DB::table('levels')->insert([
+            'level' => 'Customer',
+        ]);
 
 
         DB::table('kategoris')->insert([
@@ -65,35 +70,33 @@ class UserAdminSeeder extends Seeder
         DB::table('paystats')->insert([
             'paystat' => 'Paid',
         ]);
-
-        
-        // DB::table('satuans')->insert([
-        //     'paystat' => 'Unpaid',
-        // ]);
-        // DB::table('satuans')->insert([
-        //     'paystat' => 'Cancel',
-        // ]);
+        DB::table('paystats')->insert([
+            'paystat' => 'Unpaid',
+        ]);
+        DB::table('paystats')->insert([
+            'paystat' => 'Canceled',
+        ]);
 
 
         Admin::truncate();
-        Admin::create (
-            [
-            'kode_admin'     => 'adm-001',
-            'nama_admin'     => 'arya',
-            'level'          => '1',
-            'gender_id'      => '1',
-            'email'          => 'arya@gmail.com',
-            'alamat'         => 'Griya Parung panjang',
-            'no_tlpn'        => '081293209055',
-            'password'       => bcrypt('superadmin'),
-            'remember_token' => Str::random(60),
-            ]
-        );
+        // Admin::create (
+        //     [
+        //     'kode_admin'     => 'adm-001',
+        //     'nama_admin'     => 'arya',
+        //     'level_id'       => '1',
+        //     'gender_id'      => '1',
+        //     'email'          => 'arya@gmail.com',
+        //     'alamat'         => 'Griya Parung panjang',
+        //     'no_tlpn'        => '081293209055',
+        //     'password'       => bcrypt('superadmin'),
+        //     'remember_token' => Str::random(60),
+        //     ]
+        // );
         Admin::create (
             [
             'kode_admin'     => 'adm-002',
             'nama_admin'     => 'ucok',
-            'level'          => '2',
+            'level_id'       => '2',
             'gender_id'      => '1',
             'email'          => 'ucok@gmail.com',
             'alamat'         => 'Legok Permai',
@@ -106,7 +109,7 @@ class UserAdminSeeder extends Seeder
             [
             'kode_admin'     => 'adm-003',
             'nama_admin'     => 'mei',
-            'level'          => '3',
+            'level_id'       => '3',
             'gender_id'      => '2',
             'email'          => 'mei@gmail.com',
             'alamat'         => 'Tangerang Barat',
@@ -120,8 +123,22 @@ class UserAdminSeeder extends Seeder
         User::truncate();
         User::create (
             [
+            'kode_user'      => 'usr-000',
+            'nama_user'      => 'Arya Yudha Reynardo',
+            'level_id'       => '1',
+            'gender_id'      => '1',
+            'email'          => 'arya@gmail.com',
+            'alamat'         => 'Griya Parung panjang',
+            'no_tlpn'        => '081293209055',
+            'password'       => bcrypt('superadmin'),
+            'remember_token' => Str::random(60),
+            ]
+        );
+        User::create (
+            [
             'kode_user'      => 'usr-001',
             'nama_user'      => 'Agus',
+            'level_id'       => '1',
             'gender_id'      => '1',
             'email'          => 'agus@gmail.com',
             'alamat'         => 'Griya Parung panjang',
@@ -134,6 +151,7 @@ class UserAdminSeeder extends Seeder
             [
             'kode_user'      => 'usr-002',
             'nama_user'      => 'mel',
+            'level_id'       => '2',
             'gender_id'      => '2',
             'email'          => 'mel@gmail.com',
             'alamat'         => 'Legok Permai',
@@ -146,6 +164,7 @@ class UserAdminSeeder extends Seeder
             [
             'kode_user'      => 'usr-003',
             'nama_user'      => 'rian3',
+            'level_id'       => '2',
             'gender_id'      => '2',
             'email'          => 'rian@gmail.com',
             'alamat'         => 'Tangerang Barat',
@@ -197,6 +216,19 @@ class UserAdminSeeder extends Seeder
             'gambar'         => 'sssat',
             'deskripsi'      => 'ini merupakan makanan terbaik untuk kucing dan anjing',
             'expired'        => $dateNow,
+        ]);
+
+        $dt = Carbon::now();
+        $dateNow = $dt->toDateTimeString();
+        Report::truncate();
+
+        DB::table('reports')->insert([
+            'tanggal'     => $dateNow,
+            'nama'        => 'Si Pembeli',
+            'jenis'       => 'Pemesanan Barang',
+            'jumlah'      => '2',
+            'paystat_id'   => '1',
+            'total'       => '10000',
         ]);
     }
 }
