@@ -35,6 +35,7 @@ class PenggunaRegister extends Controller
             'kode_user'     => $kode_user,
             'nama_user'     => $request->nama_user,
             'gender_id'     => $request->gender_id,
+            'level_id'      => '3',
             'email'         => $request->email,
             'alamat'        => $request->alamat,
             'no_tlpn'       => $request->no_tlpn,

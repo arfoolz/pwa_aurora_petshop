@@ -14,7 +14,7 @@ class Login_UserController extends Controller
         if (Auth::attempt($request->only('email','password'))){
             return redirect('/beranda');
         }
-        return redirect('beranda');
+        return redirect('/beranda');
 
         // if (Auth::guard('user')->attempt(['email' => $request->email, 'password' => $request->password])) {
         //     return redirect('/about');
@@ -22,9 +22,9 @@ class Login_UserController extends Controller
         // return redirect('/beranda');
     }
 
-    public function logout (Request $request)
+    public function postlogout_user (Request $request)
     {
         Auth::logout();
-        return redirect('beranda');
+        return redirect('/beranda');
     }
 }

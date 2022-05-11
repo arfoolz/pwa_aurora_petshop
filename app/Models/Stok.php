@@ -32,4 +32,9 @@ class Stok extends Model
     return $this->belongsTo(Kategori::class);
     }
 
+    public function cart()
+    {   
+    return $this->belongsTo(Cart::class);
+    }
+
 }

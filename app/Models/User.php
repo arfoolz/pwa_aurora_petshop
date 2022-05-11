@@ -21,8 +21,10 @@ class User extends Authenticatable
     protected $fillable = [
         'kode_user',
         'nama_user',
+        'level_id',
         'gender_id',
         'email',
+        'level',
         'alamat',
         'no_tlpn',
         'password',
@@ -50,5 +52,10 @@ class User extends Authenticatable
     public function gender()
     {   
     return $this->belongsTo(Gender::class);
+    }
+
+    public function level()
+    {   
+    return $this->belongsTo(Level::class);
     }
 }
