@@ -15,8 +15,13 @@ class Level extends Model
         'id','level',
     ];
 
-    public function admin()
+    public function user()
     {
-        return $this->hasMany(Admin::class);
+        return $this->hasMany(User::class);
     }
+
+    // public function admin()
+    // {
+    //     return $this->hasMany(Admin::class);
+    // }
 }
