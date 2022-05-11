@@ -17,7 +17,7 @@ class Login_AdminController extends Controller
         return redirect('login-admin');
     }
 
-    public function logout (Request $request)
+    public function postlogout_admin (Request $request)
     {
         Auth::logout();
         return redirect('login-admin');
