@@ -188,14 +188,14 @@
                                         <tbody>
                                             @foreach ($dtStok as $item)
                                             <tr style="text-align: center;">
-                                                <th class="cell">{{ $item->kode_barang }}</th>
-                                                <th class="cell">{{ $item->nama_barang }}</th>
-                                                <th class="cell">{{ $item->kategori->kategori}}</th>
-                                                <th class="cell">{{ $item->satuan->satuan}}</th>
-                                                <th class="cell">{{ $item->stok }}</th>
-                                                <th class="cell">Rp {{ $item->harga_jual }}</th>
-                                                <th width=30% class="cell"> <img src="{{ asset('img-Stok/'. $item->gambar) }}" height="10%" width="40%" alt="" srcset=""> </th>                                     
-                                                <th>
+                                                <td class="cell">{{ $item->kode_barang }}</td>
+                                                <td class="cell">{{ $item->nama_barang }}</td>
+                                                <td class="cell">{{ $item->kategori->kategori}}</td>
+                                                <td class="cell">{{ $item->satuan->satuan}}</td>
+                                                <td class="cell">{{ $item->stok }}</td>
+                                                <td class="cell">Rp {{ $item->harga_jual }}</td>
+                                                <td width=30% class="cell"> <img src="{{ asset('img-Stok/'. $item->gambar) }}" height="10%" width="40%" alt="" srcset=""> </td>                                     
+                                                <td>
                                                     <div class="dropdown">
                                                         <a class="btn-sm app-btn-secondary" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                                           ..
@@ -206,7 +206,7 @@
                                                           <li><a class="dropdown-item" href="{{ url('delete-stok', $item->id) }}}">Delete</a></li>
                                                         </ul>
                                                     </div>
-                                                </th>
+                                                </td>
                                             </tr>
                                             @endforeach
                                         </tbody>

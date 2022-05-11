@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light shadow">
+<nav class="navbar navbar-expand-lg navbar-light ">
     <div class="container d-flex justify-content-between align-items-center">
 
         <a class="navbar-brand text-success logo h1 align-self-center" href="/beranda">
@@ -44,56 +44,17 @@
                     <i class="fa fa-fw fa-search text-dark mr-2"></i>
                 </a> --}}
 
-                <!-- Ikon Keranjang -->
-                <div class="dropdown">
-                    <a class="nav-icon position-relative text-decoration-none" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
-                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
-                    </a>
-                  
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                      <li><a class="dropdown-item" href="#">Edit</a></li>
-                      <li><a class="dropdown-item" href="#">Delete</a></li>
-                    </ul>
-                </div>
-
-                <!-- Ikon User -->
-                {{-- <a class="nav-icon position-relative text-decoration-none" href="#">
-                    <i class="fa fa-fw fa-user text-dark mr-3"></i>
-                </a> --}}
-                
-                <!-- Dropdown Login -->
-                {{-- <div class="dropdown">
-                    <button type="button"  class="btn btn-outline-success" id="dropdownMenuLink" data-bs-toggle="dropdown">
-                        Masuk
-                    </button>
-
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <form action="POST">
-                            <li>
-                                <a class="dropdown-item">
-                                    
-                                </a>
-                            </li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item">
-
-                                </a>
-                            </li>
-                        </form>
-                    </ul>
-                </div> --}}
-
-                <!-- Button login trigger modal -->
-                {{-- <button type="button"  class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Masuk
-                </button> --}}
-
                 @if (Auth::guest())
                     <button type="button"  class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         Masuk
                     </button>
                 @else
+                    <div>
+                        <a class="nav-icon position-relative text-decoration-none" href="/cart" role="button" aria-expanded="false">
+                            <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+                            <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">{{ $countCart }}</span>
+                        </a>
+                    </div>
                     <div class="dropdown">
                         <a class="nav-icon position-relative text-decoration-none" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fa fa-fw fa-user text-dark mr-3"></i>
@@ -102,7 +63,7 @@
                     
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         <li><a class="dropdown-item" href="#">Profil</a></li>
-                        <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
+                        <li><a class="dropdown-item" href="{{ route('postlogout_user') }}">Logout</a></li>
                         </ul>
                     </div>
                 @endif
@@ -138,5 +99,7 @@
                 </div>
             </div>
         </div>
+
+
     </div>
 </nav>

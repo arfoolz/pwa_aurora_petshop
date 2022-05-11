@@ -118,14 +118,14 @@
                                         <tbody>
                                             @foreach ($dtUser as $item)
                                             <tr>
-                                                <th class="cell">{{ $item->kode_user }}</th>
-                                                <th class="cell">{{ $item->nama_user }}</th>
-                                                <th class="cell">{{ $item->gender->gender }}</th>
-                                                <th class="cell">{{ $item->email }}</th>
-                                                <th class="cell">{{ $item->alamat }}</th>
-                                                <th class="cell">{{ $item->no_tlpn }}</th>
-                                                <th>{{ $item->Status }}</th>
-                                                <th>
+                                                <td class="cell">{{ $item->kode_user }}</td>
+                                                <td class="cell">{{ $item->nama_user }}</td>
+                                                <td class="cell">{{ $item->gender->gender }}</td>
+                                                <td class="cell">{{ $item->email }}</td>
+                                                <td class="cell">{{ $item->alamat }}</td>
+                                                <td class="cell">{{ $item->no_tlpn }}</td>
+                                                <td>{{ $item->Status }}</td>
+                                                <td>
                                                     <div class="dropdown">
                                                         <a class="btn-sm app-btn-secondary" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                                           ..
@@ -136,7 +136,7 @@
                                                           <li><a class="dropdown-item" href="{{ url('delete-user', $item->id) }}}">Delete</a></li>
                                                         </ul>
                                                       </div>
-                                                </th>
+                                                </td>
 
                                             </tr>
                                             @endforeach

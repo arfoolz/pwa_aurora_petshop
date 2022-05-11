@@ -176,7 +176,7 @@
                           <li>
                               <hr class="dropdown-divider">
                           </li>
-                          <li><a class="dropdown-item" href="{{ route('logout') }}">Log Out</a></li>
+                          <li><a class="dropdown-item" href="{{ route('postlogout_admin') }}">Log Out</a></li>
                       </ul>
                   </div>
                   <!--//app-user-dropdown-->
