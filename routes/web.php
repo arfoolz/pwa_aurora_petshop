@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 // Admin
 Route::post('/postlogin_admin', [App\Http\Controllers\Login_AdminController::class, 'postlogin_admin'])->name('postlogin_admin');
-Route::get('/logout', [App\Http\Controllers\Login_AdminController::class, 'logout'])->name('logout');
+Route::get('/logout', [App\Http\Controllers\Login_AdminController::class, 'postlogout_admin'])->name('postlogout_admin');
 
 Route::get('/login-admin', function () {
     return view('Admin.Login_Admin');
@@ -62,6 +62,7 @@ Route::group(['middleware' => ['auth','ceklevel:1']], function(){
     Route::get('/delete-user/{id}', [App\Http\Controllers\DashboardUserController::class, 'index'])->name('delete-user');
 
     Route::get('/report', [App\Http\Controllers\DashboardReportController::class, 'index']);
+    Route::get('/download-report', [App\Http\Controllers\DashboardReportController::class, 'reportExportExel'])->name('download-report');
 });
 
 Route::group(['middleware' => ['auth','ceklevel:1,2']], function(){
@@ -71,32 +72,22 @@ Route::group(['middleware' => ['auth','ceklevel:1,2']], function(){
 
 //Pengguna
 
-Route::post('/postlogin_user', [App\Http\Controllers\Login_UserController::class, 'postlogin_user'])->name('postlogin_user');
-Route::get('/logout_user', [App\Http\Controllers\Login_UserController::class, 'logout'])->name('logout_user');
-
-Route::get('/beranda', [App\Http\Controllers\PenggunaBeranda::class, 'index']);
-
 Route::get('/register', [App\Http\Controllers\PenggunaRegister::class, 'create']);
 Route::post('/simpan-create-user', [App\Http\Controllers\PenggunaRegister::class, 'store']);
 // Route::get('/edit-user/{id}', [App\Http\Controllers\DashboardUserController::class, 'index'])->name('edit-user');
 // Route::post('/update-user/{id}', [App\Http\Controllers\DashboardUserController::class, 'index'])->name('update-user');
 // Route::get('/delete-user/{id}', [App\Http\Controllers\DashboardUserController::class, 'index'])->name('delete-user');
 
+Route::post('/postlogin_user', [App\Http\Controllers\Login_UserController::class, 'postlogin_user'])->name('postlogin_user');
+Route::get('/logout_user', [App\Http\Controllers\Login_UserController::class, 'postlogout_user'])->name('postlogout_user');
+
+Route::get('/beranda', [App\Http\Controllers\PenggunaBeranda::class, 'index']);
+
+Route::get('/about', [App\Http\Controllers\PenggunaAbout::class, 'index']);
+
+Route::get('/petcare', [App\Http\Controllers\PenggunaPetCare::class, 'index']);
+
 Route::get('/product', [App\Http\Controllers\PenggunaProduct::class, 'index']);
 Route::get('/detail-product/{id}', [App\Http\Controllers\PenggunaProduct::class, 'detail']);
 
-// Route::get('/login', function () {
-//     return view('Pengguna.Auth.Login');
-// })->name('login');
-
-// Route::get('/beranda', function () {
-//     return view('Pengguna.Beranda');
-// })->name('beranda');
-
-Route::get('/about', function () {
-    return view('Pengguna.about');
-})->name('about');
-
-Route::get('/petcare', function () {
-    return view('Pengguna.PetCare');
-})->name('petcare');
+Route::get('/cart', [App\Http\Controllers\PenggunaCart::class, 'index']);

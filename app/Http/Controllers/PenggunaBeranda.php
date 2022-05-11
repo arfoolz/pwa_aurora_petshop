@@ -4,15 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use DB;
 
 class PenggunaBeranda extends Controller
 {
     
     public function index()
     {
-       $dtUser = User::all();
+        $countCart      = DB::table('carts')->count();
+        $dtUser         = User::all();
 
-       return view('Pengguna.Beranda',compact('dtUser'));
+       return view('Pengguna.Beranda', compact('countCart','dtUser'));
     }
 
     

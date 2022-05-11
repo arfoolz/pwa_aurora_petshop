@@ -3,17 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Stok;
+use App\Models\User;
 use DB;
 
-class PenggunaProduct extends Controller
+class PenggunaPetCare extends Controller
 {
+    
     public function index()
     {
         $countCart      = DB::table('carts')->count();
-        $dtStok         = Stok::all();
+        $dtUser         = User::all();
 
-        return view('Pengguna.Product.Product', compact('countCart','dtStok'));
+       return view('Pengguna.PetCare', compact('countCart','dtUser'));
     }
 
     
@@ -22,28 +23,25 @@ class PenggunaProduct extends Controller
         //
     }
 
-
+    
     public function store(Request $request)
     {
         //
     }
 
-
+    
     public function show($id)
     {
         //
     }
 
     
-    public function detail($id)
+    public function edit($id)
     {
-        $countCart      = DB::table('carts')->count();
-        $prdct          = Stok::findorfail($id);
-        
-        return view('Pengguna.Product.Detail_Product', compact('prdct', 'countCart'));
+        //
     }
 
-    
+   
     public function update(Request $request, $id)
     {
         //
