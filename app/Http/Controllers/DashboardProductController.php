@@ -108,11 +108,11 @@ class DashboardProductController extends Controller
     public function edit($id)
     {
 
-        $sPrdct    = Product::findorfail($id);
+        $siPrdct    = Product::findorfail($id);
         $dtKtgr    = Kategori::all();
         $dtStn     = Satuan::all();
 
-        return view('Admin.Product.Edit_Product', compact('sPrdct', 'dtKtgr', 'dtStn'));
+        return view('Admin.Product.Edit_Product', compact('siPrdct', 'dtKtgr', 'dtStn'));
 
     }
 
@@ -120,8 +120,8 @@ class DashboardProductController extends Controller
     public function update(Request $request, $id)
     {
 
-        $sPrdct = Product::findorfail($id);
-        $sPrdct->update($request->all());
+        $siPrdct = Product::findorfail($id);
+        $siPrdct->update($request->all());
         return redirect('/product');
 
     }
@@ -130,8 +130,8 @@ class DashboardProductController extends Controller
     public function destroy($id)
     {
 
-        $sPrdct = Product::findorfail($id);
-        $sPrdct->delete();
+        $siPrdct = Product::findorfail($id);
+        $siPrdct->delete();
         return back();
 
     }

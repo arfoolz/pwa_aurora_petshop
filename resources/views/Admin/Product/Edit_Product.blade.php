@@ -46,7 +46,7 @@
               <div class="app-card form ">
                 
                 <div class="app-card-body p-4">
-                  <form action="simpan-create-stok" method="post" enctype="multipart/form-data">
+                  <form action="{{ url('update-product', $siPrdct->id) }}" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
       
                     <div class="row">
@@ -60,7 +60,7 @@
                       <div class="col-12 mb-4">
                         <div class="form-group">
                           <p>Nama Barang</p>
-                          <input type="text" id=nama name=nama class="form-control" value={{ $sPrdct->nama_barang }}>
+                          <input type="text" id=nama_barang name=nama_barang class="form-control" value={{ $siPrdct->nama_barang }}>
                         </div>
                       </div>
       
@@ -93,35 +93,35 @@
                       <div class="col-12 mb-4">
                         <div class="form-group">
                           <p>Stok Barang</p>
-                          <input type="text" id=stok name=stok class="form-control" value={{ $sPrdct->stok }} onkeypress="return isNumber(event)">
+                          <input type="text" id=stok name=stok class="form-control" value={{ $siPrdct->stok }} onkeypress="return isNumber(event)">
                         </div>
                       </div>
  
                       <div class="col-12 mb-4">
                         <div class="form-group">
                           <p>Harga Jual</p>
-                          <input type="text" id=harga_jual name=harga_jual class="form-control" value={{ $sPrdct->harga_jual }}>
+                          <input type="text" id=harga_jual name=harga_jual class="form-control" value={{ $siPrdct->harga_jual }}>
                         </div>
                       </div>
 
                       <div class="col-12 mb-4">
                         <div class="form-group">
                           <p>Harga Beli</p>
-                          <input type="text" id=harga_beli name=harga_beli class="form-control" value={{ $sPrdct->harga_beli }}>
+                          <input type="text" id=harga_beli name=harga_beli class="form-control" value={{ $siPrdct->harga_beli }}>
                         </div>
                       </div>
 
                       <div class="col-12 mb-4">
                         <div class="form-group">
                           <p>Deskripsi</p>
-                          <textarea type="text" id=deskripsi name=deskripsi class="form-control" style="height:100px" value={{ $sPrdct->deskripsi }}></textarea>
+                          <textarea type="text" id=deskripsi name=deskripsi class="form-control" style="height:100px" value={{ $siPrdct->deskripsi }}></textarea>
                         </div>
                       </div>
 
                       <div class="col-12 mb-4">
                         <div class="form-group">
                           <p>Expired</p>
-                          <input type="date" id=expired name=expired class="form-control" value={{ $sPrdct->expired }}>
+                          <input type="date" id=expired name=expired class="form-control" value={{ $siPrdct->expired }}>
                         </div>
                       </div>
 

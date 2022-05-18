@@ -46,7 +46,7 @@
               <div class="app-card form ">
                 
                 <div class="app-card-body p-4">
-                  <form action="simpan-create-pengguna" method="post">
+                  <form action="{{ url('update-pengguna', $siUser->id) }}" method="post">
                     {{ csrf_field() }}
       
                     <div class="row">

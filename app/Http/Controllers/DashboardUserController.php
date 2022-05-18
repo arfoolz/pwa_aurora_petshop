@@ -86,7 +86,7 @@ class DashboardUserController extends Controller
         $siUser = User::findorfail($id);
         $siUser->update($request->all());
 
-        return redirect('user-pengguna');
+        return redirect('/user-pengguna');
 
     }
 
@@ -94,8 +94,8 @@ class DashboardUserController extends Controller
     public function destroy($id)
     {
 
-        $siUdmin = User::findorfail($id);
-        $siUdmin->delete();
+        $siUser = User::findorfail($id);
+        $siUser->delete();
 
         return back();
 
