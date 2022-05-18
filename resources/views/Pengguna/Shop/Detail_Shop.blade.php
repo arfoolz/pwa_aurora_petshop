@@ -167,11 +167,11 @@ https://templatemo.com/tm-559-zay-shop
                             
                             <div class="row">
                                 <div class="col-6">                 
-                                    <h1 class="h2">{{ $prdct->nama_barang }}</h1>
+                                    <h1 class="h2">{{ $siPrdct->nama_barang }}</h1>
                                 </div>
                                 <div class="col-6">
                                     <div class="text-end">
-                                        <p class="h3 py-2">Rp {{ $prdct->harga_jual }}</p>
+                                        <p class="h3 py-2">Rp {{ $siPrdct->harga_jual }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -198,7 +198,7 @@ https://templatemo.com/tm-559-zay-shop
 
                             <div class="row">
                                 <div class="col-12">                 
-                                    <p>{{ $prdct->deskripsi }}</p>
+                                    <p>{{ $siPrdct->deskripsi }}</p>
                                 </div>
                             </div>
 
@@ -217,7 +217,7 @@ https://templatemo.com/tm-559-zay-shop
                                     <div class="col-12">
                                         <ul class="text-center list-inline pb-3">
                                             <li class="list-inline-item text-right">
-                                                <input type="hidden" name="produk_id" value={{ $prdct->id }}>
+                                                <input type="hidden" name="produk_id" value={{ $siPrdct->id }}>
                                             </li>
                                             {{-- <li class="list-inline-item"><span class="btn btn-success" id="btn-minus">-</span></li> --}}
                                             {{-- <li class="list-inline-item"><span style="width: 150px" name="jumlah_barang" class="badge bg-secondary" id="var-value">1</span></li> --}}

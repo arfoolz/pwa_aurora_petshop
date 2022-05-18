@@ -88,8 +88,8 @@ Route::get('/about', [App\Http\Controllers\PenggunaAbout::class, 'index']);
 
 Route::get('/petcare', [App\Http\Controllers\PenggunaPetCare::class, 'index']);
 
-Route::get('/shop', [App\Http\Controllers\PenggunaProduct::class, 'index']);
-Route::get('/detail-shop/{id}', [App\Http\Controllers\PenggunaProduct::class, 'detail']);
+Route::get('/shop', [App\Http\Controllers\PenggunaShop::class, 'index']);
+Route::get('/detail-shop/{id}', [App\Http\Controllers\PenggunaShop::class, 'detail']);
 
 Route::get('/cart', [App\Http\Controllers\PenggunaTransaksi::class, 'index']);
 Route::post('/add-cart', [App\Http\Controllers\PenggunaTransaksi::class, 'addToCart']);

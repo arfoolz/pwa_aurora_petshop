@@ -19,7 +19,7 @@
                         <a class="nav-link" href="/about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/product">Product</a>
+                        <a class="nav-link" href="/shop">Shop</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/petcare">PetCare</a>

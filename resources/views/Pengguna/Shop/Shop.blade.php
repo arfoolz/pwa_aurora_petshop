@@ -146,9 +146,9 @@ https://templatemo.com/tm-559-zay-shop
         </div>
         
         <div class="row pt-3">
-            @foreach ($dtStok as $item)
+            @foreach ($dtPrdct as $item)
             <div class="col-6 col-md-3 mt-3">
-                <a href="{{ url('detail-product', $item->id) }}}"><img src="Zay/assets/img/category/category_img_02.jpg" class="rounded img-fluid"></a>
+                <a href="{{ url('detail-shop', $item->id) }}}"><img src="{{ asset('img-Product/'. $item->gambar) }}" class="rounded img-fluid" style="height: 200px; witdh: 200px"></a>
                 <h2 class="h5 text-left mt-1 mb-1">{{ $item->nama_barang }}</h2>
                 <p class="h5 text-left mt-1 mb-1">Rp {{ $item->harga_jual }}</p>
             </div>
