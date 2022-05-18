@@ -47,7 +47,7 @@
                                 <div class="col-auto">
                                     <form class="table-search-form row gx-1 align-items-center">
                                         <div class="col-auto">
-                                            <a href="create-user" class="btn app-btn-secondary">
+                                            <a href="create-pengguna" class="btn app-btn-secondary">
                                                 <i class="fa-solid fa-plus"></i> Tambah User 
                                             </a>
                                         </div>
@@ -132,8 +132,8 @@
                                                         </a>
                                                       
                                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                          <li><a class="dropdown-item" href="{{ url('edit-user', $item->id) }}}">Edit</a></li>
-                                                          <li><a class="dropdown-item" href="{{ url('delete-user', $item->id) }}}">Delete</a></li>
+                                                          <li><a class="dropdown-item" href="{{ url('edit-pengguna', $item->id) }}}">Edit</a></li>
+                                                          <li><a class="dropdown-item" href="{{ url('delete-pengguna', $item->id) }}}">Delete</a></li>
                                                         </ul>
                                                       </div>
                                                 </td>

@@ -1,161 +1,139 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Admin | User</title>
+    <title>Admin | Edit User Pengguna</title>
 
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="/AdminLTe/plugins/fontawesome-free/css/all.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="/AdminLTe/dist/css/adminlte.min.css">
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Portal - Bootstrap 5 Admin Dashboard Template For Developers">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- FontAwesome JS-->
+    <script defer src="/AdminPortal/plugins/fontawesome/js/all.min.js"></script>
+
+    <!-- App CSS -->
+    <link id="theme-style" rel="stylesheet" href="/AdminPortal/assets/css/portal.css">
+
+    <!-- Simbol -->
+    <script src="https://kit.fontawesome.com/1c164f6dc6.js" crossorigin="anonymous"></script>
 </head>
-<body class="hold-transition sidebar-mini">
 
-<!-- Preloader -->
-{{-- <div class="preloader flex-column justify-content-center align-items-center">
-  <img class="animation__wobble" src="{{ asset('logo/ALogo.png')}}" alt="Aurora Petshop" height="60" width="60">
-</div> --}}
+<body class="app">
+    <header class="app-header fixed-top">
+        @include('Layout.Admin-Layout.Navbar')
+        <!-- Navbar -->
+        @include('Layout.Admin-Layout.Sidebar')
+        <!-- Sidebar -->
+    </header>
 
-<div class="wrapper">
+    {{-- UTAMA --}}
+    <div class="app-wrapper">
 
-  <!-- Navbar -->
-  @include('Layout.Admin-Layout.Navbar')
-  
-  <!-- Sidebar -->
-  @include('Layout.Admin-Layout.Sidebar')
+        <div class="app-content pt-3 p-md-3 p-lg-4">
+            <div class="container-xl">
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0">Tambah User Admin</h1>
-          </div>
-          {{-- <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="">Pesanan</a></li>
-              <li class="breadcrumb-item active">Barang</li>
-            </ol>
-          </div> --}}
-        </div>
-      </div>
-    </div>
-    
-    <!-- Main content -->
-    <div class="content">
-      <div class="container-fluid">
-
-        <div class="card card-primary card-outline">
-          <div class="card-body">
-            <form action="{{ url('update-admin',$siadmin->id) }}" method="post">
-              {{ csrf_field() }}
-
-              <div class="row">
-                <div class="col-6">
-                  <div class="form-group">
-                    <p>Nama</p>
-                    <input type="text" id=nama name=nama class="form-control" value="{{ $siadmin->nama }}">
-                  </div>
+              <div class="row g-3 mb-4 align-items-center justify-content-between">
+                <div class="col-auto">
+                    <h1 class="app-page-title mb-0">Tambah Stok Barang</h1>
                 </div>
+              </div> <!--//row-->
 
-                <div class="col-6">
-                  <div class="form-group">
-                    <p>Level</p>
-                    <select type="text" id=level name=level class="form-control" aria-label="Default select example" value="{{ $siadmin->level }}">
-                      <option value="Superadmin">Superadmin</option>
-                      <option value="Admin">Admin</option>
-                    </select>
-                  </div>
-                </div>
+              <div class="app-card form ">
                 
-                <div class="col-6">
-                  <div class="form-group">
-                    <p>Jenis Kelamin</p>
-                    <div class="form-group">
-                      <select type="text" id=jenis_kelamin name=jenis_kelamin class="form-control" aria-label="Default select example">
-                        <option value="Pria">Pria</option>
-                        <option value="Perempuan">Perempuan</option>
-                      </select>
+                <div class="app-card-body p-4">
+                  <form action="simpan-create-pengguna" method="post">
+                    {{ csrf_field() }}
+      
+                    <div class="row">
+                      {{-- <div class="col-12 mb-4">
+                        <div class="form-group">
+                          <p>Kode User</p>
+                          <input type="text" id=disabledTextInput name=kode_user class="form-control" value={{ $siUser->kode_user }}>
+                        </div>
+                      </div> --}}
+
+                      <div class="col-12 mb-4">
+                        <div class="form-group">
+                          <p>Nama Pengguna</p>
+                          <input type="text" id=nama name=nama_user class="form-control" value={{ $siUser->nama_user }}>
+                        </div>
+                      </div>
+      
+                      <div class="col-12 mb-4">
+                        <div class="form-group">
+                          <p>Gender</p>
+                          <select type="text" id=gender_id name=gender_id class="form-control" aria-label="Default select example" style="height:50px">
+                            <option disabled value>Pilih Gender</option>
+                              @foreach ($dtGender as $item)
+                              <option value="{{ $item->id }}">{{ $item->gender }}</option>
+                              @endforeach
+                          </select>
+                        </div>
+                      </div>
+                      
+                      <div class="col-12 mb-4">
+                        <div class="form-group">
+                          <p>Level Jabatan</p>
+                          <div class="form-group">
+                            <select type="text" id=level_id name=level_id class="form-control" aria-label="Default select example" style="height:50px">
+                              <option disabled value>Pilih Jabatan</option>
+                                @foreach ($dtLevel as $item)
+                                <option value="{{ $item->id }}">{{ $item->level }}</option>
+                                @endforeach
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+      
+                      <div class="col-12 mb-4">
+                        <div class="form-group">
+                          <p>Email</p>
+                          <input type="text" id=email name=email class="form-control" value={{ $siUser->email }}>
+                        </div>
+                      </div>
+
+                      <div class="col-12 mb-4">
+                        <div class="form-group">
+                          <p>Alamat</p>
+                          <textarea type="text" id=alamat name=alamat class="form-control" style="height:100px" value={{ $siUser->alamat }}></textarea>
+                        </div>
+                      </div>
+ 
+                      <div class="col-12 mb-4">
+                        <div class="form-group">
+                          <p>Nomor Telepon</p>
+                          <input type="text" id=no_tlpn name=no_tlpn class="form-control" value={{ $siUser->no_tlpn }}>
+                        </div>
+                      </div>
+
+                      <div class="col-12 mb-4">
+                        <div class="form-group">
+                          <p>Password</p>
+                          <input type="text" id=password name=password class="form-control" value={{ $siUser->harga_beli }}>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
+                    <div class="d-grid gap-2 mx-auto">
+                      <button type="submit" class="btn btn-success" style="color:white">Submit</button>
+                    </div>
+                  </form>
+                </div><!--//app-card-body-->
+            </div><!--//app-card-->
+            </div> <!--//container-fluid-->
+        </div> <!--//app-content-->
+    </div> <!--//app-wrapper-->
+    
+    <!-- Javascript -->
+    <script src="/AdminPortal/assets/plugins/popper.min.js"></script>
+    <script src="/AdminPortal/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 
-                <div class="col-6">
-                  <div class="form-group">
-                    <p>No Telepon</p>
-                    <input type="text" id=no_tlpn name=no_tlpn class="form-control" value="{{ $siadmin->no_tlpn }}">
-                  </div>
-                </div>
+    <!-- Page Specific JS -->
+    <script src="/AdminPortal/assets/js/app.js"></script>
 
-                <div class="col-12">
-                  <div class="form-group">
-                    <p>Alamat</p>
-                    <textarea type="text" id=alamat name=alamat class="form-control" value="{{ $siadmin->alamat }}"></textarea>
-                  </div>
-                </div>
-
-                <div class="col-6">
-                  <div class="form-group">
-                    <p>Email</p>
-                    <input type="text" id=email name=email class="form-control" placeholder="example@gmail.com" value="{{ $siadmin->email }}">
-                  </div>
-                </div>
-
-                <div class="col-6">
-                  <div class="form-group">
-                    <p>Password</p>
-                    <input type="text" id=password name=password class="form-control" value="{{ $siadmin->password }}">
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-6">
-                  <div class="form-group">
-                    <button type="submit" class="btn btn-success">Submit</button>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-
-        {{-- <div class="row">
-          <div class="col-lg-12">
-            <div class="card card-primary card-outline">
-             <form action="" method="post">
-               <div class="form-group">
-                <input type="text" id=nama class="form-control" placeholder="Nama">
-               </div>
-             </form>
-             <form action="" method="post">
-              <div class="form-group">
-               <input type="text" id=level class="form-control" placeholder="Level">
-              </div>
-            </form>
-            </div>
-          </div>
-        </div> --}}
-
-      </div>
-    </div>
-  </div>
-</div>
-<!-- ./wrapper -->
-
-<!-- REQUIRED SCRIPTS -->
-
-<!-- jQuery -->
-<script src="/AdminLTe/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="/AdminLTe/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="/AdminLTe/dist/js/adminlte.min.js"></script>
 </body>
 </html>

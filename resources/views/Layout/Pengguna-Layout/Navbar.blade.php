@@ -9,7 +9,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
+        <div class="align-self-center collapse navbar-collapse flex-fill d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
             <div class="flex-fill">
                 <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                     <li class="nav-item">
@@ -91,6 +91,9 @@
                                     </div>
                                     <div class="d-grid mx-auto">
                                         <button class="btn btn-outline-success" type="submit">Submit</button>
+                                    </div>
+                                    <div class="d-grid mx-auto">
+                                        <p class="fs-6">Belum Punya Akun? <a href="/register" class="fs-6">Daftar Disini</a></p>
                                     </div>
                                 </form>
                             </div>

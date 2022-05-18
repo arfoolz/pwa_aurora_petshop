@@ -3,82 +3,105 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Cart;
+use App\Models\Product;
+use App\Models\Gender;
+use App\Models\User;
+use Auth;
+use DB;
 
 class PenggunaTransaksi extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
-        //
+
+        if(Auth::user())
+        {
+            $countCart      = DB::table('carts')->count();
+            $dtCart         = Cart::where('user_id', Auth::id())->get();
+            $dtCartItem     = Cart::With('product', 'gender', 'user')->get();
+            $dtPrdct        = Product::all();
+
+            return view('Pengguna.Transaksi.Cart', compact('countCart', 'dtCart', 'dtCartItem', 'dtPrdct'));
+        }
+
+        else
+
+        {
+
+            return redirect('login');
+
+        }
+        
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    
+    public function indexShipment()
     {
-        //
+
+        return view('Pengguna.Transaksi.Pembayaran');
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+
+
+    public function checkout(Request $request)
     {
-        //
-    }
+        // if ($request->session()->has('user'))
+        // {
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+            // dd($request->all());
+
+            Cart::Create([
+                'user_id'       => Auth::user()->id,
+                'produk_id'     => $request->produk_id,
+                'jumlah_barang' => $request->jumlah_barang,
+                // 'total_harga'   => $request->total_harga,
+            ]);
+        // }
+        // else
+        // {
+            return redirect('/beranda');
+        // }
+    }
+    
+
+    public function AddToCart(Request $request)
     {
-        //
+
+        // if ($request->session()->has('user'))
+        // {
+
+            // dd($request->all());
+
+            Cart::Create([
+                'user_id'       => Auth::user()->id,
+                'produk_id'     => $request->produk_id,
+                'jumlah_barang' => $request->jumlah_barang,
+                // 'total_harga'   => $request->total_harga,
+            ]);
+        // }
+        // else
+        // {
+            return redirect('/login');
+        // }
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+    
+    // public function update(Request $request, $id)
+    // {
+    //     //
+    // }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+
+        $CartItem = Cart::findorfail($id);
+        $CartItem->delete();
+        return back();
+
     }
 }

@@ -5,18 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Paystat extends Model
+class Checkout extends Model
 {
     use HasFactory;
 
-    protected $table = "paystats";
+    protected $table = "checkouts";
     protected $primaryKey = "id";
     protected $fillable = [
-        'id','paystat',
+        'id',
+        'user_id',
+        'produk_id',
+        'jumlah_barang',
     ];
-
-    public function report()
-    {
-        return $this->hasMany(Report::class);
-    }
 }

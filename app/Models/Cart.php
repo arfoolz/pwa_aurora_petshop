@@ -13,14 +13,24 @@ class Cart extends Model
     protected $primaryKey = "id";
     protected $fillable = [
         'id',
-        'kode_barang_id',
-        'nama_barang_id',
+        'user_id',
+        'produk_id',
         'jumlah_barang',
-        'total_harga',
     ];
+
+    public function products()
+    {   
+    return $this->belongsTo(Products::class);
+    }
 
     public function user()
     {
-        return $this->hasMany(Stok::class);
+    return $this->belongsTo(User::class);
     }
+
+    public function gender()
+    {   
+    return $this->belongsTo(Gender::class);
+    }
+    
 }

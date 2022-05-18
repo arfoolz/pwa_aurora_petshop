@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Admin | Edit Stok Barang</title>
+    <title>Admin | Tambah Stok Barang</title>
 
     <!-- Meta -->
     <meta charset="utf-8">
@@ -14,10 +14,10 @@
     <link rel="shortcut icon" href="favicon.ico">
 
     <!-- FontAwesome JS-->
-    <script defer src="/AdminPortal/plugins/fontawesome/js/all.min.js"></script>
+    <script defer src="AdminPortal/plugins/fontawesome/js/all.min.js"></script>
 
     <!-- App CSS -->
-    <link id="theme-style" rel="stylesheet" href="/AdminPortal/assets/css/portal.css">
+    <link id="theme-style" rel="stylesheet" href="AdminPortal/assets/css/portal.css">
 
     <!-- Simbol -->
     <script src="https://kit.fontawesome.com/1c164f6dc6.js" crossorigin="anonymous"></script>
@@ -60,7 +60,7 @@
                       <div class="col-12 mb-4">
                         <div class="form-group">
                           <p>Nama Barang</p>
-                          <input type="text" id=nama name=nama class="form-control" value={{ $stkbrg->nama_barang }}>
+                          <input type="text" id=nama_barang name=nama_barang class="form-control">
                         </div>
                       </div>
       
@@ -69,7 +69,7 @@
                           <p>Kategori Barang</p>
                           <select type="text" id=kategori_id name=kategori_id class="form-control" aria-label="Default select example" style="height:50px">
                             <option disabled value>Pilih Kategori</option>
-                              @foreach ($dtktgr as $item)
+                              @foreach ($dtKtgr as $item)
                               <option value="{{ $item->id }}">{{ $item->kategori }}</option>
                               @endforeach
                           </select>
@@ -82,7 +82,7 @@
                           <div class="form-group">
                             <select type="text" id=satuan_id name=satuan_id class="form-control" aria-label="Default select example" style="height:50px">
                               <option disabled value>Pilih Satuan</option>
-                                @foreach ($dtstn as $item)
+                                @foreach ($dtStn as $item)
                                 <option value="{{ $item->id }}">{{ $item->satuan }}</option>
                                 @endforeach
                             </select>
@@ -93,35 +93,35 @@
                       <div class="col-12 mb-4">
                         <div class="form-group">
                           <p>Stok Barang</p>
-                          <input type="text" id=stok name=stok class="form-control" value={{ $stkbrg->stok }} onkeypress="return isNumber(event)">
+                          <input type="text" id=stok name=stok class="form-control" onkeypress="return isNumber(event)">
                         </div>
                       </div>
  
                       <div class="col-12 mb-4">
                         <div class="form-group">
                           <p>Harga Jual</p>
-                          <input type="text" id=harga_jual name=harga_jual class="form-control" value={{ $stkbrg->harga_jual }}>
+                          <input type="text" id=harga_jual name=harga_jual class="form-control">
                         </div>
                       </div>
 
                       <div class="col-12 mb-4">
                         <div class="form-group">
                           <p>Harga Beli</p>
-                          <input type="text" id=harga_beli name=harga_beli class="form-control" value={{ $stkbrg->harga_beli }}>
+                          <input type="text" id=harga_beli name=harga_beli class="form-control">
                         </div>
                       </div>
 
                       <div class="col-12 mb-4">
                         <div class="form-group">
                           <p>Deskripsi</p>
-                          <textarea type="text" id=deskripsi name=deskripsi class="form-control" style="height:100px" value={{ $stkbrg->deskripsi }}></textarea>
+                          <textarea type="text" id=deskripsi name=deskripsi class="form-control" style="height:100px"></textarea>
                         </div>
                       </div>
 
                       <div class="col-12 mb-4">
                         <div class="form-group">
                           <p>Expired</p>
-                          <input type="date" id=expired name=expired class="form-control" value={{ $stkbrg->expired }}>
+                          <input type="date" id=expired name=expired class="form-control">
                         </div>
                       </div>
 
@@ -150,11 +150,11 @@
     </div> <!--//app-wrapper-->
     
     <!-- Javascript -->
-    <script src="/AdminPortal/assets/plugins/popper.min.js"></script>
-    <script src="/AdminPortal/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="AdminPortal/assets/plugins/popper.min.js"></script>
+    <script src="AdminPortal/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Page Specific JS -->
-    <script src="/AdminPortal/assets/js/app.js"></script>
+    <script src="AdminPortal/assets/js/app.js"></script>
 
 </body>
 </html>

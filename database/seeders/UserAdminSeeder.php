@@ -4,7 +4,8 @@ namespace Database\Seeders;
 
 use App\Models\Admin;
 use App\Models\User;
-use App\Models\Stok;
+use App\Models\Product;
+use App\Models\Cart;
 use App\Models\Report;
 use App\Models\Kategori;
 use Illuminate\Support\Str;
@@ -21,7 +22,7 @@ class UserAdminSeeder extends Seeder
      */
     public function run()
     {
-
+      
         DB::table('genders')->insert([
             'gender' => 'Laki-Laki',
         ]);
@@ -78,7 +79,7 @@ class UserAdminSeeder extends Seeder
         ]);
 
 
-        Admin::truncate();
+        // Admin::truncate();
         // Admin::create (
         //     [
         //     'kode_admin'     => 'adm-001',
@@ -120,7 +121,7 @@ class UserAdminSeeder extends Seeder
         );
 
 
-        User::truncate();
+        // User::truncate();
         User::create (
             [
             'kode_user'      => 'usr-000',
@@ -177,9 +178,9 @@ class UserAdminSeeder extends Seeder
         
         $dt = Carbon::now();
         $dateNow = $dt->toDateTimeString();
-        Stok::truncate();
+        // Stok::truncate();
 
-        DB::table('stoks')->insert([
+        DB::table('products')->insert([
             'kategori_id' => '1',
             'satuan_id'   => '1',
             'kode_barang' => 'KB-001',
@@ -192,7 +193,7 @@ class UserAdminSeeder extends Seeder
             'expired'     => $dateNow,
         ]);
 
-        DB::table('stoks')->insert([
+        DB::table('products')->insert([
             'kategori_id'    => '2',
             'satuan_id'      => '2',
             'kode_barang'    => 'KB-002',
@@ -205,7 +206,7 @@ class UserAdminSeeder extends Seeder
             'expired'        => $dateNow,
         ]);
 
-        DB::table('stoks')->insert([
+        DB::table('products')->insert([
             'kode_barang'    => 'KB-003',
             'kategori_id'    => '3',
             'satuan_id'      => '3',
@@ -217,6 +218,17 @@ class UserAdminSeeder extends Seeder
             'deskripsi'      => 'ini merupakan makanan terbaik untuk kucing dan anjing',
             'expired'        => $dateNow,
         ]);
+       
+
+        // DB::insert('insert into carts (id, user_id, produk_id) values (?, ?, ?)', [1, 1, 1]);
+
+
+        DB::table('carts')->insert([
+            'user_id'       => '1',
+            'produk_id'    => '1',
+            'jumlah_barang' => '1',
+        ]);
+
 
         $dt = Carbon::now();
         $dateNow = $dt->toDateTimeString();
@@ -227,7 +239,7 @@ class UserAdminSeeder extends Seeder
             'nama'        => 'Si Pembeli',
             'jenis'       => 'Pemesanan Barang',
             'jumlah'      => '2',
-            'paystat_id'   => '1',
+            'paystat_id'  => '1',
             'total'       => '10000',
         ]);
     }

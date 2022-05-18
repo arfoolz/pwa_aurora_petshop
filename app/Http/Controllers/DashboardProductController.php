@@ -3,47 +3,49 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Stok;
+use App\Models\Product;
 use App\Models\Kategori;
 use App\Models\Satuan;
 use Illuminate\Support\Str;
 use App\Helpers\Helper;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 
-class DashboardStokBarangController extends Controller
+class DashboardProductController extends Controller
 {
     
     public function index(Request $request)
     {
-        // $dtStok = Stok::With('kategori','satuan')->get();
-        // $dtktgr = Kategori::all();
-        // $dtstn = Satuan::all();
-
 
         if($request->has('search')){
-            $dtStok = Stok::where('nama', 'LIKE', '%' . $request->search . '%')->get();
-            $dtktgr = Kategori::all();
-            $dtstn = Satuan::all();
+            $dtPrdct = Product::where('nama_barang', 'LIKE', '%' . $request->search . '%')->get();
+            $dtKtgr  = Kategori::all();
+            $dtStn   = Satuan::all();
             
         }else{
-            $dtStok = Stok::With('kategori','satuan')->get();
-            $dtktgr = Kategori::all();
-            $dtstn = Satuan::all();
+            $dtPrdct = Product::With('kategori','satuan')->get();
+            $dtKtgr  = Kategori::all();
+            $dtStn   = Satuan::all();
         }
 
-        return view('Admin.StokBarang.Stok', compact('dtStok', 'dtktgr', 'dtstn'));
+        return view('Admin.Product.Product', compact('dtPrdct', 'dtKtgr', 'dtStn'));
+        
     }    
 
    
     public function create()
     {
-        $dtktgr = Kategori::all();
-        $dtstn = Satuan::all();
-        return view('Admin.StokBarang.Create_Stok', compact('dtktgr', 'dtstn'));
+
+        $dtKtgr    = Kategori::all();
+        $dtStn     = Satuan::all();
+
+        return view('Admin.Product.Create_Product', compact('dtKtgr', 'dtStn'));
+
     }
+
 
     public function store(Request $request)
     {
+
         // dd($request->all());
 
         // -------------------------- BamaraID ( Masih Eror di Simpan Gambar menjadi Tmp ) ----------------------------
@@ -68,16 +70,18 @@ class DashboardStokBarangController extends Controller
 
         if($request->hasfile('gambar'))
         {
-            $file = $request->file('gambar');
-            $namaFile = $file->getClientOriginalName();
-            $file->move('/img-Stok', $namaFile);
+
+            $file      = $request->file('gambar');
+            $namaFile  = $file->getClientOriginalName();
+            $file->move('/img-Product', $namaFile);
+
         }
        
 
-        $config = ['table'=>'stoks','field'=>'kode_barang', 'length'=>6,'prefix'=>'KB-'];
-        $kode_barang = IdGenerator::generate($config);
+        $config        = ['table'=>'products','field'=>'kode_barang', 'length'=>6, 'prefix'=>'KB-'];
+        $kode_barang   = IdGenerator::generate($config);
 
-        Stok::Create([
+        Product::Create([
             'kode_barang' => $kode_barang,
             'nama_barang' => $request->nama_barang,
             'kategori_id' => $request->kategori_id,
@@ -90,7 +94,8 @@ class DashboardStokBarangController extends Controller
             'expired'     => $request->expired,
         ]);
 
-        return redirect('/stok-barang');
+        return redirect('/product');
+
     }
 
     
@@ -102,25 +107,32 @@ class DashboardStokBarangController extends Controller
     
     public function edit($id)
     {
-        $stkbrg = Stok::findorfail($id);
-        $dtktgr = Kategori::all();
-        $dtstn = Satuan::all();
-        return view('Admin.StokBarang.Edit_Stok', compact('stkbrg','dtktgr', 'dtstn'));
+
+        $sPrdct    = Product::findorfail($id);
+        $dtKtgr    = Kategori::all();
+        $dtStn     = Satuan::all();
+
+        return view('Admin.Product.Edit_Product', compact('sPrdct', 'dtKtgr', 'dtStn'));
+
     }
 
     
     public function update(Request $request, $id)
     {
-        $stkbrg = Stok::findorfail($id);
-        $stkbrg->update($request->all());
-        return redirect('stok-barang');
+
+        $sPrdct = Product::findorfail($id);
+        $sPrdct->update($request->all());
+        return redirect('/product');
+
     }
 
     
     public function destroy($id)
     {
-        $stkbrg = Stok::findorfail($id);
-        $stkbrg->delete();
+
+        $sPrdct = Product::findorfail($id);
+        $sPrdct->delete();
         return back();
+
     }
 }

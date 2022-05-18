@@ -24,4 +24,10 @@ class Gender extends Model
     {
         return $this->hasMany(Admin::class);
     }
+
+    // TES JOIN TABEL GENDER MEMASUKAN KEDALAM TABEL CART
+    public function cart()
+    {
+        return $this->hasMany(Cart::class);
+    }
 }

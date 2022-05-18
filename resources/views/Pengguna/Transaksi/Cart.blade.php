@@ -65,27 +65,26 @@ https://templatemo.com/tm-559-zay-shop
                 <div class="col-lg-8 mt-2">
                     <div class="card border-light">
 
+                        @foreach ($dtCart as $item)
                         <div class="row">
                             <div class="col-5 col-md-2">
                                 <a href=""><img src="Zay/assets/img/category/category_img_02.jpg" style="height: 160px" class="rounded img-fluid"></a>
                             </div>
                             <div class="col-7 col-md-10" >
                                 <div class="row">
-                                    <div class="col-9 col-md-10">
-                                        <p class="text-uppercase fw-bold">nama barang yang gokil</p>
+                                    <div class="col-9 col-md-11">
+                                        <!-- Nama Barang -->
+                                        <p class="text-uppercase fw-bold">{{ $item->produk_id}}</p>
                                     </div>
-                                    <div class="col-2 text-end">
-                                        <button type="button" class="btn btn-sm bi bi-x">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
-                                            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-                                        </svg>
-                                        </button>
-                                        
+                                    <div class="col-1 text-end">
+                                        <a class="dropdown-item btn-close" type="button" href="{{ url('delete-cart', $item->id) }}}"></a>
                                     </div>
-                                    <span>Dog Food</span>
+                                    <!-- Kategori Barang -->
+                                    <span>{{ $item->produk_id}}</span>
                                 </div>
                                 <div class="row mt-4">
                                     <div class="col-5">
+                                        <!-- Harga Barang Barang -->
                                         <p class="fs-6 fw-bold">Rp 100000</p>
                                     </div>
                                     <div class="col-7 mt-2">
@@ -93,16 +92,19 @@ https://templatemo.com/tm-559-zay-shop
                                             <button type="button" class="btn btn-sm btn-outline-success" id="btn-minus">
                                                 -
                                             </button>
-                                            <span class="badge bg-secondary" id="var-value">1</span>
+                                            <span class="badge bg-secondary" id="var-value">{{ $item->jumlah_barang }}</span>
                                             <button type="button" class="btn btn-sm btn-outline-success" id="btn-plus">
                                                 +
                                             </button>
                                         </ul>
+                                        {{-- <input type="text" name="jumlah_barang" id="jumlah_barang" class="form-control" value="1"> --}}
                                     </div>
                                 </div>
                             </div>
                             <hr class="mt-3 mb-4">
                         </div> <!-- End isi Cart -->
+                        @endforeach
+
                     </div>
                 </div>
 
@@ -120,17 +122,17 @@ https://templatemo.com/tm-559-zay-shop
 
                             <div class="row">
                                 <div class="col-6">
-                                    <p> Item</p>
+                                    <p> Item </p>
                                 </div>
                                 <div class="col-6">
-                                    <p> Rp </p>
+                                    <p> {{ $item->total_item}} </p>
                                 </div>
-                                <div class="col-6">
+                                {{-- <div class="col-6">
                                     <p>Ongkos Kirim</p>
                                 </div>
                                 <div class="col-6">
-                                    <p>Rp </p>
-                                </div>
+                                    <p>Rp {{ $item->total_harga}} </p>
+                                </div> --}}
                             </div>
 
                             <div class="row">
@@ -139,12 +141,13 @@ https://templatemo.com/tm-559-zay-shop
                                     <h5>Total Harga </h5>
                                 </div>
                                 <div class="col-6">
-                                    <h5>Rp </h5>
+                                    <h5>Rp {{ $item->total_harga}}</h5>
                                 </div>
                             </div>
                             
-                            <div class="mt-2 col d-grid center">
-                                <button type="submit" class="btn-outline-success btn-sm" name="submit" value="addtocard">Checkout</button>
+                            <div class="mt-2 d-grid center">
+                                <a class="btn btn-sm btn-outline-success" type="button" href="/cart/shipment">Pilih Metode Pembayaran</a>
+                                {{-- <button type="submit" class="btn-outline-success btn-sm" href="/cart/shipment" name="submit">Pilih Metode Pembayaran</button> --}}
                             </div>
                         </div>
                     </div>

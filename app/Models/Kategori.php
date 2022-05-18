@@ -15,8 +15,8 @@ class Kategori extends Model
         'id','kategori',
     ];
 
-    public function stok()
+    public function product()
     {
-        return $this->hasMany(Stok::class);
+        return $this->hasMany(Product::class);
     }
 }

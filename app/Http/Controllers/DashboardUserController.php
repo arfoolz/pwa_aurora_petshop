@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Gender;
+use App\Models\Level;
 use Illuminate\Support\Facades\Hash;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 
@@ -14,22 +15,27 @@ class DashboardUserController extends Controller
     {
 
         if($request->has('search')){
-            $dtUser = User::where('nama_user', 'LIKE', '%' . $request->search . '%')->get();
-            $dtGender = Gender::all();
+            $dtUser    = User::where('nama_user', 'LIKE', '%' . $request->search . '%')->get();
+            $dtGender  = Gender::all();
+            $dtLevel   = Level::all();
 
         }else{
-            $dtUser = User::With('gender')->get();
-            $dtGender = Gender::all();
+            $dtUser    = User::With('gender')->get();
+            $dtGender  = Gender::all();
+            $dtLevel   = Level::all();
         }
 
-        return view('Admin.User.Pengguna.User_Pengguna',compact('dtUser', 'dtGender'));
+        return view('Admin.User.Pengguna.User_Pengguna',compact('dtUser', 'dtGender', 'dtLevel'));
     }
 
 
     public function create()
     {
-        $dtGender = Gender::all();
-        return view('Admin.User.Pengguna.Create_Pengguna', compact('dtGender'));
+
+        $dtGender  = Gender::all();
+        $dtLevel   = Level::all();
+        return view('Admin.User.Pengguna.Create_Pengguna', compact('dtGender', 'dtLevel'));
+
     }
 
 
@@ -37,20 +43,22 @@ class DashboardUserController extends Controller
     {
         // dd($request->all());
 
-        $config = ['table'=>'users','field'=>'kode_user', 'length'=>7,'prefix'=>'usr-'];
-        $kode_admin = IdGenerator::generate($config);
+        $config      = ['table'=>'users','field'=>'kode_user', 'length'=>7,'prefix'=>'usr-'];
+        $kode_user   = IdGenerator::generate($config);
 
-        Admin::Create([
-            'kode_user'     => $kode_user,
-            'nama_user'     => $request->nama_user,
-            'gender_id'     => $request->gender_id,
-            'email'         => $request->email,
-            'alamat'        => $request->alamat,
-            'no_tlpn'       => $request->no_tlpn,
-            'password'      => Hash::make($request->password),
+        User::Create([
+            'kode_user'   => $kode_user,
+            'nama_user'   => $request->nama_user,
+            'gender_id'   => $request->gender_id,
+            'level_id'    => $request->level_id,
+            'email'       => $request->email,
+            'alamat'      => $request->alamat,
+            'no_tlpn'     => $request->no_tlpn,
+            'password'    => Hash::make($request->password),
         ]);
 
         return redirect('/user-pengguna');
+
     }
 
    
@@ -62,23 +70,34 @@ class DashboardUserController extends Controller
 
     public function edit($id)
     {
-        $siuser = Admin::findorfail($id);
-        return view('Admin.User.Admin.Edit_Pengguna',compact('siuser'));
+
+        $siUser    = User::findorfail($id);
+        $dtGender  = Gender::all();
+        $dtLevel   = Level::all();
+
+        return view('Admin.User.Pengguna.Edit_Pengguna',compact('siUser', 'dtGender', 'dtLevel'));
+
     }
 
 
     public function update(Request $request, $id)
     {
-        $siuser = User::findorfail($id);
-        $siuser->update($request->all());
+
+        $siUser = User::findorfail($id);
+        $siUser->update($request->all());
+
         return redirect('user-pengguna');
+
     }
 
 
     public function destroy($id)
     {
-        $siadmin = User::findorfail($id);
-        $siadmin->delete();
+
+        $siUdmin = User::findorfail($id);
+        $siUdmin->delete();
+
         return back();
+
     }
 }

@@ -46,7 +46,7 @@
               <div class="app-card form ">
                 
                 <div class="app-card-body p-4">
-                  <form action="simpan-create-user" method="post">
+                  <form action="simpan-create-pengguna" method="post">
                     {{ csrf_field() }}
       
                     <div class="row">
@@ -65,6 +65,20 @@
                               @foreach ($dtGender as $item)
                               <option value="{{ $item->id }}">{{ $item->gender }}</option>
                               @endforeach
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-12 mb-4">
+                        <div class="form-group">
+                          <p>Level Jabatan</p>
+                          <div class="form-group">
+                            <select type="text" id=level_id name=level_id class="form-control" aria-label="Default select example" style="height:50px">
+                              <option disabled value>Pilih Jabatan</option>
+                                @foreach ($dtLevel as $item)
+                                <option value="{{ $item->id }}">{{ $item->level }}</option>
+                                @endforeach
                             </select>
                           </div>
                         </div>

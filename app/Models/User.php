@@ -58,4 +58,9 @@ class User extends Authenticatable
     {   
     return $this->belongsTo(Level::class);
     }
+    
+    public function cart()
+    {   
+    return $this->belongsTo(Cart::class);
+    }
 }
