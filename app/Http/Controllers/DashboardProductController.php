@@ -73,7 +73,7 @@ class DashboardProductController extends Controller
 
             $file      = $request->file('gambar');
             $namaFile  = $file->getClientOriginalName();
-            $file->move('/img-Product', $namaFile);
+            $file->move(public_path().'/img-Product', $namaFile);
 
         }
        

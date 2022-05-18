@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Admin | Tambah Stok Barang</title>
+    <title>Admin | Tambah Product</title>
 
     <!-- Meta -->
     <meta charset="utf-8">
@@ -46,7 +46,7 @@
               <div class="app-card form ">
                 
                 <div class="app-card-body p-4">
-                  <form action="simpan-create-stok" method="post" enctype="multipart/form-data">
+                  <form action="simpan-create-product" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
       
                     <div class="row">
