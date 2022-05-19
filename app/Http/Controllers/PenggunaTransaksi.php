@@ -25,18 +25,38 @@ class PenggunaTransaksi extends Controller
 
             return view('Pengguna.Transaksi.Cart', compact('countCart', 'dtCart', 'dtCartItem', 'dtPrdct'));
         }
-
         else
-
         {
-
             return redirect('login');
-
         }
         
     }
 
+
+    public function AddToCart(Request $request)
+    {
+
+        // if ($request->session()->has('user'))
+        // {
+
+            // dd($request->all());
+
+            Cart::Create([
+                'user_id'       => Auth::user()->id,
+                'produk_id'     => $request->produk_id,
+                'jumlah_barang' => $request->jumlah_barang,
+                // 'total_harga'   => $request->total_harga,
+            ]);
+
+        // }
+        // else
+        // {
+            return back();;
+        // }
+
+    }
     
+
     public function indexShipment()
     {
 
@@ -66,35 +86,6 @@ class PenggunaTransaksi extends Controller
         // }
     }
     
-
-    public function AddToCart(Request $request)
-    {
-
-        // if ($request->session()->has('user'))
-        // {
-
-            // dd($request->all());
-
-            Cart::Create([
-                'user_id'       => Auth::user()->id,
-                'produk_id'     => $request->produk_id,
-                'jumlah_barang' => $request->jumlah_barang,
-                // 'total_harga'   => $request->total_harga,
-            ]);
-        // }
-        // else
-        // {
-            return redirect('/login');
-        // }
-
-    }
-
-    
-    // public function update(Request $request, $id)
-    // {
-    //     //
-    // }
-
 
     public function destroy($id)
     {

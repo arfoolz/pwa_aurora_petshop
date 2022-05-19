@@ -225,8 +225,8 @@ class UserAdminSeeder extends Seeder
 
         DB::table('carts')->insert([
             'user_id'       => '1',
-            'produk_id'    => '1',
-            'jumlah_barang' => '1',
+            'product_id'    => '1',
+            'jumlah_barang' => '100',
         ]);
 
 

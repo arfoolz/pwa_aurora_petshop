@@ -68,19 +68,19 @@ https://templatemo.com/tm-559-zay-shop
                         @foreach ($dtCart as $item)
                         <div class="row">
                             <div class="col-5 col-md-2">
-                                <a href=""><img src="Zay/assets/img/category/category_img_02.jpg" style="height: 160px" class="rounded img-fluid"></a>
+                                <a href=""><img src="Zay/assets/img/category/category_img_02.jpg" style="height: 140px" class="rounded img-fluid"></a>
                             </div>
                             <div class="col-7 col-md-10" >
                                 <div class="row">
                                     <div class="col-9 col-md-11">
                                         <!-- Nama Barang -->
-                                        <p class="text-uppercase fw-bold">{{ $item->produk_id}}</p>
+                                        <p class="text-uppercase fw-bold">{{ $item->product->nama_barang}}</p>
                                     </div>
                                     <div class="col-1 text-end">
                                         <a class="dropdown-item btn-close" type="button" href="{{ url('delete-cart', $item->id) }}}"></a>
                                     </div>
                                     <!-- Kategori Barang -->
-                                    <span>{{ $item->produk_id}}</span>
+                                    <span>{{ $item->product->kategori->kategori}}</span>
                                 </div>
                                 <div class="row mt-4">
                                     <div class="col-5">
