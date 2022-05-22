@@ -56,13 +56,15 @@ https://templatemo.com/tm-559-zay-shop
     <section>
         <div class="container pb-5">
             <div class="row">
-
+                
                 {{-- Tab Kiri --}}
+                
                 <div class="col-lg-5 mt-5">
                     <div class="card border-light mb-3">
-                        <img class="card-img img-fluid" src="/Zay/assets/img/product_single_10.jpg" alt="Card image cap" id="product-detail">
+                        <img class="card-img img-fluid" src="{{ asset('img-Product/'. $siPrdct->gambar) }}" alt="Card image cap" id="product-detail">
                     </div>
-                    <div class="row">
+
+                    {{-- <div class="row">
 
                         <!--Start Controls-->
                         <div class="col-1 align-self-center">
@@ -156,7 +158,7 @@ https://templatemo.com/tm-559-zay-shop
                             </a>
                         </div>
                         <!--End Controls-->
-                    </div>
+                    </div> --}}
                 </div>
                 <!-- col end -->
 
@@ -212,12 +214,21 @@ https://templatemo.com/tm-559-zay-shop
                             </ul> --}}
 
                             <form action="{{ url('/add-cart') }}" method="POST">
+
+                                {{-- @php
+                                    $a = 2;
+                                    $b = (int)$siPrdct->$harga_jual
+                                    $total_harga = $a * $b;
+                                @endphp --}}
+
                                 @csrf                                
                                 <div class="row">
                                     <div class="col-12">
                                         <ul class="text-center list-inline pb-3">
                                             <li class="list-inline-item text-right">
                                                 <input type="hidden" name="produk_id" value={{ $siPrdct->id }}>
+                                                <input type="hidden" name="harga_barang" value={{ $siPrdct->harga_jual }}>
+                                                {{-- <input type="hidden" name="total_harga" value={{ $total_harga }}> --}}
                                             </li>
                                             {{-- <li class="list-inline-item"><span class="btn btn-success" id="btn-minus">-</span></li> --}}
                                             {{-- <li class="list-inline-item"><span style="width: 150px" name="jumlah_barang" class="badge bg-secondary" id="var-value">1</span></li> --}}

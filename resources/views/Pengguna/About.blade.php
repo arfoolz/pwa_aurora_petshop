@@ -47,49 +47,7 @@
         </div>
     </div> --}}
 
-    <!-- Open Content -->
-    <section>
-        <div class="container-fluid">
-            <div class="row">
-                <!--Bagian Kiri-->
-                <div class="border col-6 col-md-6 mb-0 d-flex align-items-center">
-                    <div class="border text-align-left align-self-center">
-                        <h3 class="h2">Kami memberikan barang dengan kualitas bagus dengan harga yang terjangkau! </h3>
-                    </div>
-                </div>
-
-                <!-- Bagian Kanan -->
-                <div class="border col-6 col-md-6 mb-0 d-flex align-items-center">
-                    <div class="border text-align-left align-self-center">
-                        <img class="img-fluid" src="Zay//assets/img/about/about2.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="container-fluid">
-            <div class="row">
-                <!--Bagian Kiri-->
-                <div class="border col-4 col-md-4 mb-0 d-flex align-items-center">
-                    <div class="border text-align-left align-self-center">
-                        <img class="img-fluid" src="Zay//assets/img/about/about2.png" alt="">
-                    </div>
-                </div>
-                
-                <!-- Bagian Kanan -->
-                <div class="border col-7 col-md-7 mb-0 d-flex align-items-center">
-                    <div class="border text-align-left align-self-center">
-                        <h3 class="h2">Kami memberikan barang dengan kualitas bagus dengan harga yang terjangkau! </h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Close Content -->
-
-    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+    {{-- <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
         <div class="col-md-5 p-lg-5 mx-auto my-5">
           <h1 class="display-4 fw-normal">Punny headline</h1>
           <p class="lead fw-normal">And an even wittier subheading to boot. Jumpstart your marketing efforts with this example based on Apple’s marketing pages.</p>
@@ -97,24 +55,29 @@
         </div>
         <div class="product-device shadow-sm d-none d-md-block"></div>
         <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
-    </div>
+    </div> --}}
 
-    <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-        <div class="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+    <div class="d-md-flex flex-md-equal w-100">
+        <div class="bg-dark col-md-6 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
           <div class="my-3 py-3">
-            <h2 class="display-5">Another headline</h2>
-            <p class="lead">And an even wittier subheading.</p>
+            <h2 class="display-5">Barang Berkualitas</h2>
+            <p class="lead">Kami memberikan barang dengan kualitas bagus dengan harga yang terjangkau.</p>
           </div>
-          <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-        </div>
-        <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-          <div class="my-3 p-3">
-            <h2 class="display-5">Another headline</h2>
-            <p class="lead">And an even wittier subheading.</p>
+          <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 100%; border-radius: 21px 21px 0 0;">
+            <img class="img-fluid" src="Zay//assets/img/about/about2.png" alt="">
           </div>
-          <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
         </div>
-      </div>
+        <div class="bg-light col-md-6 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+          <div class="my-3 ">
+            <h2 class="display-5">Tempat Terpercaya</h2>
+            <p class="lead">Selain menjamin kulitas dari barang yang kami jual, kami juga tetap menjaga
+                            kebersihan dari toko kelola.</p>
+          </div>
+          <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 80%; border-radius: 21px 21px 0 0;">
+            <img class="img-fluid" src="Zay//assets/img/about/about3.png" alt="">
+          </div>
+        </div>
+    </div>
 
     <!-- Start Brands -->
     <section class="bg-light py-5">
@@ -127,14 +90,15 @@
                         yang baik demi hewan peliharan anda.
                     </p>
                 </div>
+
                 <div class="col-lg-9 m-auto tempaltemo-carousel">
                     <div class="row d-flex flex-row">
                         <!--Controls-->
-                        <div class="col-1 align-self-center">
+                        {{-- <div class="col-1 align-self-center">
                             <a class="h1" href="#templatemo-slide-brand" role="button" data-bs-slide="prev">
                                 <i class="text-light fas fa-chevron-left"></i>
                             </a>
-                        </div>
+                        </div> --}}
                         <!--End Controls-->
 
                         <!--Carousel Wrapper-->
@@ -163,7 +127,7 @@
                                     <!--End First slide-->
 
                                     <!--Second slide-->
-                                    <div class="carousel-item">
+                                    {{-- <div class="carousel-item">
                                         <div class="row">
                                             <div class="col-3 p-md-5">
                                                 <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_01.png" alt="Brand Logo"></a>
@@ -178,11 +142,11 @@
                                                 <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_04.png" alt="Brand Logo"></a>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <!--End Second slide-->
 
                                     <!--Third slide-->
-                                    <div class="carousel-item">
+                                    {{-- <div class="carousel-item">
                                         <div class="row">
                                             <div class="col-3 p-md-5">
                                                 <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_01.png" alt="Brand Logo"></a>
@@ -197,7 +161,7 @@
                                                 <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_04.png" alt="Brand Logo"></a>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <!--End Third slide-->
 
                                 </div>
@@ -207,14 +171,15 @@
                         <!--End Carousel Wrapper-->
 
                         <!--Controls-->
-                        <div class="col-1 align-self-center">
+                        {{-- <div class="col-1 align-self-center">
                             <a class="h1" href="#templatemo-slide-brand" role="button" data-bs-slide="next">
                                 <i class="text-light fas fa-chevron-right"></i>
                             </a>
-                        </div>
+                        </div> --}}
                         <!--End Controls-->
                     </div>
                 </div>
+
             </div>
         </div>
     </section>

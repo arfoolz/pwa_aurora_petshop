@@ -5,24 +5,23 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Gender extends Model
+class Bank extends Model
 {
     use HasFactory;
 
-    protected $table = "genders";
+    protected $table = "banks";
     protected $primaryKey = "id";
     protected $fillable = [
-        'id','gender',
+        'id','bank',
     ];
 
-    public function user()
+    public function cart()
     {
-        return $this->hasMany(User::class);
+        return $this->hasMany(Cart::class);
     }
-
-    public function admin()
+    public function checkout()
     {
-        return $this->hasMany(Admin::class);
+        return $this->hasMany(Checkout::class);
     }
 
 }

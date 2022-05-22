@@ -16,9 +16,10 @@ class CreateCartsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products');
-                      
+
+            $table->string('harga_barang');
             $table->string('jumlah_barang');
-            
+            $table->string('total_harga')->nullable();
             $table->timestamps();
         });
     }

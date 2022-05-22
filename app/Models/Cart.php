@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use DB;
 
 class Cart extends Model
 {
@@ -14,7 +15,8 @@ class Cart extends Model
     protected $fillable = [
         'id',
         'user_id',
-        'produk_id',
+        'product_id',
+        'harga_barang',
         'jumlah_barang',
     ];
 
@@ -28,9 +30,9 @@ class Cart extends Model
     return $this->belongsTo(User::class);
     }
 
-    public function gender()
-    {   
-    return $this->belongsTo(Gender::class);
+    public function bank()
+    {
+    return $this->belongsTo(Bank::class);
     }
     
 }

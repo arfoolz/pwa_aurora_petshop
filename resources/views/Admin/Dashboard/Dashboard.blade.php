@@ -579,6 +579,7 @@
     </div>
     <!--//app-wrapper-->
 
+    <script src="https://kit.fontawesome.com/1c164f6dc6.js" crossorigin="anonymous"></script>
 
     <!-- Javascript -->
     <script src="AdminPortal/assets/plugins/popper.min.js"></script>

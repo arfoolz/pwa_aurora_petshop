@@ -76,7 +76,7 @@ https://templatemo.com/tm-559-zay-shop
     <!-- End Banner Hero -->
 
     <!-- Start Categories of The Month -->
-    <section class="container py-5">
+    {{-- <section class="container py-5">
         <div class="row text-center pt-3">
             <div class="col-lg-6 m-auto">
                 <h1 class="h1">Pilihan Terpopuler</h1>
@@ -109,7 +109,7 @@ https://templatemo.com/tm-559-zay-shop
                 <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- End Categories of The Month -->
 
     <!-- Produk -->
@@ -122,7 +122,8 @@ https://templatemo.com/tm-559-zay-shop
                 </p>
             </div>
         </div>
-        <div class="row text-left pt-3">
+
+        {{-- <div class="row text-left pt-3">
             <div class="col-lg-1 m-auto">
                 <p>
                    All Produk
@@ -143,31 +144,23 @@ https://templatemo.com/tm-559-zay-shop
                    Aksesoris
                 </p>
             </div>
-        </div>
+        </div> --}}
         
         <div class="row pt-3">
             @foreach ($dtPrdct as $item)
-            <div class="col-6 col-md-3 mt-3">
-                <a href="{{ url('detail-shop', $item->id) }}}"><img src="{{ asset('img-Product/'. $item->gambar) }}" class="rounded img-fluid" style="height: 200px; witdh: 200px"></a>
-                <h2 class="h5 text-left mt-1 mb-1">{{ $item->nama_barang }}</h2>
-                <p class="h5 text-left mt-1 mb-1">Rp {{ $item->harga_jual }}</p>
+            <div class="col-6 col-md-2 mt-3">
+                
+                <div class="card border-light shadow" style="background-color: #FAFCFC">
+                    <a href="{{ url('detail-shop', $item->id) }}}">
+                    <img src="{{ asset('img-Product/'. $item->gambar) }}" class="rounded img-fluid">
+                        <div class="card-body">
+                            <h2 class="h5 text-left mt-1 mb-2">{{ $item->nama_barang }}</h2>
+                            <p class="fs-6 text-left mt-1">Rp {{ $item->harga_jual }}</p>
+                        </div>
+                    </a>
+                </div>
             </div>
             @endforeach
-            {{-- <div class="col-6 col-md-3 mt-3">
-                <a href="#"><img src="Zay/assets/img/category/category_img_02.jpg" class="rounded img-fluid"></a>
-                <h2 class="h5 text-center mt-3 mb-3">Shoes</h2>
-                <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
-            </div>
-            <div class="col-6 col-md-3 mt-3">
-                <a href="#"><img src="Zay/assets/img/category/category_img_03.jpg" class="rounded img-fluid"></a>
-                <h2 class="h5 text-center mt-3 mb-3">Accessories</h2>
-                <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
-            </div>
-            <div class="col-6 col-md-3 mt-3">
-                <a href="#"><img src="Zay/assets/img/category/category_img_02.jpg" class="rounded img-fluid"></a>
-                <h2 class="h5 text-center mt-3 mb-3">Shoes</h2>
-                <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
-            </div> --}}
         </div>
     </section>
 
@@ -264,6 +257,18 @@ https://templatemo.com/tm-559-zay-shop
     <!-- Start Footer -->
     @include('Layout.Pengguna-Layout.Footer')
     <!-- End Footer -->
+
+    <!-- Start Style -->
+    <style>
+        a{
+            text-decoration: none;
+            color: black
+        }
+        a:hover{
+            color: #59ab6e
+        }
+    </style>
+    <!-- End Style -->
 
     <!-- Start Script -->
     <script src="Zay/assets/js/jquery-1.11.0.min.js"></script>

@@ -31,6 +31,46 @@ class UserAdminSeeder extends Seeder
         ]);
 
 
+        DB::table('banks')->insert([
+            'bank'        => 'CIMB Niaga',
+            'no_rekening' => '705586972100 ',
+        ]);
+        DB::table('banks')->insert([
+            'bank'        => 'BRI',
+            'no_rekening' => '106100247000037',
+        ]);
+
+
+        DB::table('pesanans')->insert([
+            'pesanan' => 'Barang',
+        ]);
+        DB::table('pesanans')->insert([
+            'pesanan' => 'Titipan',
+        ]);
+
+
+        DB::table('pets')->insert([
+            'pet' => 'Anjing',
+        ]);
+        DB::table('pets')->insert([
+            'pet' => 'Kucing',
+        ]);
+
+
+        DB::table('sizes')->insert([
+            'size'  => 'Kecil',
+            'Harga' => '5000',
+        ]);
+        DB::table('sizes')->insert([
+            'size'  => 'Sedang',
+            'Harga' => '10000',
+        ]);
+        DB::table('sizes')->insert([
+            'size'  => 'Besar',
+            'Harga' => '15000',
+        ]);
+
+
         DB::table('levels')->insert([
             'level' => 'Superadmin',
         ]);
@@ -222,12 +262,22 @@ class UserAdminSeeder extends Seeder
 
         // DB::insert('insert into carts (id, user_id, produk_id) values (?, ?, ?)', [1, 1, 1]);
 
-
+        
+        // $harga_barang = 110000;      $jumlah_barang = 2;     $total_harga = $harga_barang * $jumlah_barang;    
         DB::table('carts')->insert([
-            'user_id'       => '1',
-            'product_id'    => '1',
-            'jumlah_barang' => '100',
+            'user_id'        => '1',
+            'product_id'     => '3',
+            'jumlah_barang'  => '1',
+            'harga_barang'   => '2',
+            'total_harga'   => '4',
         ]);
+
+
+        // DB::table('checkouts')->insert([
+        //     'user_id'       => '1',
+        //     'product_id'    => '1',
+        //     'jumlah_barang' => '100',
+        // ]);
 
 
         $dt = Carbon::now();

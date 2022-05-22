@@ -82,11 +82,15 @@ Route::get('/login', [App\Http\Controllers\PenggunaLogin::class, 'index'])->name
 Route::post('/postlogin_user', [App\Http\Controllers\Login_UserController::class, 'postlogin_user'])->name('postlogin_user');
 Route::get('/logout_user', [App\Http\Controllers\Login_UserController::class, 'postlogout_user'])->name('postlogout_user');
 
+Route::get('/profile', [App\Http\Controllers\PenggunaProfile::class, 'index']);
+
 Route::get('/beranda', [App\Http\Controllers\PenggunaBeranda::class, 'index']);
 
 Route::get('/about', [App\Http\Controllers\PenggunaAbout::class, 'index']);
 
 Route::get('/petcare', [App\Http\Controllers\PenggunaPetCare::class, 'index']);
+Route::get('/petcare/order', [App\Http\Controllers\PenggunaPetCare::class, 'indexOrder']);
+Route::post('/add-order', [App\Http\Controllers\PenggunaPetCare::class, 'addToOrder']);
 
 Route::get('/shop', [App\Http\Controllers\PenggunaShop::class, 'index']);
 Route::get('/detail-shop/{id}', [App\Http\Controllers\PenggunaShop::class, 'detail']);
@@ -96,3 +100,4 @@ Route::post('/add-cart', [App\Http\Controllers\PenggunaTransaksi::class, 'addToC
 Route::get('/delete-cart/{id}', [App\Http\Controllers\PenggunaTransaksi::class, 'destroy']);
 
 Route::get('/cart/shipment', [App\Http\Controllers\PenggunaTransaksi::class, 'indexShipment']);
+Route::post('/add-checkout', [App\Http\Controllers\PenggunaTransaksi::class, 'addToCheckout']);
