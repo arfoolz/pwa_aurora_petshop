@@ -82,7 +82,7 @@ Route::get('/login', [App\Http\Controllers\PenggunaLogin::class, 'index'])->name
 Route::post('/postlogin_user', [App\Http\Controllers\Login_UserController::class, 'postlogin_user'])->name('postlogin_user');
 Route::get('/logout_user', [App\Http\Controllers\Login_UserController::class, 'postlogout_user'])->name('postlogout_user');
 
-Route::get('/profile', [App\Http\Controllers\PenggunaProfile::class, 'index']);
+Route::get('/profile/{id}', [App\Http\Controllers\PenggunaProfile::class, 'index'])->name('profile');
 
 Route::get('/beranda', [App\Http\Controllers\PenggunaBeranda::class, 'index']);
 Route::get('/', [App\Http\Controllers\PenggunaBeranda::class, 'index']);

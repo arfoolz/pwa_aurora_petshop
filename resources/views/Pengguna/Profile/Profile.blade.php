@@ -9,14 +9,14 @@
     <link rel="apple-touch-icon" href="assets/img/apple-icon.png">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
-    <link rel="stylesheet" href="Zay/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="Zay/assets/css/templatemo.css">
-    <link rel="stylesheet" href="Zay/assets/css/custom.css">
+    <link rel="stylesheet" href="/Zay/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/Zay/assets/css/templatemo.css">
+    <link rel="stylesheet" href="/Zay/assets/css/custom.css">
     
 
     <!-- Load fonts style after rendering the layout styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
-    <link rel="stylesheet" href="Zay/assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/Zay/assets/css/fontawesome.min.css">
 <!--
     
 TemplateMo 559 Zay Shop
@@ -106,7 +106,8 @@ https://templatemo.com/tm-559-zay-shop
                                                             <P class="fs-6">Nama</P>
                                                         </div>
                                                         <div class="col-6 col-md-6">
-                                                            <P class="fs-6">: Arya Yudha Reynardo</P>
+                                                            <P class="fs-6">: {{ $siUser->nama_user }}
+                                                            </P>
                                                         </div>
                                                     </div>
                                                     <div class="row">
@@ -114,7 +115,7 @@ https://templatemo.com/tm-559-zay-shop
                                                             <P class="fs-6">Jenis Kelamin</P>
                                                         </div>
                                                         <div class="col-6 col-md-6">
-                                                            <P class="fs-6">: Laki - Laki</P>
+                                                            <P class="fs-6">: {{ $siUser->gender->gender }}</P>
                                                         </div>
                                                     </div>
                                                     <div class="row">
@@ -122,7 +123,7 @@ https://templatemo.com/tm-559-zay-shop
                                                             <P class="fs-6">Alamat</P>
                                                         </div>
                                                         <div class="col-6 col-md-6">
-                                                            <P class="fs-6">: Perumahan Griya Parungpanjang</P>
+                                                            <P class="fs-6">: {{ $siUser->alamat }}</P>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -135,7 +136,7 @@ https://templatemo.com/tm-559-zay-shop
                                                             <P class="fs-6">Email</P>
                                                         </div>
                                                         <div class="col-6 col-md-6">
-                                                            <P class="fs-6">: arya@gmail.com</P>
+                                                            <P class="fs-6">: {{ $siUser->email }}</P>
                                                         </div>
                                                     </div>
 
@@ -144,7 +145,7 @@ https://templatemo.com/tm-559-zay-shop
                                                             <P class="fs-6">Nomor HP</P>
                                                         </div>
                                                         <div class="col-6 col-md-6">
-                                                            <P class="fs-6">: 890478903412</P>
+                                                            <P class="fs-6">: {{ $siUser->no_tlpn }}</P>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -262,11 +263,11 @@ https://templatemo.com/tm-559-zay-shop
     <!-- End Style -->
 
     <!-- Start Script -->
-    <script src="Zay/assets/js/jquery-1.11.0.min.js"></script>
-    <script src="Zay/assets/js/jquery-migrate-1.2.1.min.js"></script>
-    <script src="Zay/assets/js/bootstrap.bundle.min.js"></script>
-    <script src="Zay/assets/js/templatemo.js"></script>
-    <script src="Zay/assets/js/custom.js"></script>
+    <script src="/Zay/assets/js/jquery-1.11.0.min.js"></script>
+    <script src="/Zay/assets/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="/Zay/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/Zay/assets/js/templatemo.js"></script>
+    <script src="/Zay/assets/js/custom.js"></script>
     <script src="https://kit.fontawesome.com/1c164f6dc6.js" crossorigin="anonymous"></script>
     <!-- End Script -->
 </body>

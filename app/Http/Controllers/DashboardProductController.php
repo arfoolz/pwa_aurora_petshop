@@ -109,8 +109,8 @@ class DashboardProductController extends Controller
     {
 
         $siPrdct    = Product::findorfail($id);
-        $dtKtgr    = Kategori::all();
-        $dtStn     = Satuan::all();
+        $dtKtgr     = Kategori::all();
+        $dtStn      = Satuan::all();
 
         return view('Admin.Product.Edit_Product', compact('siPrdct', 'dtKtgr', 'dtStn'));
 
@@ -132,7 +132,7 @@ class DashboardProductController extends Controller
 
         $siPrdct = Product::findorfail($id);
         $siPrdct->delete();
-        return back();
+        return back()->with('success','Berhasil Dihapus!');
 
     }
 }

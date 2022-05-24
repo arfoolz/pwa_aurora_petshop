@@ -26,7 +26,7 @@ class PenggunaRegister extends Controller
     
     public function store(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
 
         $config = ['table'=>'users','field'=>'kode_user', 'length'=>7,'prefix'=>'usr-'];
         $kode_user = IdGenerator::generate($config);

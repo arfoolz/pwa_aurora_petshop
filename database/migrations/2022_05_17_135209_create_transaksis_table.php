@@ -34,7 +34,7 @@ class CreateTransaksisTable extends Migration
             $table->unsignedBigInteger('jumlah_barang_id');
             $table->foreign('jumlah_barang_id')->references('id')->on('carts');
 
-            $table->string('total_item')->nullable();
+            $table->integer('total_item')->nullable();
 
             $table->string('nama_kontak');
             $table->string('no_tlpn');
@@ -61,7 +61,8 @@ class CreateTransaksisTable extends Migration
             //Ambil dari Tabel Bank
             $table->unsignedBigInteger('bank_id');
             $table->foreign('bank_id')->references('id')->on('banks');
-
+            
+            $table->integer('total_bayar');
             $table->timestamps();
         });
     }

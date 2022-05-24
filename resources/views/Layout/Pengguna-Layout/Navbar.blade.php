@@ -62,7 +62,12 @@
                         </a>
                     
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <li><a class="dropdown-item" href="/profile">Profil</a></li>
+                        <li>
+                            @foreach ($dtUser as $item)
+                            <a class="dropdown-item" hidden>Profil</a>
+                            @endforeach
+                            <a class="dropdown-item" href="{{ url('profile', $item->id) }}}">Profil</a>
+                        </li>
                         <li><a class="dropdown-item" href="{{ route('postlogout_user') }}">Logout</a></li>
                         </ul>
                     </div>

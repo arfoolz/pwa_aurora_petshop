@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\User;
 use DB;
 
 class PenggunaShop extends Controller
@@ -12,8 +13,9 @@ class PenggunaShop extends Controller
     {
         $countCart      = DB::table('carts')->count();
         $dtPrdct        = Product::all();
+        $dtUser         = User::all();
 
-        return view('Pengguna.Shop.Shop', compact('countCart','dtPrdct'));
+        return view('Pengguna.Shop.Shop', compact('countCart','dtPrdct', 'dtUser'));
     }
 
     
@@ -39,8 +41,9 @@ class PenggunaShop extends Controller
     {
         $countCart      = DB::table('carts')->count();
         $siPrdct        = Product::findorfail($id);
+        $dtUser         = User::all();
         
-        return view('Pengguna.Shop.Detail_Shop', compact('siPrdct', 'countCart'));
+        return view('Pengguna.Shop.Detail_Shop', compact('siPrdct', 'countCart', 'dtUser'));
     }
 
     

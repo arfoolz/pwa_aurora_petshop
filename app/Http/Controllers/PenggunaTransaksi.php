@@ -28,8 +28,9 @@ class PenggunaTransaksi extends Controller
             $dtCartItem     = Cart::With('product', 'user', 'bank')->get('id');
             $dtPrdct        = Product::all();
             $dtBank         = Bank::all();
+            $dtUser         = User::all();
 
-            return view('Pengguna.Transaksi.Cart', compact('countCart', 'dtCart', 'dtCartItem', 'dtPrdct', 'dtBank'));
+            return view('Pengguna.Transaksi.Cart', compact('countCart', 'dtCart', 'dtCartItem', 'dtPrdct', 'dtBank', 'dtUser'));
         }
         else
         {
@@ -77,8 +78,8 @@ class PenggunaTransaksi extends Controller
             $dtCartItem     = Cart::With('product', 'user', 'bank')->get();
             $dtPrdct        = Product::all();
             $dtBank         = Bank::all();
-            // $siBank         = Bank::findorfail($id);
-
+            $data           = DB::table('carts')->sum('total_harga');
+            
             return view('Pengguna.Transaksi.Pembayaran', compact('countCart', 'dtCart', 'dtCartItem', 'dtPrdct', 'dtBank'));
         }
         else

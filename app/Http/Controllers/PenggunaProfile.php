@@ -14,7 +14,7 @@ use DB;
 class PenggunaProfile extends Controller
 {
     
-    public function index()
+    public function index($id)
     {
         if(Auth::user())
         {
@@ -23,11 +23,12 @@ class PenggunaProfile extends Controller
             // $dtCartItem     = Cart::With('product', 'user', 'bank')->get('id');
             // $dtPrdct        = Product::all();
             // $dtBank         = Bank::all();
-            // $siUser            = User::findorfail($id);
+            $siUser            = User::findorfail($id);
+            $dtUser            = User::all();
             // $dtGender          = Gender::all();
             // $dtLevel           = Level::all();
 
-            return view('Pengguna.Profile.Profile', compact('countCart'));
+            return view('Pengguna.Profile.Profile', compact('countCart', 'siUser', 'dtUser'));
         }
         else
         {

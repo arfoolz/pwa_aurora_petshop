@@ -124,7 +124,7 @@ https://templatemo.com/tm-559-zay-shop
                                     <div class="row">
                                         <div class="col-9 col-md-11">
                                             <!-- Nama Barang -->
-                                            <p class="text-uppercase fw-bold">{{ $item->product->nama_barang}}</p>
+                                            <p class="text-uppercase fw-bold">{{ $item->product->nama_barang }}</p>
                                         </div>
                                         {{-- <div class="col-1 text-end">
                                             <a class="dropdown-item btn-close" type="button" href="{{ url('delete-cart', $item->id) }}}"></a>
@@ -155,6 +155,13 @@ https://templatemo.com/tm-559-zay-shop
 
                                 </div>
                                 <hr class="mt-3 mb-4">
+
+                                <!-- Input Barang -->
+                                <input type="hidden" type="number" name="product_id[]" value={{ $item->product_id }}>
+                                <input type="hidden" type="number" name="nama_barang[]" value={{ $item->product->nama_barang }}>
+                                <input type="hidden" type="number" name="harga_barang[]" value={{ $item->harga_barang }}>
+                                <input type="hidden" type="number" name="total_item[]" value={{ $item->jumlah_barang }}>
+
                             </div> <!-- End isi Cart -->
                             @endforeach
                         </div>
@@ -183,7 +190,7 @@ https://templatemo.com/tm-559-zay-shop
                                         <p> Total Harga </p>
                                     </div>
                                     <div class="col-6">
-                                        <p> Rp {{ number_format($item->total_harga) }} </p>
+                                        <p> Rp {{ number_format($item->sum('total_harga')) }} </p>
                                     </div>
                                     <div class="col-6">
                                         <p>Kode Unik</p>
@@ -199,13 +206,14 @@ https://templatemo.com/tm-559-zay-shop
                                         <h5>Total Tagihan </h5>
                                     </div>
                                     <div class="col-6">
-                                        <p class="fs-5 fw-bold">Rp {{ $item->total_harga }}<p>
+                                        <p class="fs-5 fw-bold">Rp {{ number_format($item->sum('total_harga')+550) }}<p>
+                                        
                                     </div>
                                 </div>
 
                                 <p class="fs-6">Dengan ini saya menyatakan bahwa biaya ongkir ditanggung oleh pemesan.<p class="fs-5 fw-bold">
                                 <div class="mt-1 d-grid center">
-                                    <button type="button"  class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Beli ({{ $item->total_item }})</button>
+                                    <button type="button"  class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal"> Beli ({{ $item->sum('jumlah_barang') }}) </button>
                                 </div>
                             </div>
                         </div>
@@ -220,70 +228,75 @@ https://templatemo.com/tm-559-zay-shop
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                   
 
-                                        <div class="col-lg-12 mt-2">
-                                        
-                                            @foreach ($dtBank as $item)
-                                            <div class="row">
-                                                
-                                                <!-- Foto Bank -->
-                                                {{-- <div class="col-5 col-md-4">
-                                                    <a href=""><img src="{{ asset('img-Product/'. $item->product->gambar) }}" class="rounded img-fluid"></a>
-                                                </div> --}}
-                
-                                                <div class="col-12 col-md-12">
-                                                    <div class="row">
-                                                        <div class="col-10 col-md-10">
-                                                            <!-- Nama Bank -->
-                                                            <p class="text-uppercase fw-bold">{{ $item->bank}}</p>
-                                                        </div>
-                                                        <div class="col-2 col-md-2">
-                                                            <input class="form-check-input" style="background-color:#03ac0e" type="radio" name="bank_id" id="bank_id" value="{{ $item->id }}">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <hr class="mt-3 mb-4">
-                                            </div>
-                                            @endforeach
+                                    <div class="col-lg-12 mt-2">
+                                    
+                                        @foreach ($dtBank as $item)
+                                        <div class="row">
                                             
-                                            <div class="row mt-4">
-                                                <div class="col-12 col-md-12">
-                                                    <div class="row">
-                                                        <div class="col-10 col-md-10">
-                                                            <p class="fw-bold">Ringkasan Pembayaran</p>
-                                                        </div>
+                                            <!-- Foto Bank -->
+                                            {{-- <div class="col-5 col-md-4">
+                                                <a href=""><img src="{{ asset('img-Product/'. $item->product->gambar) }}" class="rounded img-fluid"></a>
+                                            </div> --}}
+            
+                                            <div class="col-12 col-md-12">
+                                                <div class="row">
+                                                    <div class="col-10 col-md-10">
+                                                        <!-- Nama Bank -->
+                                                        <p class="text-uppercase fw-bold">{{ $item->bank }}</p>
                                                     </div>
-                                                    <div class="row">
-                                                        <div class="col-6 col-md-6">
-                                                            <p class="fs-6">Total Bayar<p>
-                                                        </div>
-                                                        <div class="col-6 col-md-6 text-end">
-                                                            <p class="fs-6">Rp {{ $item->total_harga }}<p>
-                                                        </div>
+                                                    <div class="col-2 col-md-2">
+                                                        <input class="form-check-input" style="background-color:#03ac0e" type="radio" name="bank_id" id="bank_id" value="{{ $item->id }}">
                                                     </div>
-                                                    {{-- UNTUK DISKON NANTINYA --}}
-                                                    {{-- <div class="row">
-                                                        <div class="col-6 col-md-6">
-                                                            <p class="fs-6">Diskon<p>
-                                                        </div>
-                                                        <div class="col-6 col-md-6 text-end">
-                                                            <p class="fs-6">{{ $item->diskon }}<p>
-                                                        </div>
-                                                    </div> --}}
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-6 col-md-6">
-                                                    
-                                                </div>
-                                                <div class="col-12 col-md-12">
-                                                    <div class="d-grid mx-auto">
-                                                        <button class="btn btn-outline-success" type="submit">Bayar</button>
+                                            <hr class="mt-3 mb-4">
+                                        </div>
+                                        @endforeach
+                                        
+                                        
+                                        <div class="row mt-4">
+                                            <div class="col-12 col-md-12">
+                                                <div class="row">
+                                                    <div class="col-10 col-md-10">
+                                                        <p class="fw-bold">Ringkasan Pembayaran</p>
                                                     </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6 col-md-6">
+                                                        <p class="fs-6">Total Bayar<p>
+                                                    </div>
+                                                    <div class="col-6 col-md-6 text-end">
+                                                        @foreach ($dtCartItem as $item)
+                                                        @endforeach
+                                                        <input type="hidden" type="number" name="total_bayar" value={{ $item->sum('total_harga')+550 }}>
+                                                        <p class="fs-6">Rp {{ number_format($item->sum('total_harga')+550) }}<p>
+                                                    </div>
+                                                </div>
+                                                {{-- UNTUK DISKON NANTINYA --}}
+                                                {{-- <div class="row">
+                                                    <div class="col-6 col-md-6">
+                                                        <p class="fs-6">Diskon<p>
+                                                    </div>
+                                                    <div class="col-6 col-md-6 text-end">
+                                                        <p class="fs-6">{{ $item->diskon }}<p>
+                                                    </div>
+                                                </div> --}}
+                                            </div>
+                                        </div>
+                                        
+
+                                        <div class="row">
+                                            <div class="col-6 col-md-6">
+                                                
+                                            </div>
+                                            <div class="col-12 col-md-12">
+                                                <div class="d-grid mx-auto">
+                                                    <button class="btn btn-outline-success" type="submit">Bayar</button>
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
                                   
                                 </div>
                             </div>
