@@ -72,7 +72,7 @@ https://templatemo.com/tm-559-zay-shop
 
                 {{-- Tab Kiri --}}
                 <form class="row" action="{{ url('/add-cart') }}" method="POST">
-                    <div class="col-lg-8 mt-2">
+                    <div class="col-lg-12 mt-2">
                         <div class="card border-light">
 
                             @foreach ($dtCart as $item)
@@ -136,7 +136,7 @@ https://templatemo.com/tm-559-zay-shop
                     </div>
 
                     {{-- Tab Kanan --}}
-                    <div class="col-lg-4 mt-2">
+                    {{-- <div class="col-lg-4 mt-2">
                         <div class="card border-light" style="background-color: #F3F3F3; border-radius:20px">
                             <div class="card-body">
                                 <div class="row">
@@ -153,18 +153,18 @@ https://templatemo.com/tm-559-zay-shop
                                     <div class="col-6">
                                         <p> {{ $countCart }} </p>
                                     </div>
-                                    {{-- <div class="col-6">
+                                    <div class="col-6">
                                         <p>Ongkos Kirim</p>
                                     </div>
                                     <div class="col-6">
                                         <p>Rp {{ $item->total_harga}} </p>
-                                    </div> --}}
+                                    </div>
                                 </div>
 
                                 <div class="row">
                                     <hr class="mt-1">
                                     <div class="col-6">
-                                        <h5>Total Harga </h5>
+                                        <h5>SubTotal  </h5>
                                     </div>
                                     <div class="col-6">
                                         <h5>Rp {{ number_format($item->total_harga) }}</h5>
@@ -172,12 +172,12 @@ https://templatemo.com/tm-559-zay-shop
                                 </div>
                                 
                                 <div class="mt-2 d-grid center">
-                                    <a class="btn btn-sm btn-outline-success" type="button" href="/cart/shipment">Lanjut</a>
-                                    {{-- <button type="submit" class="btn-outline-success btn-sm" name="submit" value="addtocard">Lanjut</button> --}}
+                                    
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
+                    <a class="btn btn-sm btn-outline-success" type="button" href="/cart/shipment">Lanjut</a>
                 </form>
             </div>
         </div>
