@@ -99,14 +99,14 @@ https://templatemo.com/tm-559-zay-shop
                                             <div class="app-card-body">
                                                 
                                                 <div>
-                                                    <P class="fs-5 fw-bold">Ubah Biodata Diri</P>
+                                                    <P class="fs-5 fw-bold">Biodata Diri</P>
 
                                                     <div class="row">
                                                         <div class="col-5 col-md-2">
                                                             <P class="fs-6">Nama</P>
                                                         </div>
                                                         <div class="col-6 col-md-6">
-                                                            <P class="fs-6">Arya Yudha Reynardo</P>
+                                                            <P class="fs-6">: Arya Yudha Reynardo</P>
                                                         </div>
                                                     </div>
                                                     <div class="row">
@@ -114,7 +114,7 @@ https://templatemo.com/tm-559-zay-shop
                                                             <P class="fs-6">Jenis Kelamin</P>
                                                         </div>
                                                         <div class="col-6 col-md-6">
-                                                            <P class="fs-6">Laki - Laki</P>
+                                                            <P class="fs-6">: Laki - Laki</P>
                                                         </div>
                                                     </div>
                                                     <div class="row">
@@ -122,20 +122,20 @@ https://templatemo.com/tm-559-zay-shop
                                                             <P class="fs-6">Alamat</P>
                                                         </div>
                                                         <div class="col-6 col-md-6">
-                                                            <P class="fs-6">Perumahan Griya Parungpanjang</P>
+                                                            <P class="fs-6">: Perumahan Griya Parungpanjang</P>
                                                         </div>
                                                     </div>
                                                 </div>
 
                                                 <div class="mt-5">
-                                                    <P class="fs-5 fw-bold">Ubah Biodata Diri</P>
+                                                    <P class="fs-5 fw-bold">Akun</P>
 
                                                     <div class="row">
                                                         <div class="col-5 col-md-2">
                                                             <P class="fs-6">Email</P>
                                                         </div>
                                                         <div class="col-6 col-md-6">
-                                                            <P class="fs-6">arya@gmail.com</P>
+                                                            <P class="fs-6">: arya@gmail.com</P>
                                                         </div>
                                                     </div>
 
@@ -144,7 +144,7 @@ https://templatemo.com/tm-559-zay-shop
                                                             <P class="fs-6">Nomor HP</P>
                                                         </div>
                                                         <div class="col-6 col-md-6">
-                                                            <P class="fs-6">890478903412</P>
+                                                            <P class="fs-6">: 890478903412</P>
                                                         </div>
                                                     </div>
                                                 </div>

@@ -64,9 +64,9 @@ https://templatemo.com/tm-559-zay-shop
                 <div class="container">
                     <div class="row p-5">
                         <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" style="margin-left: 20%" src="Zay//assets/img/carousel/pet_01_black.png" alt="">
+                            <img class="img-fluid" src="Zay//assets/img/carousel/pet_01_black.png" alt="">
                         </div>
-                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                        <div class="col-lg-6 mb-5 mb-0 d-flex align-items-center">
                             <div class="text-align-left align-self-center">
                                 <h1 class="h1 text-success"><b>Aurora</b> Petshop</h1>
                                 <h3 class="h2">Tempat Aman dan Nyaman untuk hewan kesayangan anda </h3>
@@ -87,13 +87,12 @@ https://templatemo.com/tm-559-zay-shop
                         <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
                             <img class="img-fluid" src="Zay/assets/img/carousel/pet_0311.png" alt="">
                         </div>
-                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                        <div class="col-lg-6 mb-5 d-flex align-items-center">
                             <div class="text-align-left">
                                 <h1 class="h1">Banyak Pelanggan Puas!</h1>
                                 <h3 class="h2">Pengerjaan Sepenuh Hati</h3>
                                 <p>
-                                    Sejak petshop ini berdiri kami bertekad untuk menjaga dan memelihara binatang dengan sepenuh hati. 
-                                    You are <strong>not permitted</strong> to re-distribute the template ZIP file in any kind of template collection websites.
+                                    Sejak petshop ini berdiri kami bertekad untuk menjaga dan memelihara binatang dengan sepenuh hati.
                                 </p>
                             </div>
                         </div>
@@ -106,7 +105,7 @@ https://templatemo.com/tm-559-zay-shop
                         <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
                             <img class="img-fluid" style="margin-left: 60%" width="55%" src="Zay/assets/img/carousel/pet_02.png" alt="">
                         </div>
-                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                        <div class="col-lg-6 mb-5 d-flex align-items-center">
                             <div class="text-align-left">
                                 <h1 class="h1">OH IYA!!!</h1>
                                 <h3 class="h2">KITA JUGA MEMBUKA TEMPAT PENITIPAN HEWAN LHO!</h3>

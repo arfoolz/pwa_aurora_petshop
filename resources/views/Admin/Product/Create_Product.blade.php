@@ -68,10 +68,9 @@
                       <div class="form-group">
                         <p>Kategori Barang</p>
                         <select type="text" id=kategori_id name=kategori_id class="form-control" aria-label="Default select example" style="height:50px">
-                          <option disabled value>Pilih Kategori</option>
-                            @foreach ($dtKtgr as $item)
-                            <option value="{{ $item->id }}">{{ $item->kategori }}</option>
-                            @endforeach
+                          @foreach ($dtKtgr as $item)
+                          <option value="{{ $item->id }}">{{ $item->kategori }}</option>
+                          @endforeach
                         </select>
                       </div>
                     </div>
@@ -81,7 +80,6 @@
                         <p>Satuan Barang</p>
                         <div class="form-group">
                           <select type="text" id=satuan_id name=satuan_id class="form-control" aria-label="Default select example" style="height:50px">
-                            <option disabled value>Pilih Satuan</option>
                               @foreach ($dtStn as $item)
                               <option value="{{ $item->id }}">{{ $item->satuan }}</option>
                               @endforeach

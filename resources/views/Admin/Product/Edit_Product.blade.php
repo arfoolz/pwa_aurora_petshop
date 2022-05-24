@@ -39,7 +39,7 @@
 
               <div class="row g-3 mb-4 align-items-center justify-content-between">
                 <div class="col-auto">
-                    <h1 class="app-page-title mb-0">Tambah Stok Barang</h1>
+                    <h1 class="app-page-title mb-0">Edit Stok Barang</h1>
                 </div>
               </div> <!--//row-->
 
@@ -68,7 +68,6 @@
                         <div class="form-group">
                           <p>Kategori Barang</p>
                           <select type="text" id=kategori_id name=kategori_id class="form-control" aria-label="Default select example" style="height:50px">
-                            <option disabled value>Pilih Kategori</option>
                               @foreach ($dtKtgr as $item)
                               <option value="{{ $item->id }}">{{ $item->kategori }}</option>
                               @endforeach
@@ -81,7 +80,6 @@
                           <p>Satuan Barang</p>
                           <div class="form-group">
                             <select type="text" id=satuan_id name=satuan_id class="form-control" aria-label="Default select example" style="height:50px">
-                              <option disabled value>Pilih Satuan</option>
                                 @foreach ($dtStn as $item)
                                 <option value="{{ $item->id }}">{{ $item->satuan }}</option>
                                 @endforeach
@@ -93,28 +91,28 @@
                       <div class="col-12 mb-4">
                         <div class="form-group">
                           <p>Stok Barang</p>
-                          <input type="text" id=stok name=stok class="form-control" value={{ $siPrdct->stok }} onkeypress="return isNumber(event)">
+                          <input type="text" id=stok name=stok class="form-control" value={{ number_format($siPrdct->stok) }} onkeypress="return isNumber(event)">
                         </div>
                       </div>
  
                       <div class="col-12 mb-4">
                         <div class="form-group">
                           <p>Harga Jual</p>
-                          <input type="text" id=harga_jual name=harga_jual class="form-control" value={{ $siPrdct->harga_jual }}>
+                          <input type="text" id=harga_jual name=harga_jual class="form-control" value={{ number_format($siPrdct->harga_jual) }}>
                         </div>
                       </div>
 
                       <div class="col-12 mb-4">
                         <div class="form-group">
                           <p>Harga Beli</p>
-                          <input type="text" id=harga_beli name=harga_beli class="form-control" value={{ $siPrdct->harga_beli }}>
+                          <input type="text" id=harga_beli name=harga_beli class="form-control" value={{ number_format($siPrdct->harga_beli) }}>
                         </div>
                       </div>
 
                       <div class="col-12 mb-4">
                         <div class="form-group">
                           <p>Deskripsi</p>
-                          <textarea type="text" id=deskripsi name=deskripsi class="form-control" style="height:100px" value={{ $siPrdct->deskripsi }}></textarea>
+                          <input type="text" id=deskripsi name=deskripsi class="form-control" style="height:100px" value={{ $siPrdct->deskripsi }}>
                         </div>
                       </div>
 

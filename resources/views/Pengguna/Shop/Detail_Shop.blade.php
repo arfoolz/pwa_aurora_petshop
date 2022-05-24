@@ -224,15 +224,15 @@ https://templatemo.com/tm-559-zay-shop
                                 @csrf                                
                                 <div class="row">
                                     <div class="col-12">
-                                        <ul class="text-center list-inline pb-3">
+                                        <ul class="text-center list-inline TotalHarga pb-3">
                                             <li class="list-inline-item text-right">
                                                 <input type="hidden" name="produk_id" value={{ $siPrdct->id }}>
-                                                <input type="hidden" name="harga_barang" value={{ $siPrdct->harga_jual }}>
-                                                {{-- <input type="hidden" name="total_harga" value={{ $total_harga }}> --}}
+                                                <input type="hidden" type="number" onkeyup="TotalHarga()" name="harga_barang" value={{ $siPrdct->harga_jual }}>
                                             </li>
                                             {{-- <li class="list-inline-item"><span class="btn btn-success" id="btn-minus">-</span></li> --}}
                                             {{-- <li class="list-inline-item"><span style="width: 150px" name="jumlah_barang" class="badge bg-secondary" id="var-value">1</span></li> --}}
-                                            <input class="list-inline-item text-center" type="text" style="width: 150px" name="jumlah_barang" value="1">
+                                            <input class="list-inline-item text-center" id="jumlah_barang" onkeyup="TotalHarga()" type="number" style="width: 150px" name="jumlah_barang" value="1">         
+                                            <input type="hidden" name="total_harga" id="total_harga"onkeyup="TotalHarga()" class="TotalHarga" onkeyup="TotalHarga">
                                             {{-- <li class="list-inline-item"><span class="btn btn-success" id="btn-plus">+</span></li> --}}
                                         </ul>
                                         {{-- <input type="text" name="jumlah_barang" id="jumlah_barang" class="form-control"> --}}
@@ -264,6 +264,14 @@ https://templatemo.com/tm-559-zay-shop
     <script src="/Zay/assets/js/bootstrap.bundle.min.js"></script>
     <script src="/Zay/assets/js/templatemo.js"></script>
     <script src="/Zay/assets/js/custom.js"></script>
+
+    <script>
+        function TotalHarga(){                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+            jlh_brg = document.getElementById("jumlah_barang").value;
+            hrg_brg = document.getElementById("harga_jual").value;
+            total_harga = jlh_brg * hrg_brg;; 
+        }
+    </script>
     <!-- End Script -->
 </body>
 

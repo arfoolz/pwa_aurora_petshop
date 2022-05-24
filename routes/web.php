@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */ 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('Pengguna.Beranda');
+// });
 
 
 // Admin
@@ -85,6 +85,7 @@ Route::get('/logout_user', [App\Http\Controllers\Login_UserController::class, 'p
 Route::get('/profile', [App\Http\Controllers\PenggunaProfile::class, 'index']);
 
 Route::get('/beranda', [App\Http\Controllers\PenggunaBeranda::class, 'index']);
+Route::get('/', [App\Http\Controllers\PenggunaBeranda::class, 'index']);
 
 Route::get('/about', [App\Http\Controllers\PenggunaAbout::class, 'index']);
 

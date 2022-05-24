@@ -145,7 +145,7 @@ https://templatemo.com/tm-559-zay-shop
 
                                     <div class="row">
                                         <div class="col-7">
-                                            <p class="fs-6 fw-bold">{{ $item->product->harga_jual}}</p>
+                                            <p class="fs-6 fw-bold">{{ number_format($item->product->harga_jual)}}</p>
                                         </div>
 
                                         <div class="col-5 text-end">
@@ -177,13 +177,13 @@ https://templatemo.com/tm-559-zay-shop
                                         <p> Item </p>
                                     </div>
                                     <div class="col-6">
-                                        <p> {{ $item->total_item }} </p>
+                                        <p> {{ $countCart }} </p>
                                     </div>
                                     <div class="col-6">
                                         <p> Total Harga </p>
                                     </div>
                                     <div class="col-6">
-                                        <p> Rp {{ $item->total_harga }} </p>
+                                        <p> Rp {{ number_format($item->total_harga) }} </p>
                                     </div>
                                     <div class="col-6">
                                         <p>Kode Unik</p>

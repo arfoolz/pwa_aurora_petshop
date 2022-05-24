@@ -226,8 +226,8 @@ class UserAdminSeeder extends Seeder
             'kode_barang' => 'KB-001',
             'nama_barang' => 'Sakura',
             'stok'        => '10',
-            'harga_jual'  => '110.000',
-            'harga_beli'  => '100.000',
+            'harga_jual'  => '110000',
+            'harga_beli'  => '100000',
             'deskripsi'   => 'makannan terjangkau untung anjing anda',
             'gambar'      => 'ssd',
             'expired'     => $dateNow,
@@ -239,8 +239,8 @@ class UserAdminSeeder extends Seeder
             'kode_barang'    => 'KB-002',
             'nama_barang'    => 'Proplan',
             'stok'           => '20',
-            'harga_jual'     => '220.000',
-            'harga_beli'     => '200.000',
+            'harga_jual'     => '220000',
+            'harga_beli'     => '200000',
             'gambar'         => 'ssai',
             'deskripsi'      => 'ini merupakan makanan terbaik untuk kucing',
             'expired'        => $dateNow,
@@ -252,8 +252,8 @@ class UserAdminSeeder extends Seeder
             'satuan_id'      => '3',
             'nama_barang'    => 'Bottime',
             'stok'           => '30',
-            'harga_jual'     => '330.000',
-            'harga_beli'     => '300.000',
+            'harga_jual'     => '330000',
+            'harga_beli'     => '300000',
             'gambar'         => 'sssat',
             'deskripsi'      => 'ini merupakan makanan terbaik untuk kucing dan anjing',
             'expired'        => $dateNow,
@@ -264,13 +264,13 @@ class UserAdminSeeder extends Seeder
 
         
         // $harga_barang = 110000;      $jumlah_barang = 2;     $total_harga = $harga_barang * $jumlah_barang;    
-        DB::table('carts')->insert([
-            'user_id'        => '1',
-            'product_id'     => '3',
-            'jumlah_barang'  => '1',
-            'harga_barang'   => '2',
-            'total_harga'   => '4',
-        ]);
+        // DB::table('carts')->insert([
+        //     'user_id'        => '1',
+        //     'product_id'     => '3',
+        //     'jumlah_barang'  => '1',
+        //     'harga_barang'   => '110000',
+        //     'total_harga'   => '4',
+        // ]);
 
 
         // DB::table('checkouts')->insert([

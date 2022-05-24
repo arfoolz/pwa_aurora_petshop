@@ -62,7 +62,7 @@
                         </a>
                     
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        {{-- <li><a class="dropdown-item" href="#">Profil</a></li> --}}
+                        <li><a class="dropdown-item" href="/profile">Profil</a></li>
                         <li><a class="dropdown-item" href="{{ route('postlogout_user') }}">Logout</a></li>
                         </ul>
                     </div>

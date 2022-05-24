@@ -18,8 +18,8 @@ class CreateCartsTable extends Migration
             $table->foreign('product_id')->references('id')->on('products');
 
             $table->string('harga_barang');
-            $table->string('jumlah_barang');
-            $table->string('total_harga')->nullable();
+            $table->integer('jumlah_barang');
+            $table->integer('total_harga')->nullable();
             $table->timestamps();
         });
     }

@@ -45,9 +45,11 @@ class PenggunaTransaksi extends Controller
         // if ($request->session()->has('user'))
         // {
 
+            // dd($request);
             // dd($request->all());
 
-            // $total_harga = $jumlah_barang * $harga_jual;
+            // $siPrdct = Product::where($id)->first();
+            
 
             Cart::Create([
                 'user_id'       => Auth::user()->id,
@@ -55,17 +57,17 @@ class PenggunaTransaksi extends Controller
                 'jumlah_barang' => $request->jumlah_barang,
                 'harga_barang'  => $request->harga_barang,
                 'total_item'    => $request->total_item,
-                // 'total_harga'   => $total_harga,
+                'total_harga'   => $request->total_harga,
             ]);
 
         // }
-        // else
+        // else 
         // {
             return back();;
         // }
 
     }
-    
+
 
     public function indexShipment()
     {

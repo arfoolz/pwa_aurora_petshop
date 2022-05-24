@@ -98,11 +98,25 @@ https://templatemo.com/tm-559-zay-shop
                                     <div class="row mt-4">
                                         <div class="col-5">
                                             <!-- Harga Jual Barang -->
-                                            <p class="fs-6 fw-bold">Rp {{ $item->product->harga_jual}}</p>
+                                            <p class="fs-6 fw-bold">Rp {{ number_format($item->product->harga_jual) }}
                                         </div>
 
                                         <div class="col-7 mt-2">
-                                            <ul class="text-end list-inline ">
+
+                                            {{-- <td class="cart-product-quantity" width="130px">
+                                                <div class="input-group quantity">
+                                                    <div class="input-group-prepend decrement-btn" style="cursor: pointer">
+                                                        <span class="input-group-text">-</span>
+                                                    </div>
+                                                    <input type="text" class="qty-input form-control" maxlength="2" max="10" value="1">
+                                                    <div class="input-group-append increment-btn" style="cursor: pointer">
+                                                        <span class="input-group-text">+</span>
+                                                    </div>
+                                                </div>
+                                            </td> --}}
+
+
+                                            {{-- <ul class="text-end list-inline ">
                                                 <button type="button" class="btn btn-sm btn-outline-success" id="btn-minus">
                                                     -
                                                 </button>
@@ -110,7 +124,7 @@ https://templatemo.com/tm-559-zay-shop
                                                 <button type="button" class="btn btn-sm btn-outline-success" id="btn-plus">
                                                     +
                                                 </button>
-                                            </ul>
+                                            </ul> --}}
                                         </div>
                                     </div>
 
@@ -137,7 +151,7 @@ https://templatemo.com/tm-559-zay-shop
                                         <p> Item </p>
                                     </div>
                                     <div class="col-6">
-                                        {{-- <p> {{ $item->total_item }} </p> --}}
+                                        <p> {{ $countCart }} </p>
                                     </div>
                                     {{-- <div class="col-6">
                                         <p>Ongkos Kirim</p>
@@ -153,7 +167,7 @@ https://templatemo.com/tm-559-zay-shop
                                         <h5>Total Harga </h5>
                                     </div>
                                     <div class="col-6">
-                                        {{-- <h5>Rp {{ $total_harga }}</h5> --}}
+                                        <h5>Rp {{ number_format($item->total_harga) }}</h5>
                                     </div>
                                 </div>
                                 
@@ -192,7 +206,9 @@ https://templatemo.com/tm-559-zay-shop
     <script src="Zay/assets/js/bootstrap.bundle.min.js"></script>
     <script src="Zay/assets/js/templatemo.js"></script>
     <script src="Zay/assets/js/custom.js"></script>
+
     <script src="https://kit.fontawesome.com/1c164f6dc6.js" crossorigin="anonymous"></script>
+    <script src="Zay/assets/js/quantityBtn.js"></script>
     <!-- End Script -->
 </body>
 

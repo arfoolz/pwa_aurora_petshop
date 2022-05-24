@@ -174,7 +174,7 @@
                                 <div class="table-responsive rounded">
                                     <table class="table app-table-hover mb-0 text-left">
                                         <thead>
-                                            <tr style="text-align: center;">
+                                            <tr>
                                                 <th class="cell">Kode Barang</th>
                                                 <th class="cell">Nama</th>
                                                 <th class="cell">Kategori</th>
@@ -187,18 +187,18 @@
                                         </thead>
                                         <tbody>
                                             @foreach ($dtPrdct as $item)
-                                            <tr style="text-align: center;">
+                                            <tr>
                                                 <td class="cell">{{ $item->kode_barang }}</td>
                                                 <td class="cell">{{ $item->nama_barang }}</td>
                                                 <td class="cell">{{ $item->kategori->kategori}}</td>
                                                 <td class="cell">{{ $item->satuan->satuan}}</td>
-                                                <td class="cell">{{ $item->stok }}</td>
-                                                <td class="cell">Rp {{ $item->harga_jual }}</td>
-                                                <td width=30% class="cell"> <img src="{{ asset('img-Product/'. $item->gambar) }}" height="10%" width="40%" alt="" srcset=""> </td>                                     
-                                                <td>
+                                                <td class="cell">{{ number_format($item->stok) }}</td>
+                                                <td class="cell">Rp {{ number_format($item->harga_jual) }}</td>
+                                                <td width=20% class="cell"> <img src="{{ asset('img-Product/'. $item->gambar) }}" height="10%" width="40%" alt="" srcset=""> </td>                                     
+                                                <td class="cell">
                                                     <div class="dropdown">
                                                         <a class="btn-sm app-btn-secondary" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                                          ..
+                                                          View
                                                         </a>
                                                       
                                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -215,7 +215,7 @@
                             </div> <!--//app-card-body-->
                         </div> <!--//app-card-->
 
-                        <nav class="app-pagination">
+                        {{-- <nav class="app-pagination">
                             <ul class="pagination justify-content-center">
                                 <li class="page-item disabled">
                                     <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
@@ -227,7 +227,7 @@
                                     <a class="page-link" href="#">Next</a>
                                 </li>
                             </ul>
-                        </nav> <!--//app-pagination-->
+                        </nav> <!--//app-pagination--> --}}
                        
 
                     </div> <!--//tab-pane-->
@@ -236,18 +236,6 @@
             <!--//container-fluid-->
         </div>
         <!--//app-content-->
-
-        <footer class="app-footer">
-            <div class="container text-center py-3">
-                <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
-                <small class="copyright">Designed with <i class="fas fa-heart" style="color: #fb866a;"></i> by
-                    <a class="app-link" href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a>
-                    for developers</small>
-
-            </div>
-        </footer>
-        <!--//app-footer-->
-
     </div>
     <!--//app-wrapper-->
 

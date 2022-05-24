@@ -9,6 +9,7 @@ use App\Models\PetCare;
 use App\Models\Size;
 use App\Models\Bank;
 use DB;
+use Auth;
 
 class PenggunaPetCare extends Controller
 {
@@ -36,12 +37,12 @@ class PenggunaPetCare extends Controller
         // if ($request->session()->has('user'))
         // {
 
-            dd($request->all());
+            // dd($request->all());
 
             // $total_harga = $jumlah_barang * $harga_jual;
 
             PetCare::Create([
-                'user_id'          => $request->Auth::user()->id,
+                'user_id'          => Auth::user()->id,
                 'nama_pemilik'     => $request->nama_pemilik,
                 'jenis_hewan'      => $request->jenis_hewan,
                 'ukuran_hewan'     => $request->ukuran_hewan,
@@ -52,7 +53,7 @@ class PenggunaPetCare extends Controller
                 'no_tlpn'          => $request->no_tlpn,
                 'alamat'           => $request->alamat,
                 'bank_id'          => $request->bank_id,
-                'jumlah_bayar'     => $jumlah_bayar
+                // 'jumlah_bayar'     => $jumlah_bayar
 
             ]);
 

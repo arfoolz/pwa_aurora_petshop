@@ -149,13 +149,12 @@ https://templatemo.com/tm-559-zay-shop
         <div class="row pt-3">
             @foreach ($dtPrdct as $item)
             <div class="col-6 col-md-2 mt-3">
-                
                 <div class="card border-light shadow" style="background-color: #FAFCFC">
                     <a href="{{ url('detail-shop', $item->id) }}}">
                     <img src="{{ asset('img-Product/'. $item->gambar) }}" class="rounded img-fluid">
                         <div class="card-body">
                             <h2 class="h5 text-left mt-1 mb-2">{{ $item->nama_barang }}</h2>
-                            <p class="fs-6 text-left mt-1">Rp {{ $item->harga_jual }}</p>
+                            <p class="fs-6 text-left mt-1">Rp {{ number_format($item->harga_jual) }}</p>
                         </div>
                     </a>
                 </div>
