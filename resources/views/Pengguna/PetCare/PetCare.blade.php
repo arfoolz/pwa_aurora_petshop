@@ -96,8 +96,11 @@ https://templatemo.com/tm-559-zay-shop
                             </a>
                         
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            {{-- <li><a class="dropdown-item" href="#">Profil</a></li> --}}
-                            <li><a class="dropdown-item" href="{{ route('postlogout_user') }}">Logout</a></li>
+                                @foreach ($dtUser as $item)
+                                <a class="dropdown-item" hidden>Profil</a>
+                                @endforeach
+                                <a class="dropdown-item" href="{{ url('profile', $item->id) }}}">Profil</a>
+                                <li><a class="dropdown-item" href="{{ route('postlogout_user') }}">Logout</a></li>
                             </ul>
                         </div>
                     @endif

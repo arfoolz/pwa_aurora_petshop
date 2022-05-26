@@ -77,14 +77,14 @@ https://templatemo.com/tm-559-zay-shop
                                     </a>
                                     <a class="flex-sm-fill text-sm-center nav-link" id="profile-order-history-tab" data-bs-toggle="tab"
                                         href="#profile-order-history" role="tab" aria-controls="profile-order-history" aria-selected="false">
-                                        Order History
+                                        Order Histori
                                     </a>
-                                    {{-- <a class="flex-sm-fill text-sm-center nav-link" id="orders-pending-tab" data-bs-toggle="tab"
-                                        href="#orders-pending" role="tab" aria-controls="orders-pending"
+                                    <a class="flex-sm-fill text-sm-center nav-link" id="profile-petcare-history-tab" data-bs-toggle="tab"
+                                        href="#profile-petcare-history" role="tab" aria-controls="profile-petcare-history"
                                         aria-selected="false">
-                                        Pending
+                                        PetCare Histori
                                     </a>
-                                    <a class="flex-sm-fill text-sm-center nav-link" id="orders-cancelled-tab" data-bs-toggle="tab"
+                                    {{-- <a class="flex-sm-fill text-sm-center nav-link" id="orders-cancelled-tab" data-bs-toggle="tab"
                                         href="#orders-cancelled" role="tab" aria-controls="orders-cancelled"
                                         aria-selected="false">
                                         Cancelled
@@ -164,7 +164,58 @@ https://templatemo.com/tm-559-zay-shop
                                                             <tr>
                                                                 <th class="cell">Order</th>
                                                                 <th class="cell">Product</th>
-                                                                <th class="cell">Customer</th>
+                                                                <th class="cell">Date</th>
+                                                                <th class="cell">Status</th>
+                                                                <th class="cell">Total</th>
+                                                                {{-- <th class="cell"></th> --}}
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td class="cell">#15346</td>
+                                                                <td class="cell">
+                                                                    <span class="truncate">Lorem ipsum
+                                                                    dolor sit amet eget volutpat erat</span>
+                                                                </td>
+                                                                <td class="cell">
+                                                                    <span>17 Oct</span>
+                                                                    <span class="note">2:16 PM</span>
+                                                                </td>
+                                                                <td class="cell">
+                                                                    <span class="badge bg-success">Paid</span>
+                                                                </td>
+                                                                <td class="cell">$259.35</td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td class="cell">#15344</td>
+                                                                <td class="cell"><span class="truncate">Pellentesque
+                                                                        diam imperdiet</span></td>
+                                                                <td class="cell"><span class="cell-data">16
+                                                                        Oct</span><span class="note">01:16 AM</span></td>
+                                                                <td class="cell"><span class="badge bg-danger">Unpaid</span>
+                                                                </td>
+                                                                <td class="cell">$123.00</td>
+                                                                
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div> <!--//table-responsive-->
+                                            </div> <!--//app-card-body-->
+                                        </div> <!--//app-card-->
+                                    </div> <!--//tab-pane-->
+
+                                    <div class="tab-pane fade" id="profile-petcare-history" role="tabpanel" aria-labelledby="profile-petcare-history-tab">
+                                        <div class="app-card app-card-profile-table mb-5">
+                                            <div class="app-card-body">
+                                                <div class="table-responsive">
+
+                                                    <table class="table mb-0 text-left">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="cell">Order</th>
+                                                                <th class="cell">Kandang</th>
+                                                                <th class="cell">Jenis Hewan</th>
                                                                 <th class="cell">Date</th>
                                                                 <th class="cell">Status</th>
                                                                 <th class="cell">Total</th>
@@ -174,67 +225,40 @@ https://templatemo.com/tm-559-zay-shop
                                                         <tbody>
                                                             <tr>
                                                                 <td class="cell">#15346</td>
-                                                                <td class="cell"><span class="truncate">Lorem ipsum
-                                                                        dolor sit amet eget volutpat erat</span></td>
-                                                                <td class="cell">John Sanders</td>
-                                                                <td class="cell"><span>17 Oct</span><span
-                                                                        class="note">2:16 PM</span></td>
-                                                                <td class="cell"><span class="badge bg-success">Paid</span>
+                                                                <td class="cell">
+                                                                    <span class="truncate">Lorem ipsum
+                                                                    dolor sit amet eget volutpat erat</span>
+                                                                </td>
+                                                                <td class="cell">Kucing</td>
+                                                                <td class="cell">
+                                                                    <span>17 Oct</span>
+                                                                    <span class="note">2:16 PM</span>
+                                                                </td>
+                                                                <td class="cell">
+                                                                    <span class="badge bg-success">Paid</span>
                                                                 </td>
                                                                 <td class="cell">$259.35</td>
-                                                                <td class="cell"><a class="btn-sm app-btn-secondary"
-                                                                        href="#">View</a></td>
                                                             </tr>
 
                                                             <tr>
                                                                 <td class="cell">#15344</td>
                                                                 <td class="cell"><span class="truncate">Pellentesque
                                                                         diam imperdiet</span></td>
-                                                                <td class="cell">Teresa Holland</td>
+                                                                <td class="cell">Anjing</td>
                                                                 <td class="cell"><span class="cell-data">16
                                                                         Oct</span><span class="note">01:16 AM</span></td>
-                                                                <td class="cell"><span class="badge bg-success">Paid</span>
+                                                                <td class="cell"><span class="badge bg-danger">Unpaid</span>
                                                                 </td>
                                                                 <td class="cell">$123.00</td>
-                                                                <td class="cell"><a class="btn-sm app-btn-secondary"
-                                                                        href="#">View</a></td>
+                                                                
                                                             </tr>
-
-                                                            <tr>
-                                                                <td class="cell">#15343</td>
-                                                                <td class="cell"><span class="truncate">Vestibulum a
-                                                                        accumsan lectus sed mollis ipsum</span></td>
-                                                                <td class="cell">Jayden Massey</td>
-                                                                <td class="cell"><span class="cell-data">15
-                                                                        Oct</span><span class="note">8:07 PM</span></td>
-                                                                <td class="cell"><span class="badge bg-success">Paid</span>
-                                                                </td>
-                                                                <td class="cell">$199.00</td>
-                                                                <td class="cell"><a class="btn-sm app-btn-secondary"
-                                                                        href="#">View</a></td>
-                                                            </tr>
-
-
-                                                            <tr>
-                                                                <td class="cell">#15341</td>
-                                                                <td class="cell"><span class="truncate">Morbi
-                                                                        vulputate lacinia neque et sollicitudin</span></td>
-                                                                <td class="cell">Raymond Atkins</td>
-                                                                <td class="cell"><span class="cell-data">11
-                                                                        Oct</span><span class="note">11:18 AM</span></td>
-                                                                <td class="cell"><span class="badge bg-success">Paid</span>
-                                                                </td>
-                                                                <td class="cell">$678.26</td>
-                                                                <td class="cell"><a class="btn-sm app-btn-secondary"
-                                                                        href="#">View</a></td>
-                                                            </tr>
-
                                                         </tbody>
                                                     </table>
                                                 </div> <!--//table-responsive-->
                                             </div> <!--//app-card-body-->
                                         </div> <!--//app-card-->
                                     </div> <!--//tab-pane-->
+                                    
                                 </div><!--//tab-content-->
                             </div> <!-- End isi Cart -->
                         {{-- @endforeach --}}
