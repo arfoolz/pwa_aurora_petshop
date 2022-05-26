@@ -32,7 +32,8 @@ class CreateDetailOrderPetcareTable extends Migration
             $table->unsignedBigInteger('paystat_id');
             $table->foreign('paystat_id')->references('id')->on('paystats');
             
-            $table->date('total_bayar');
+            $table->integer('total_barang');
+            $table->integer('total_harga');
 
             $table->timestamps();
         });
