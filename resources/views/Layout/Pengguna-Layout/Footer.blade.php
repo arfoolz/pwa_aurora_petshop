@@ -8,7 +8,8 @@
                     <ul class="list-unstyled text-light footer-link-list">
                         <li>
                             <i class="fas fa-map-marker-alt fa-fw"></i>
-                            Jl. Raya Hankam No.10, RT.004/RW.005, Jatimurni, Kec. Pd. Melati, Kota Bks, Jawa Barat 17431
+                            <a class="text-decoration-none" href="https://goo.gl/maps/X1UB78nZVV6j3ibA9">Jl. Raya Hankam No.10, 
+                                RT.004/RW.005, Jatimurni, Kec. Pd. Melati, Kota Bks, Jawa Barat 17431</a>
                         </li>
                         <li>
                             <i class="fa fa-phone fa-fw"></i>
