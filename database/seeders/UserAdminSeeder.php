@@ -31,6 +31,14 @@ class UserAdminSeeder extends Seeder
         ]);
 
 
+        DB::table('status')->insert([
+            'status' => 'Tersedia',
+        ]);
+        DB::table('status')->insert([
+            'status' => 'Terisi',
+        ]);
+
+        
         DB::table('banks')->insert([
             'bank'        => 'CIMB Niaga',
             'no_rekening' => '705586972100 ',
@@ -225,7 +233,7 @@ class UserAdminSeeder extends Seeder
             'satuan_id'   => '1',
             'kode_barang' => 'KB-001',
             'nama_barang' => 'Sakura',
-            'stok'        => '10',
+            // 'stok'        => '10',
             'harga_jual'  => '110000',
             'harga_beli'  => '100000',
             'deskripsi'   => 'makannan terjangkau untung anjing anda',
@@ -238,7 +246,7 @@ class UserAdminSeeder extends Seeder
             'satuan_id'      => '2',
             'kode_barang'    => 'KB-002',
             'nama_barang'    => 'Proplan',
-            'stok'           => '20',
+            // 'stok'           => '20',
             'harga_jual'     => '220000',
             'harga_beli'     => '200000',
             'gambar'         => 'ssai',
@@ -251,14 +259,27 @@ class UserAdminSeeder extends Seeder
             'kategori_id'    => '3',
             'satuan_id'      => '3',
             'nama_barang'    => 'Bottime',
-            'stok'           => '30',
+            // 'stok'           => '30',
             'harga_jual'     => '330000',
             'harga_beli'     => '300000',
             'gambar'         => 'sssat',
             'deskripsi'      => 'ini merupakan makanan terbaik untuk kucing dan anjing',
             'expired'        => $dateNow,
         ]);
+        
        
+        DB::table('cages')->insert([
+            'kode_barang'    => 'KB-003',
+            'kategori_id'    => '3',
+            'satuan_id'      => '3',
+            'nama_barang'    => 'Bottime',
+            // 'stok'           => '30',
+            'harga_jual'     => '330000',
+            'harga_beli'     => '300000',
+            'gambar'         => 'sssat',
+            'deskripsi'      => 'ini merupakan makanan terbaik untuk kucing dan anjing',
+            'expired'        => $dateNow,
+        ]);
 
         // DB::insert('insert into carts (id, user_id, produk_id) values (?, ?, ?)', [1, 1, 1]);
 

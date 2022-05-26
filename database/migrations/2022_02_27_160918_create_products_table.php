@@ -23,7 +23,6 @@ class CreateProductsTable extends Migration
             
             $table->string('kode_barang', 100)->unique();
             $table->string('nama_barang', 50);
-            $table->string('stok');
             $table->string('harga_jual');
             $table->string('harga_beli');
             $table->string('gambar', 255)->nullable();
