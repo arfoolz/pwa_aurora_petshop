@@ -16,9 +16,14 @@ class CreateOrderShopTable extends Migration
             // Ambil dari Tabel Product
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products');
+
+            // Ambil dari Tabel User
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             
             $table->integer('harga_barang');
             $table->integer('jumlah_barang');
+            $table->integer('jumlah_harga');
 
             $table->string('nama_kontak');
             $table->string('no_tlpn');

@@ -12,10 +12,6 @@ class CreateDetailOrderShopTable extends Migration
         Schema::create('detail_order_shop', function (Blueprint $table) {
             $table->id();
 
-            // Ambil dari Tabel Users
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-
             // Ambil dari Tabel Product
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products');
@@ -28,8 +24,8 @@ class CreateDetailOrderShopTable extends Migration
             $table->unsignedBigInteger('paystat_id');
             $table->foreign('paystat_id')->references('id')->on('paystats');
             
-            $table->date('total_item');
-            $table->date('total_bayar');
+            $table->date('total_barang');
+            $table->date('total_harga');
             
             $table->timestamps();
         });

@@ -6,33 +6,39 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use DB;
 
-class Order_shop extends Model
+class Order_Shop extends Model
 {
     use HasFactory;
 
-    protected $table = "carts";
+    protected $table = "order_shop";
     protected $primaryKey = "id";
     protected $fillable = [
         'id',
+        'no_resi',
+        'tanggal_transaksi',                     
         'user_id',
         'product_id',
-        'harga_barang',
         'jumlah_barang',
-        'total_harga',
+        'jumlah_harga',
+          
+        'nama_kontak',
+        'no_tlpn',
+        'alamat',
+        'provinsi',
+        'kabupaten',
+        'kecamatan',
+        'kode_pos',
+        'catatan',
     ];
+
+    public function detail_order_shop()
+    {
+    return $this->belongsTo(Detail_Order_Shop::class);
+    }
 
     public function product()
     {   
     return $this->belongsTo(Product::class);
     }
-
-    public function user()
-    {
-    return $this->belongsTo(User::class);
-    }
-
-    public function bank()
-    {
-    return $this->belongsTo(Bank::class);
-    }
+   
 }
