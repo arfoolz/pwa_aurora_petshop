@@ -14,7 +14,7 @@ class Product extends Model
         'nama_barang',
         'kategori_id',
         'satuan_id',
-        'stok',
+        // 'stok',
         'harga_jual',
         'harga_beli',
         'gambar',

@@ -10,7 +10,7 @@ class CreateOrderShopTable extends Migration
     {
         Schema::create('order_shop', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_resi')->unique();
+            // $table->string('kode_resi')->unique();
             $table->date('tanggal_transaksi');
     
             // Ambil dari Tabel Product
@@ -21,9 +21,9 @@ class CreateOrderShopTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             
-            $table->integer('harga_barang');
-            $table->integer('jumlah_barang');
-            $table->integer('jumlah_harga');
+            $table->string('harga_barang');
+            $table->string('jumlah_barang');
+            $table->string('jumlah_harga');
 
             $table->string('nama_kontak');
             $table->string('no_tlpn');

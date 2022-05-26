@@ -18,7 +18,7 @@ class Cart extends Model
         'product_id',
         'harga_barang',
         'jumlah_barang',
-        'total_harga',
+        'jumlah_harga',
     ];
 
     public function product()

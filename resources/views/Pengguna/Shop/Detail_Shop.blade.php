@@ -232,7 +232,6 @@ https://templatemo.com/tm-559-zay-shop
                                             {{-- <li class="list-inline-item"><span class="btn btn-success" id="btn-minus">-</span></li> --}}
                                             {{-- <li class="list-inline-item"><span style="width: 150px" name="jumlah_barang" class="badge bg-secondary" id="var-value">1</span></li> --}}
                                             <input class="list-inline-item text-center" id="jumlah_barang" type="number" style="width: 150px" name="jumlah_barang" value="1">         
-                                            {{-- <input type="hidden" name="sub_total" id="sub_total class="total_harga" onkeyup="total_harga"> --}}
                                             {{-- <li class="list-inline-item"><span class="btn btn-success" id="btn-plus">+</span></li> --}}
                                         </ul>
                                         {{-- <input type="text" name="jumlah_barang" id="jumlah_barang" class="form-control"> --}}

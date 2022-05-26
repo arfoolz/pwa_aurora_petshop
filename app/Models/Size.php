@@ -8,14 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Size extends Model
 {
     use HasFactory;
+    
     protected $table = "sizes";
     protected $primaryKey = "id";
     protected $fillable = [
-        'id','size','harga'
+        'size','harga'
     ];
 
-    public function petcare()
+    public function cage()
     {
-        return $this->belongsTo(PetCare::class);
+        return $this->hasMany(Cage::class);
     }
 }

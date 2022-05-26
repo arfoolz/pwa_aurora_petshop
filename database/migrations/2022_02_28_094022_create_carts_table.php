@@ -19,7 +19,7 @@ class CreateCartsTable extends Migration
 
             $table->string('harga_barang');
             $table->integer('jumlah_barang');
-            $table->integer('total_harga')->nullable();
+            $table->integer('jumlah_harga')->nullable();
             $table->timestamps();
         });
     }

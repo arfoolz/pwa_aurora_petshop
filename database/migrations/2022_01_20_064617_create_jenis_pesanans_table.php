@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePesanansTable extends Migration
+class CreateJenisPesanansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreatePesanansTable extends Migration
      */
     public function up()
     {
-        Schema::create('pesanans', function (Blueprint $table) {
+        Schema::create('jenis_pesanans', function (Blueprint $table) {
             $table->id();
-            $table->string('pesanan');
+            $table->string('jenis_pesanan');
             $table->timestamps();
         });
     }

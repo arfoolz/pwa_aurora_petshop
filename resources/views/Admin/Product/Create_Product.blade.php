@@ -88,12 +88,12 @@
                       </div>
                     </div>
     
-                    <div class="col-12 mb-4">
+                    {{-- <div class="col-12 mb-4">
                       <div class="form-group">
                         <p>Stok Barang</p>
                         <input type="text" id=stok name=stok class="form-control" onkeypress="return isNumber(event)">
                       </div>
-                    </div>
+                    </div> --}}
 
                     <div class="col-12 mb-4">
                       <div class="form-group">

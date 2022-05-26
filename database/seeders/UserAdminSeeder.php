@@ -49,11 +49,11 @@ class UserAdminSeeder extends Seeder
         ]);
 
 
-        DB::table('pesanans')->insert([
-            'pesanan' => 'Barang',
+        DB::table('jenis_pesanans')->insert([
+            'jenis_pesanan' => 'Barang',
         ]);
-        DB::table('pesanans')->insert([
-            'pesanan' => 'Titipan',
+        DB::table('jenis_pesanans')->insert([
+            'jenis_pesanan' => 'Titipan',
         ]);
 
 
@@ -66,16 +66,16 @@ class UserAdminSeeder extends Seeder
 
 
         DB::table('sizes')->insert([
-            'size'  => 'Kecil',
-            'Harga' => '5000',
+            'size'      => 'Kecil',
+            'harga'     => '5000',
         ]);
         DB::table('sizes')->insert([
-            'size'  => 'Sedang',
-            'Harga' => '10000',
+            'size'      => 'Sedang',
+            'harga'     => '10000',
         ]);
         DB::table('sizes')->insert([
-            'size'  => 'Besar',
-            'Harga' => '15000',
+            'size'      => 'Besar',
+            'harga'     => '15000',
         ]);
 
 
@@ -172,7 +172,7 @@ class UserAdminSeeder extends Seeder
         // User::truncate();
         User::create (
             [
-            'kode_user'      => 'usr-000',
+            'kode_user'      => 'usr-001',
             'nama_user'      => 'Arya Yudha Reynardo',
             'level_id'       => '1',
             'gender_id'      => '1',
@@ -185,20 +185,20 @@ class UserAdminSeeder extends Seeder
         );
         User::create (
             [
-            'kode_user'      => 'usr-001',
-            'nama_user'      => 'Agus',
-            'level_id'       => '1',
-            'gender_id'      => '1',
-            'email'          => 'agus@gmail.com',
-            'alamat'         => 'Griya Parung panjang',
-            'no_tlpn'        => '081293209055',
-            'password'       => bcrypt('agus1'),
+            'kode_user'      => 'usr-002',
+            'nama_user'      => 'Gracia Gerung',
+            'level_id'       => '4',
+            'gender_id'      => '2',
+            'email'          => 'cia@gmail.com',
+            'alamat'         => 'Bekasi',
+            'no_tlpn'        => '081122334455',
+            'password'       => bcrypt('cia123123'),
             'remember_token' => Str::random(60),
             ]
         );
         User::create (
             [
-            'kode_user'      => 'usr-002',
+            'kode_user'      => 'usr-003',
             'nama_user'      => 'mel',
             'level_id'       => '2',
             'gender_id'      => '2',
@@ -209,19 +209,7 @@ class UserAdminSeeder extends Seeder
             'remember_token' => Str::random(60),
             ]
         );
-        User::create (
-            [
-            'kode_user'      => 'usr-003',
-            'nama_user'      => 'rian3',
-            'level_id'       => '2',
-            'gender_id'      => '2',
-            'email'          => 'rian@gmail.com',
-            'alamat'         => 'Tangerang Barat',
-            'no_tlpn'        => '082211334455',
-            'password'       => bcrypt('rian3'),
-            'remember_token' => Str::random(60),
-            ]
-        );
+        
 
         
         $dt = Carbon::now();
@@ -269,16 +257,35 @@ class UserAdminSeeder extends Seeder
         
        
         DB::table('cages')->insert([
-            'kode_barang'    => 'KB-003',
-            'kategori_id'    => '3',
-            'satuan_id'      => '3',
-            'nama_barang'    => 'Bottime',
-            // 'stok'           => '30',
-            'harga_jual'     => '330000',
-            'harga_beli'     => '300000',
-            'gambar'         => 'sssat',
-            'deskripsi'      => 'ini merupakan makanan terbaik untuk kucing dan anjing',
-            'expired'        => $dateNow,
+            'kode_kandang'   => 'KC-001',
+            'no_kandang'     => '01',
+            'size_id'        => '1',
+            'harga_id'       => '1',
+            'status_id'      => '1',
+        ]);
+
+        DB::table('cages')->insert([
+            'kode_kandang'   => 'KC-002',
+            'no_kandang'     => '02',
+            'size_id'        => '2',
+            'harga_id'       => '2',
+            'status_id'      => '1',
+        ]);
+
+        DB::table('cages')->insert([
+            'kode_kandang'   => 'KC-003',
+            'no_kandang'     => '03',
+            'size_id'        => '3',
+            'harga_id'       => '3',
+            'status_id'      => '1',
+        ]);
+
+        DB::table('cages')->insert([
+            'kode_kandang'   => 'KC-004',
+            'no_kandang'     => '04',
+            'size_id'        => '1',
+            'harga_id'       => '1',
+            'status_id'      => '2',
         ]);
 
         // DB::insert('insert into carts (id, user_id, produk_id) values (?, ?, ?)', [1, 1, 1]);

@@ -12,11 +12,20 @@ class Cage extends Model
     protected $table = "cages";
     protected $primaryKey = "id";
     protected $fillable = [
-        'id','cage',
+        'kode_kandang',
+        'nama_kandang',
+        'no_kandang',
+        'size_id',
+        'harga_id',
+        'status_id',
     ];
 
     public function status()
     {
         return $this->belongsTo(Status::class);
+    }
+    public function size()
+    {
+        return $this->belongsTo(Size::class);
     }
 }

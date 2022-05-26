@@ -90,8 +90,9 @@ Route::get('/', [App\Http\Controllers\PenggunaBeranda::class, 'index']);
 Route::get('/about', [App\Http\Controllers\PenggunaAbout::class, 'index']);
 
 Route::get('/petcare', [App\Http\Controllers\PenggunaPetCare::class, 'index']);
+Route::get('/detail-petcare/{id}', [App\Http\Controllers\PenggunaPetCare::class, 'detail']);
 Route::get('/petcare/order', [App\Http\Controllers\PenggunaPetCare::class, 'indexOrder']);
-Route::post('/add-order', [App\Http\Controllers\PenggunaPetCare::class, 'addToOrder']);
+Route::post('/add-order-petcare', [App\Http\Controllers\PenggunaPetCare::class, 'addToOrderPetCare']);
 
 Route::get('/shop', [App\Http\Controllers\PenggunaShop::class, 'index']);
 Route::get('/detail-shop/{id}', [App\Http\Controllers\PenggunaShop::class, 'detail']);
@@ -101,4 +102,4 @@ Route::post('/add-cart', [App\Http\Controllers\PenggunaTransaksi::class, 'addToC
 Route::get('/delete-cart/{id}', [App\Http\Controllers\PenggunaTransaksi::class, 'destroy']);
 
 Route::get('/cart/shipment', [App\Http\Controllers\PenggunaTransaksi::class, 'indexShipment']);
-Route::post('/add-checkout', [App\Http\Controllers\PenggunaTransaksi::class, 'addToCheckout']);
+Route::post('/add-order-shop', [App\Http\Controllers\PenggunaTransaksi::class, 'addToOrderShop']);

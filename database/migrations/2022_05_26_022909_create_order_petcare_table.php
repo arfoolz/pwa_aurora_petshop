@@ -30,8 +30,8 @@ class CreateOrderPetcareTable extends Migration
             $table->unsignedBigInteger('cage_id');
             $table->foreign('cage_id')->references('id')->on('cages');
             
-            $table->integer('jumlah_cage');
-            $table->integer('jumlah_harga');
+            $table->string('jumlah_cage');
+            $table->string('jumlah_harga');
             $table->date('tanggal_checkin');
             $table->date('tanggal_checkout');
 

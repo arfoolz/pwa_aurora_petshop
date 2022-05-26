@@ -65,13 +65,13 @@ https://templatemo.com/tm-559-zay-shop
                 </div>
 
                 {{-- Tab Kiri --}}
-                <form class="row" action="{{ url('/add-checkout') }}" method="POST">
+                <form class="row" action="{{ url('/add-order-shop') }}" method="POST">
 
                     {{ csrf_field() }}
                     
                     <div class="mt-2 col-md-6">
                         <label class="form-label">Nama Penerima</label>
-                        <input type="text" class="form-control" name="nama_penerima">
+                        <input type="text" class="form-control" name="nama_kontak">
                     </div>
                     <div class="mt-2 col-md-6">
                         <label class="form-label">Nomor Hp</label>
@@ -157,10 +157,10 @@ https://templatemo.com/tm-559-zay-shop
                                 <hr class="mt-3 mb-4">
 
                                 <!-- Input Barang -->
-                                <input type="hidden" type="number" name="product_id[]" value={{ $item->product_id }}>
+                                <input type="hidden" type="number" name="product_id[]" value={{ $item->id }}>
                                 <input type="hidden" type="number" name="nama_barang[]" value={{ $item->product->nama_barang }}>
+                                <input type="hidden" type="number" name="jumlah_barang[]" value={{ $item->jumlah_barang }}>
                                 <input type="hidden" type="number" name="harga_barang[]" value={{ $item->harga_barang }}>
-                                <input type="hidden" type="number" name="total_item[]" value={{ $item->jumlah_barang }}>
 
                             </div> <!-- End isi Cart -->
                             @endforeach
@@ -168,6 +168,7 @@ https://templatemo.com/tm-559-zay-shop
                     </div>
 
                     {{-- Tab Kanan --}}
+
                     <div class="col-lg-4 mt-2">
                         <div class="card border-light" style="background-color: #F3F3F3; border-radius:20px">
                             <div class="card-body">
@@ -184,13 +185,13 @@ https://templatemo.com/tm-559-zay-shop
                                         <p> Item </p>
                                     </div>
                                     <div class="col-6">
-                                        <p> {{ $countCart }} </p>
+                                        <p>  </p>
                                     </div>
                                     <div class="col-6">
                                         <p> Total Harga </p>
                                     </div>
                                     <div class="col-6">
-                                        <p> Rp {{ number_format($item->sum('total_harga')) }} </p>
+                                        <p> Rp {{ number_format($item->sum('jumlah_harga')) }} </p>
                                     </div>
                                     <div class="col-6">
                                         <p>Kode Unik</p>
@@ -206,8 +207,7 @@ https://templatemo.com/tm-559-zay-shop
                                         <h5>Total Tagihan </h5>
                                     </div>
                                     <div class="col-6">
-                                        <p class="fs-5 fw-bold">Rp {{ number_format($item->sum('total_harga')+550) }}<p>
-                                        
+                                        <p class="fs-5 fw-bold">Rp {{ number_format($item->sum('jumlah_harga')+550) }}<p>
                                     </div>
                                 </div>
 
@@ -269,8 +269,8 @@ https://templatemo.com/tm-559-zay-shop
                                                     <div class="col-6 col-md-6 text-end">
                                                         @foreach ($dtCartItem as $item)
                                                         @endforeach
-                                                        <input type="hidden" type="number" name="total_bayar" value={{ $item->sum('total_harga')+550 }}>
-                                                        <p class="fs-6">Rp {{ number_format($item->sum('total_harga')+550) }}<p>
+                                                        {{-- <input type="hidden" type="number" name="total_bayar" value={{ $item->sum('jumlah_harga')+550 }}> --}}
+                                                        <p class="fs-6">Rp {{ number_format($item->sum('jumlah_harga')+550) }}<p>
                                                     </div>
                                                 </div>
                                                 {{-- UNTUK DISKON NANTINYA --}}
@@ -302,6 +302,7 @@ https://templatemo.com/tm-559-zay-shop
                             </div>
                         </div>
                     </div>
+                    
                 </form>
             </div>
         </div>
