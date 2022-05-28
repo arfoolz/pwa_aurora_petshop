@@ -3,6 +3,9 @@
 
 <head>
     <title>Aurora Petshop</title>
+
+    @laravelPWA
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,17 +16,10 @@
     <link rel="stylesheet" href="/Zay/assets/css/templatemo.css">
     <link rel="stylesheet" href="/Zay/assets/css/custom.css">
     
-
     <!-- Load fonts style after rendering the layout styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <link rel="stylesheet" href="/Zay/assets/css/fontawesome.min.css">
-<!--
-    
-TemplateMo 559 Zay Shop
 
-https://templatemo.com/tm-559-zay-shop
-
--->
 </head>
 
 <body>
@@ -199,6 +195,17 @@ https://templatemo.com/tm-559-zay-shop
                             </ul> --}}
 
                             <div class="row">
+                                <div class="col-6">
+                                    <p>{{ $siPrdct->kategori->kategori }}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <p>{{ $siPrdct->satuan->satuan }}</p>
+                                </div>
+                            </div>
+
+                            <div class="row">
                                 <div class="col-12">                 
                                     <p>{{ $siPrdct->deskripsi }}</p>
                                 </div>
@@ -215,27 +222,23 @@ https://templatemo.com/tm-559-zay-shop
 
                             <form action="{{ url('/add-cart') }}" method="POST">
 
-                                {{-- @php
-                                    $a = 2;
-                                    $b = (int)$siPrdct->$harga_jual
-                                    $total_harga = $a * $b;
-                                @endphp --}}
-
                                 @csrf                                
+                                
                                 <div class="row">
                                     <div class="col-12">
                                         <ul class="text-center list-inline pb-3">
                                             <li class="list-inline-item text-right">
                                                 <input type="hidden" name="produk_id" value={{ $siPrdct->id }}>
-                                                <input type="hidden" type="number" name="harga_barang" value={{ $siPrdct->harga_jual }}>
+                                                <input type="hidden" name="nama_barang" value={{ $siPrdct->nama_barang }}>         
+                                                <input type="hidden" name="kategori_barang" value={{ $siPrdct->kategori->kategori }}>
+                                                <input type="hidden" name="satuan_barang" value={{ $siPrdct->satuan->satuan }}>
+                                                <input type="hidden" name="harga_barang" value={{ $siPrdct->harga_jual }}>
                                             </li>
                                             {{-- <li class="list-inline-item"><span class="btn btn-success" id="btn-minus">-</span></li> --}}
                                             {{-- <li class="list-inline-item"><span style="width: 150px" name="jumlah_barang" class="badge bg-secondary" id="var-value">1</span></li> --}}
                                             <input class="list-inline-item text-center" id="jumlah_barang" type="number" style="width: 150px" name="jumlah_barang" value="1">         
                                             {{-- <li class="list-inline-item"><span class="btn btn-success" id="btn-plus">+</span></li> --}}
                                         </ul>
-                                        {{-- <input type="text" name="jumlah_barang" id="jumlah_barang" class="form-control"> --}}
-                                        {{-- <input type="hidden" name="produk_id" class="form-control" value="1"> --}}
                                     </div>
                                 </div>
 

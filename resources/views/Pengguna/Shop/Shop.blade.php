@@ -3,6 +3,9 @@
 
 <head>
     <title>Aurora Petshop</title>
+
+    @laravelPWA
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,17 +16,10 @@
     <link rel="stylesheet" href="Zay/assets/css/templatemo.css">
     <link rel="stylesheet" href="Zay/assets/css/custom.css">
     
-
     <!-- Load fonts style after rendering the layout styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <link rel="stylesheet" href="Zay/assets/css/fontawesome.min.css">
-<!--
-    
-TemplateMo 559 Zay Shop
 
-https://templatemo.com/tm-559-zay-shop
-
--->
 </head>
 
 <body>
@@ -154,6 +150,8 @@ https://templatemo.com/tm-559-zay-shop
                     <img src="{{ asset('img-Product/'. $item->gambar) }}" class="rounded img-fluid">
                         <div class="card-body">
                             <h2 class="h5 text-left mt-1 mb-2">{{ $item->nama_barang }}</h2>
+                            <p class="fs-6 text-left mt-1">{{ ($item->kategori->kategori) }}</p>
+                            <p class="fs-6 text-left mt-1">{{ ($item->satuan->satuan) }}</p>
                             <p class="fs-6 text-left mt-1">Rp {{ number_format($item->harga_jual) }}</p>
                         </div>
                     </a>
