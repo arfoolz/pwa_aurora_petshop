@@ -20,15 +20,14 @@ class CreateDetailOrderPetcareTable extends Migration
             $table->unsignedBigInteger('order_id');
             $table->foreign('order_id')->references('id')->on('order_petcare');
 
-            // Ambil dari Tabel Pet = Jenis Hewan
-            $table->unsignedBigInteger('pet_id');
-            $table->foreign('pet_id')->references('id')->on('pets');
-
-            // Ambil dari Tabel Cage
+            // Informasi Kandang
             $table->unsignedBigInteger('cage_id');
             $table->foreign('cage_id')->references('id')->on('cages');
-            
             $table->string('no_kandang');
+
+            // Informasi Hewan
+            $table->string('jenis_hewan');
+            
             $table->string('ukuran_kandang');
             $table->string('harga_kandang');
             $table->string('jumlah_kandang');

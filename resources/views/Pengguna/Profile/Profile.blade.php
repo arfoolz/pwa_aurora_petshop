@@ -24,7 +24,7 @@
 
 <body>
     <!-- Start Top Nav -->
-    @include('Layout.Pengguna-Layout.TopNav')
+    {{-- @include('Layout.Pengguna-Layout.TopNav') --}}
     <!-- Close Top Nav -->
 
     <!-- Header -->
@@ -47,12 +47,6 @@
             </form>
         </div>
     </div> --}}
-
-    {{-- @php
-        $total_harga = DB::table('carts')
-                        ->select(DB::raw('(jumlah_barang * harga_barang)'))
-                        ->get();
-    @endphp --}}
 
     <!-- Open Content -->
     <section>

@@ -313,7 +313,7 @@ class PenggunaTransaksi extends Controller
     {
         if (Auth::user())
         {
-            dd($request->all());
+            // dd($request->all());
 
             $dt = Carbon::now();
             $dateNow = $dt->toDateTimeString();
@@ -332,23 +332,25 @@ class PenggunaTransaksi extends Controller
             $order_petcare->total_bayar       = 550; // Masih Belum di Hitung Jumlah
             $order_petcare->save();
 
-            // $detail_order_shop = new Detail_Order_Shop;
-            // $detail_order_shop->order_id = Order_PetCare::where('id', $id)->get();
-            // $detail_order_shop->$tanggal_checkin  = $request->tanggal_checkin;
-            // $detail_order_shop->$tanggal_checkout = $request->tanggal_checkout;
-            // $detail_order_shop->$jenis_hewan      = $request->pet_id;
-            // $detail_order_shop->$harga_kandang    = $request->$cage_id;
-            // $detail_order_shop->$no_kandang       = $request->$no_kandang;
-            // $detail_order_shop->$size_id          = $request->$size_id;
-            // $detail_order_shop->$jumlah_kandang   = 1;
-            // $detail_order_shop->$harga_kandang    = $request->harga_kandang;
-            // $detail_order_shop->$jumlah_harga     = $request->harga_kandang * 2;
-            // $detail_order_shop->tanggal_checkin   = $request->tanggal_checkin;
-            // $detail_order_shop->tanggal_checkout  = $request->tanggal_checkout;
-            // $detail_order_shop->nama_kontak       = $request->nama_kontak;
-            // $detail_order_shop->no_tlpn           = $request->no_tlpn;
-            // $detail_order_shop->alamat            = $request->alamat;
-            // $detail_order_shop->save();
+            // $order_shop_id = Order_PetCare::where('id', $id->id);
+
+            $detail_order_shop = new Detail_Order_PetCare;
+            $detail_order_shop->order_id = $order_petcare->id;
+            $detail_order_shop->cage_id          = $request->cage_id;
+            $detail_order_shop->tanggal_checkin  = $request->tanggal_checkin;
+            $detail_order_shop->tanggal_checkout = $request->tanggal_checkout;
+            $detail_order_shop->jenis_hewan      = $request->jenis_hewan;
+            $detail_order_shop->no_kandang       = $request->no_kandang;
+            $detail_order_shop->ukuran_kandang   = $request->ukuran_kandang;
+            $detail_order_shop->harga_kandang    = $request->harga_kandang;
+            $detail_order_shop->jumlah_kandang   = 1;
+            $detail_order_shop->jumlah_harga     = $request->harga_kandang * 2;
+            $detail_order_shop->nama_kontak      = $request->nama_kontak;
+            $detail_order_shop->no_tlpn          = $request->no_tlpn;
+            $detail_order_shop->alamat           = $request->alamat;
+            $detail_order_shop->save();
+
+
 
             return redirect('/beranda');
         }

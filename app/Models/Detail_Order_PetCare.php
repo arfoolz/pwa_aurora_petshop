@@ -13,9 +13,10 @@ class Detail_Order_PetCare extends Model
     protected $primaryKey = "id";
     protected $fillable = [
 
-        'order_id', 
+        'order_id',
         'cage_id',
-        'pet_id',
+        'jenis_kandang',
+        'jenis_hewan',
         'no_kandang',
         'ukuran_kandang',
         'harga_kandang',
