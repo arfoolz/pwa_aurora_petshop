@@ -15,14 +15,16 @@ class Detail_Order_Shop extends Model
 
         'order_id',
         'product_id',
+        'nama_barang',
         'kategori_barang',
+        'satuan_baran',
         'harga_barang',
         'jumlah_barang',
         'jumlah_harga',
 
         'nama_kontak',
-        'no_tlpn',
         'alamat',
+        'no_tlpn',
         // 'provinsi',
         // 'kabupaten',
         // 'kecamatan',

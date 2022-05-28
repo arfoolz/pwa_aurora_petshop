@@ -19,15 +19,16 @@ class CreateDetailOrderShopTable extends Migration
             // Ambil dari Tabel Product
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products');
+            $table->string('nama_barang');
 
             $table->string('harga_barang');
             $table->string('jumlah_barang');
             $table->string('jumlah_harga');
 
             $table->string('nama_kontak');
+            $table->string('alamat');
             $table->string('no_tlpn');
             
-            // $table->string('alamat');
             // $table->string('provinsi');
             // $table->string('kota');
             // $table->string('kabupaten');
