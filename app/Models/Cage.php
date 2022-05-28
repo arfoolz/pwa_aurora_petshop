@@ -28,4 +28,8 @@ class Cage extends Model
     {
         return $this->belongsTo(Size::class);
     }
+    public function pet()
+    {
+        return $this->belongsTo(Size::class);
+    }
 }

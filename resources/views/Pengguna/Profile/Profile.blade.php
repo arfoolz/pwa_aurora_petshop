@@ -3,6 +3,9 @@
 
 <head>
     <title>Aurora Petshop</title>
+
+    @laravelPWA
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,17 +16,10 @@
     <link rel="stylesheet" href="/Zay/assets/css/templatemo.css">
     <link rel="stylesheet" href="/Zay/assets/css/custom.css">
     
-
     <!-- Load fonts style after rendering the layout styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <link rel="stylesheet" href="/Zay/assets/css/fontawesome.min.css">
-<!--
-    
-TemplateMo 559 Zay Shop
 
-https://templatemo.com/tm-559-zay-shop
-
--->
 </head>
 
 <body>
@@ -60,7 +56,7 @@ https://templatemo.com/tm-559-zay-shop
 
     <!-- Open Content -->
     <section>
-        <div class="container pb-5">
+        <div class="container mt-5 pb-5">
             <div class="row">
                 
                 <div class="col-lg-12 mt-2">
@@ -68,7 +64,7 @@ https://templatemo.com/tm-559-zay-shop
 
                         {{-- @foreach ($dtCart as $item) --}}
 
-                            <div class="row">
+                            <div class="row mt-3">
 
                                 <nav id="profile-table-tab" class="profile-table-tab app-nav-tabs nav shadow-sm flex-sm-row mb-4">
                                     <a  class="flex-sm-fill text-sm-center nav-link active" id="profile-biodata-tab" data-bs-toggle="tab"
@@ -95,7 +91,7 @@ https://templatemo.com/tm-559-zay-shop
                                 <div class="tab-content" id="profile-table-tab-content">
                                     
                                     <div class="tab-pane fade show active" id="profile-biodata" role="tabpanel" aria-labelledby="profile-biodata-tab">
-                                        <div class="app-card app-card-profile-table mb-5">
+                                        <div class="app-card app-card-profile-table mt-5">
                                             <div class="app-card-body">
                                                 
                                                 <div>
@@ -158,47 +154,37 @@ https://templatemo.com/tm-559-zay-shop
                                         <div class="app-card app-card-profile-table mb-5">
                                             <div class="app-card-body">
                                                 <div class="table-responsive">
-
+ 
                                                     <table class="table mb-0 text-left">
                                                         <thead>
                                                             <tr>
                                                                 <th class="cell">Order</th>
-                                                                <th class="cell">Product</th>
                                                                 <th class="cell">Date</th>
                                                                 <th class="cell">Status</th>
-                                                                <th class="cell">Total</th>
+                                                                <th class="cell">Total Barang</th>
+                                                                <th class="cell">Total Harga</th>
                                                                 {{-- <th class="cell"></th> --}}
                                                             </tr>
                                                         </thead>
+
+                                                        @foreach ($dtOdrShp as $item)
                                                         <tbody>
                                                             <tr>
-                                                                <td class="cell">#15346</td>
+                                                                <td class="cell">#{{ $item->kode_resi }}</td>
                                                                 <td class="cell">
-                                                                    <span class="truncate">Lorem ipsum
-                                                                    dolor sit amet eget volutpat erat</span>
-                                                                </td>
-                                                                <td class="cell">
-                                                                    <span>17 Oct</span>
-                                                                    <span class="note">2:16 PM</span>
+                                                                    <span>{{ $item->tanggal_transaksi }}</span>
+                                                                    {{-- <span class="note">2:16 PM</span> --}}
                                                                 </td>
                                                                 <td class="cell">
-                                                                    <span class="badge bg-success">Paid</span>
+                                                                    {{-- <span class="badge bg-success">Paid</span> --}}
+                                                                    {{-- <span class="badge bg-danger">Unpaid</span> --}}
+                                                                    {{ $item->paystat->paystat }}
                                                                 </td>
-                                                                <td class="cell">$259.35</td>
-                                                            </tr>
-
-                                                            <tr>
-                                                                <td class="cell">#15344</td>
-                                                                <td class="cell"><span class="truncate">Pellentesque
-                                                                        diam imperdiet</span></td>
-                                                                <td class="cell"><span class="cell-data">16
-                                                                        Oct</span><span class="note">01:16 AM</span></td>
-                                                                <td class="cell"><span class="badge bg-danger">Unpaid</span>
-                                                                </td>
-                                                                <td class="cell">$123.00</td>
-                                                                
+                                                                <td class="cell">{{ $item->total_barang }}</td>
+                                                                <td class="cell">Rp {{ number_format($item->total_bayar) }}</td>
                                                             </tr>
                                                         </tbody>
+                                                        @endforeach
                                                     </table>
                                                 </div> <!--//table-responsive-->
                                             </div> <!--//app-card-body-->
@@ -214,45 +200,32 @@ https://templatemo.com/tm-559-zay-shop
                                                         <thead>
                                                             <tr>
                                                                 <th class="cell">Order</th>
-                                                                <th class="cell">Kandang</th>
-                                                                <th class="cell">Jenis Hewan</th>
                                                                 <th class="cell">Date</th>
                                                                 <th class="cell">Status</th>
                                                                 <th class="cell">Total</th>
-                                                                <th class="cell"></th>
+                                                                {{-- <th class="cell"></th> --}}
                                                             </tr>
                                                         </thead>
+
+                                                        @foreach ($dtOdrPtcr as $item)
                                                         <tbody>
                                                             <tr>
-                                                                <td class="cell">#15346</td>
+                                                                <td class="cell">#{{ $item->kode_resi }}</td>
+                                                                <td class="cell">{{ $item->tanggal_transaksi }}</td>
                                                                 <td class="cell">
-                                                                    <span class="truncate">Lorem ipsum
-                                                                    dolor sit amet eget volutpat erat</span>
+                                                                    {{ $item->paystat->paystat }}
+                                                                    
+                                                                    {{-- Masih Eror IF ELSE --}}
+                                                                    {{-- @if ($paystat==1) 
+                                                                        <span class="badge bg-success">Paid</span>
+                                                                    @else
+                                                                        <span class="badge bg-danger">Unpaid</span>
+                                                                    @endif --}}
                                                                 </td>
-                                                                <td class="cell">Kucing</td>
-                                                                <td class="cell">
-                                                                    <span>17 Oct</span>
-                                                                    <span class="note">2:16 PM</span>
-                                                                </td>
-                                                                <td class="cell">
-                                                                    <span class="badge bg-success">Paid</span>
-                                                                </td>
-                                                                <td class="cell">$259.35</td>
-                                                            </tr>
-
-                                                            <tr>
-                                                                <td class="cell">#15344</td>
-                                                                <td class="cell"><span class="truncate">Pellentesque
-                                                                        diam imperdiet</span></td>
-                                                                <td class="cell">Anjing</td>
-                                                                <td class="cell"><span class="cell-data">16
-                                                                        Oct</span><span class="note">01:16 AM</span></td>
-                                                                <td class="cell"><span class="badge bg-danger">Unpaid</span>
-                                                                </td>
-                                                                <td class="cell">$123.00</td>
-                                                                
+                                                                <td class="cell">Rp{{ number_format($item->total_bayar) }}</td>
                                                             </tr>
                                                         </tbody>
+                                                        @endforeach
                                                     </table>
                                                 </div> <!--//table-responsive-->
                                             </div> <!--//app-card-body-->
@@ -271,7 +244,10 @@ https://templatemo.com/tm-559-zay-shop
     <!-- Close Content -->
 
     <!-- Start Footer -->
-    @include('Layout.Pengguna-Layout.Footer')
+    <div class="mt-3">
+        @include('Layout.Pengguna-Layout.Footer')
+    </div>
+    
     <!-- End Footer -->
 
     <!-- Start Style -->

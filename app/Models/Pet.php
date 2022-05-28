@@ -18,5 +18,9 @@ class Pet extends Model
     {
         return $this->hasMany(PetCare::class);
     }
+    public function cage()
+    {
+        return $this->hasMany(Cage::class);
+    }
     
 }

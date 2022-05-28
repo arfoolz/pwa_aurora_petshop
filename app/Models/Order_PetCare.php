@@ -12,23 +12,15 @@ class Order_PetCare extends Model
     protected $table = "order_petcare";
     protected $primaryKey = "id";
     protected $fillable = [
-        'id',
-        'no_resi',
+        
         'tanggal_transaksi',                     
+        'kode_resi',
         'user_id',
-        'cage_id',
-        'jumlah_kandang',
-        'jumlah_harga',
-          
-        'nama_kontak',
-        'no_tlpn',
-        'alamat',
+        'bank_id',
+        'paystat_id',
+        'total_kandang',
+        'total_bayar',
 
-        // 'provinsi',
-        // 'kabupaten',
-        // 'kecamatan',
-        // 'kode_pos',
-        // 'catatan',
     ];
 
     public function detail_order_petcare()
@@ -39,5 +31,15 @@ class Order_PetCare extends Model
     public function cage()
     {
     return $this->belongsTo(Cage::class);
+    }
+
+    public function user()
+    {
+    return $this->belongsTo(User::class);
+    }
+
+    public function paystat()
+    {
+    return $this->belongsTo(Paystat::class);
     }
 }

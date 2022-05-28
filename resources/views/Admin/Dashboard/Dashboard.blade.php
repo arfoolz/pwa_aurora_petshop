@@ -38,15 +38,17 @@
                 <div class="app-card alert alert-dismissible shadow-sm mb-4 border-left-decoration" role="alert">
                     <div class="inner">
                         <div class="app-card-body p-3 p-lg-4">
-                            <h3 class="mb-3">Welcome, developer!</h3>
+                            <h3 class="mb-3">Selamat Datang, {{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->nama_user }}}!</h3>
                             <div class="row gx-5 gy-3">
                                 <div class="col-12 col-lg-9">
 
-                                    <div>Portal is a free Bootstrap 5 admin dashboard template. The design is simple,
-                                        clean and modular so it's a great base for building any modern web app.</div>
+                                    <div>Tingkatkan Semangat dan tetap ingat, Hiduplah Seperti Bulu Ketiak
+                                        biarpun terjepit dia Tetap Tumbuh dan Berkembang!
+                                    </div>
+
                                 </div>
-                                <!--//col-->
-                                <div class="col-12 col-lg-3">
+                                
+                                {{-- <div class="col-12 col-lg-3">
                                     <a class="btn app-btn-primary"
                                         href="https://themes.3rdwavemedia.com/bootstrap-templates/admin-dashboard/portal-free-bootstrap-admin-dashboard-template-for-developers/"><svg
                                             width="1em" height="1em" viewBox="0 0 16 16"
@@ -58,8 +60,7 @@
                                             <path fill-rule="evenodd"
                                                 d="M8 6a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 10.293V6.5A.5.5 0 0 1 8 6z" />
                                         </svg>Free Download</a>
-                                </div>
-                                <!--//col-->
+                                </div> --}}
                             </div>
                             <!--//row-->
                             <button type="button" class="btn-close" data-bs-dismiss="alert"
@@ -141,7 +142,8 @@
                     <!--//col-->
                 </div>
                 <!--//row-->
-                <div class="row g-4 mb-4">
+
+                {{-- <div class="row g-4 mb-4">
                     <div class="col-12 col-lg-6">
                         <div class="app-card app-card-chart h-100 shadow-sm">
                             <div class="app-card-header p-3">
@@ -216,9 +218,9 @@
                         <!--//app-card-->
                     </div>
                     <!--//col-->
-
-                </div>
-                <!--//row-->
+                </div> --}}
+                
+                {{-- <!--//row-->
                 <div class="row g-4 mb-4">
                     <div class="col-12 col-lg-6">
                         <div class="app-card app-card-progress-list h-100 shadow-sm">
@@ -560,8 +562,9 @@
                 </div>
                 <!--//row-->
 
-            </div>
+            </div> --}}
             <!--//container-fluid-->
+            
         </div>
         <!--//app-content-->
 

@@ -13,22 +13,15 @@ class Order_Shop extends Model
     protected $table = "order_shop";
     protected $primaryKey = "id";
     protected $fillable = [
-        'id',
-        'no_resi',
-        'tanggal_transaksi',                     
+
+        'tanggal_transaksi',                 
         'user_id',
-        'product_id',
-        'jumlah_barang',
-        'jumlah_harga',
-          
-        'nama_kontak',
-        'no_tlpn',
-        'alamat',
-        'provinsi',
-        'kabupaten',
-        'kecamatan',
-        'kode_pos',
-        'catatan',
+        'kode_resi',
+        'bank_id',
+        'paystat_id',
+        'total_barang',
+        'total_bayar',
+        
     ];
 
     public function detail_order_shop()
@@ -40,5 +33,14 @@ class Order_Shop extends Model
     {   
     return $this->belongsTo(Product::class);
     }
-   
+
+    public function user()
+    {   
+    return $this->belongsTo(User::class);
+    }
+
+    public function paystat()
+    {   
+    return $this->belongsTo(Paystat::class);
+    }
 }

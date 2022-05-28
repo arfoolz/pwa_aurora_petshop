@@ -15,25 +15,37 @@ class CreateDetailOrderPetcareTable extends Migration
     {
         Schema::create('detail_order_petcare', function (Blueprint $table) {
             $table->id();
-
-            // Ambil dari Tabel Users
+            
+            // Ambil dari Tabel Order PetCare
             $table->unsignedBigInteger('order_id');
             $table->foreign('order_id')->references('id')->on('order_petcare');
 
-            // Ambil dari Tabel Product
+            // Ambil dari Tabel Pet = Jenis Hewan
+            $table->unsignedBigInteger('pet_id');
+            $table->foreign('pet_id')->references('id')->on('pets');
+
+            // Ambil dari Tabel Cage
             $table->unsignedBigInteger('cage_id');
             $table->foreign('cage_id')->references('id')->on('cages');
-
-            // Ambil dari Tabel Product
-            $table->unsignedBigInteger('bank_id');
-            $table->foreign('bank_id')->references('id')->on('banks');
-
-            // Ambil dari Tabel PayStat = Payment Status
-            $table->unsignedBigInteger('paystat_id');
-            $table->foreign('paystat_id')->references('id')->on('paystats');
             
-            $table->string('total_barang');
-            $table->string('total_harga');
+            $table->string('no_kandang');
+            $table->string('ukuran_kandang');
+            $table->string('harga_kandang');
+            $table->string('jumlah_kandang');
+            $table->string('jumlah_harga');
+            $table->date('tanggal_checkin');
+            $table->date('tanggal_checkout');
+
+            $table->string('nama_kontak');
+            $table->string('no_tlpn');
+            $table->string('alamat');
+            
+            // $table->string('provinsi');
+            // $table->string('kota');
+            // $table->string('kabupaten');
+            // $table->string('kecamatan');
+            // $table->string('kode_pos');
+            // $table->string('catatan');
 
             $table->timestamps();
         });

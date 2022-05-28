@@ -37,8 +37,12 @@ Route::group(['middleware' => ['auth','ceklevel:1']], function(){
     Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index']);
 
     Route::get('/pesanan-barang', [App\Http\Controllers\DashboardPesananController::class, 'indexPesananBarang']);
+    Route::get('/edit-pesanan-barang/{id}', [App\Http\Controllers\DashboardPesananController::class, 'editPesananBarang']);
+    Route::post('/update-pesanan-barang/{id}', [App\Http\Controllers\DashboardPesananController::class, 'updatePesananBarang']);
 
     Route::get('/pesanan-titipan', [App\Http\Controllers\DashboardPesananController::class, 'indexPesananTitipan']);
+    Route::get('/edit-pesanan-titipan/{id}', [App\Http\Controllers\DashboardPesananController::class, 'editPesanantitipan']);
+    Route::post('/update-pesanan-titipan/{id}', [App\Http\Controllers\DashboardPesananController::class, 'updatePesanantitipan']);
 
     Route::get('/product', [App\Http\Controllers\DashboardProductController::class, 'index']);
     Route::get('/create-product', [App\Http\Controllers\DashboardProductController::class, 'create']);
@@ -92,7 +96,6 @@ Route::get('/about', [App\Http\Controllers\PenggunaAbout::class, 'index']);
 Route::get('/petcare', [App\Http\Controllers\PenggunaPetCare::class, 'index']);
 Route::get('/detail-petcare/{id}', [App\Http\Controllers\PenggunaPetCare::class, 'detail']);
 Route::get('/petcare/order', [App\Http\Controllers\PenggunaPetCare::class, 'indexOrder']);
-Route::post('/add-order-petcare', [App\Http\Controllers\PenggunaPetCare::class, 'addToOrderPetCare']);
 
 Route::get('/shop', [App\Http\Controllers\PenggunaShop::class, 'index']);
 Route::get('/detail-shop/{id}', [App\Http\Controllers\PenggunaShop::class, 'detail']);
@@ -103,3 +106,4 @@ Route::get('/delete-cart/{id}', [App\Http\Controllers\PenggunaTransaksi::class, 
 
 Route::get('/cart/shipment', [App\Http\Controllers\PenggunaTransaksi::class, 'indexShipment']);
 Route::post('/add-order-shop', [App\Http\Controllers\PenggunaTransaksi::class, 'addToOrderShop']);
+Route::post('/add-order-petcare', [App\Http\Controllers\PenggunaTransaksi::class, 'addToOrderPetCare']);

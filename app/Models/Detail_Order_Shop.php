@@ -9,16 +9,25 @@ class Detail_Order_Shop extends Model
 {
     use HasFactory;
 
-    protected $table = "order_petcare";
+    protected $table = "detail_order_shop";
     protected $primaryKey = "id";
     protected $fillable = [
-        'id',
+
         'order_id',
-        'product_id',                     
-        'bank_id',
-        'paystat_id',
-        'total_product',
-        'total_bayar',
+        'product_id',
+        'kategori_barang',
+        'harga_barang',
+        'jumlah_barang',
+        'jumlah_harga',
+
+        'nama_kontak',
+        'no_tlpn',
+        'alamat',
+        // 'provinsi',
+        // 'kabupaten',
+        // 'kecamatan',
+        // 'kode_pos',
+        // 'catatan',
     ];
 
     public function order_shop()

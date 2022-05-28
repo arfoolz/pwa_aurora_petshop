@@ -19,4 +19,9 @@ class Paystat extends Model
     {
         return $this->hasMany(Report::class);
     }
+
+    public function order_shop()
+    {
+        return $this->hasMany(Order_Shop::class);
+    }
 }
