@@ -319,7 +319,7 @@ class PenggunaTransaksi extends Controller
             $dateNow = $dt->toDateTimeString();
 
             // Untuk Membuat Kode Transaksi
-            $config      = ['table'=>'order_shop','field'=>'kode_resi', 'length'=>7,'prefix'=>'trs-'];
+            $config      = ['table'=>'order_petcare','field'=>'kode_resi', 'length'=>7,'prefix'=>'trs-'];
             $kode_resi   = IdGenerator::generate($config);
 
             $order_petcare = new Order_PetCare;
@@ -331,8 +331,6 @@ class PenggunaTransaksi extends Controller
             $order_petcare->total_kandang     = 1; // Karna Hanya Bisa Memesan 1 kandang untuk satu kali transaksi
             $order_petcare->total_bayar       = 550; // Masih Belum di Hitung Jumlah
             $order_petcare->save();
-
-            // $order_shop_id = Order_PetCare::where('id', $id->id);
 
             $detail_order_shop = new Detail_Order_PetCare;
             $detail_order_shop->order_id = $order_petcare->id;
@@ -349,8 +347,6 @@ class PenggunaTransaksi extends Controller
             $detail_order_shop->no_tlpn          = $request->no_tlpn;
             $detail_order_shop->alamat           = $request->alamat;
             $detail_order_shop->save();
-
-
 
             return redirect('/beranda');
         }
