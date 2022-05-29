@@ -21,10 +21,7 @@ class Detail_Order_Shop extends Model
         'harga_barang',
         'jumlah_barang',
         'jumlah_harga',
-
-        'nama_kontak',
-        'alamat',
-        'no_tlpn',
+        
         // 'provinsi',
         // 'kabupaten',
         // 'kecamatan',

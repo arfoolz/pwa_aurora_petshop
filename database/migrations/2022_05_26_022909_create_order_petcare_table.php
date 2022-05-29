@@ -21,6 +21,9 @@ class CreateOrderPetcareTable extends Migration
             // Ambil dari Tabel User
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->string('nama_kontak');
+            $table->string('no_tlpn');
+            $table->string('alamat');
 
             // Ambil dari Tabel Bank
             $table->unsignedBigInteger('bank_id');

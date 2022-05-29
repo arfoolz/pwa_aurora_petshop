@@ -23,7 +23,7 @@ class PenggunaPetCare extends Controller
         $dtSize         = Size::all();
         $dtStatus       = Status::all();
         $dtBank         = Bank::all();
-        $dtCage         = Cage::with('size','status')->get();
+        $dtCage         = Cage::with('size','status')->where('status_id', 1)->get();
 
        return view('Pengguna.PetCare.PetCare', compact('countCart', 'dtUser', 'dtPet', 'dtSize', 'dtBank', 'dtCage', 'dtStatus'));
     }

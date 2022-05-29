@@ -17,7 +17,7 @@ class Detail_Order_PetCare extends Model
         'cage_id',
         'jenis_kandang',
         'jenis_hewan',
-        'no_kandang',
+        'nama_kandang',
         'ukuran_kandang',
         'harga_kandang',
         'jumlah_kandang',
@@ -25,10 +25,7 @@ class Detail_Order_PetCare extends Model
           
         'tanggal_checkin',
         'tanggal_checkout',
-        'nama_kontak',
-        'no_tlpn',
-        'alamat',
-
+        
         // 'provinsi',
         // 'kabupaten',
         // 'kecamatan',

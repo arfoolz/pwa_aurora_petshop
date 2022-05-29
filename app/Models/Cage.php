@@ -14,10 +14,11 @@ class Cage extends Model
     protected $fillable = [
         'kode_kandang',
         'nama_kandang',
-        'no_kandang',
+        // 'no_kandang',
         'size_id',
         'harga_id',
         'status_id',
+        'gambar',
     ];
 
     public function status()

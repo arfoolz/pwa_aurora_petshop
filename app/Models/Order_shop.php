@@ -16,6 +16,9 @@ class Order_Shop extends Model
 
         'tanggal_transaksi',                 
         'user_id',
+        'nama_kontak',
+        'alamat',
+        'no_tlpn',
         'kode_resi',
         'bank_id',
         'paystat_id',

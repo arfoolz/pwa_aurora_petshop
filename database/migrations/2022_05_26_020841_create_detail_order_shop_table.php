@@ -25,10 +25,9 @@ class CreateDetailOrderShopTable extends Migration
             $table->string('jumlah_barang');
             $table->string('jumlah_harga');
 
-            $table->string('nama_kontak');
-            $table->string('alamat');
-            $table->string('no_tlpn');
-            
+            // $table->string('nama_kontak');
+            // $table->string('alamat');
+            // $table->string('no_tlpn');
             // $table->string('provinsi');
             // $table->string('kota');
             // $table->string('kabupaten');

@@ -23,7 +23,7 @@ class CreateDetailOrderPetcareTable extends Migration
             // Informasi Kandang
             $table->unsignedBigInteger('cage_id');
             $table->foreign('cage_id')->references('id')->on('cages');
-            $table->string('no_kandang');
+            $table->string('nama_kandang');
 
             // Informasi Hewan
             $table->string('jenis_hewan');
@@ -35,10 +35,9 @@ class CreateDetailOrderPetcareTable extends Migration
             $table->date('tanggal_checkin');
             $table->date('tanggal_checkout');
 
-            $table->string('nama_kontak');
-            $table->string('no_tlpn');
-            $table->string('alamat');
-            
+            // $table->string('nama_kontak');
+            // $table->string('no_tlpn');
+            // $table->string('alamat');
             // $table->string('provinsi');
             // $table->string('kota');
             // $table->string('kabupaten');

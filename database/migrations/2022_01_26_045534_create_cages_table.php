@@ -16,7 +16,7 @@ class CreateCagesTable extends Migration
         Schema::create('cages', function (Blueprint $table) {
             $table->id();
             $table->string('kode_kandang')->unique();
-            $table->string('no_kandang');
+            $table->string('nama_kandang');
             
             $table->unsignedBigInteger('size_id');
             $table->foreign('size_id')->references('id')->on('sizes');
@@ -26,6 +26,7 @@ class CreateCagesTable extends Migration
             $table->unsignedBigInteger('status_id');
             $table->foreign('status_id')->references('id')->on('status');
 
+            $table->string('gambar', 255)->nullable();
             $table->timestamps();
         });
     }
