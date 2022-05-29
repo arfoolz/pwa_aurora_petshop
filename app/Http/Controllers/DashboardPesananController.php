@@ -49,7 +49,7 @@ class DashboardPesananController extends Controller
         return view ('Admin.Pesanan.Titipan.Edit_Pesanan_Titipan', compact('dtPsnTtpn', 'dtPaystat'));
     }
   
-    public function updatePesananTititpan(Request $request, $id)
+    public function updatePesananTitipan(Request $request, $id)
     {
         $dtPsnTtpn = Order_PetCare::findorfail($id);
         $dtPsnTtpn->update($request->all());
