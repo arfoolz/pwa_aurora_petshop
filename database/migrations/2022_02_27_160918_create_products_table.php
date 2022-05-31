@@ -23,8 +23,8 @@ class CreateProductsTable extends Migration
             
             $table->string('kode_barang', 100)->unique();
             $table->string('nama_barang', 50);
-            $table->string('harga_jual');
-            $table->string('harga_beli');
+            $table->integer('harga_jual');
+            $table->integer('harga_beli');
             $table->string('gambar', 255)->nullable();
             $table->string('deskripsi', 255);
             $table->date('expired');

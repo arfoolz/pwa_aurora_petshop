@@ -22,7 +22,7 @@ class CreateOrderPetcareTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('nama_kontak');
-            $table->string('no_tlpn');
+            $table->integer('no_tlpn');
             $table->string('alamat');
 
             // Ambil dari Tabel Bank
@@ -33,8 +33,8 @@ class CreateOrderPetcareTable extends Migration
             $table->unsignedBigInteger('paystat_id');
             $table->foreign('paystat_id')->references('id')->on('paystats');
 
-            $table->string('total_kandang');
-            $table->string('total_bayar');
+            $table->integer('total_kandang');
+            $table->integer('total_bayar');
 
             $table->timestamps();
         });

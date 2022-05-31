@@ -2,14 +2,19 @@
 <html lang="en">
   
 <head>
+  <title>Aurora Petshop | Login</title>
+
+  @laravelPWA
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Aurora Petshop | Login</title>
+
   <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="{{ asset('StrapDashUser/assets/css/login.css')}}">
+  
 </head>
 
 <body>
@@ -32,10 +37,16 @@
               <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" class="form-control" placeholder="email@example.com">
+                  @error('email')
+                      <span class="text-danger">{{ $message }}</span>
+                  @enderror
               </div>
               <div class="form-group mb-4">
                 <label for="password">Password</label>
                 <input type="password" name="password" id="password" class="form-control" placeholder="enter your passsword">
+                  @error('password')
+                      <span class="text-danger">{{ $message }}</span>
+                  @enderror
               </div>
               <div class="mb-1">
                 <button type="submit" class="btn btn-block btn-outline-success">Masuk</button>

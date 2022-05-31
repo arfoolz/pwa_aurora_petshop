@@ -29,9 +29,9 @@ class CreateDetailOrderPetcareTable extends Migration
             $table->string('jenis_hewan');
             
             $table->string('ukuran_kandang');
-            $table->string('harga_kandang');
-            $table->string('jumlah_kandang');
-            $table->string('jumlah_harga');
+            $table->integer('harga_kandang');
+            $table->integer('jumlah_kandang');
+            $table->integer('jumlah_harga');
             $table->date('tanggal_checkin');
             $table->date('tanggal_checkout');
 
