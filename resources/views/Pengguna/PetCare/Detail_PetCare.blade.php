@@ -3,6 +3,9 @@
 
 <head>
     <title>Aurora Petshop</title>
+
+    @laravelPWA
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,17 +16,10 @@
     <link rel="stylesheet" href="/Zay/assets/css/templatemo.css">
     <link rel="stylesheet" href="/Zay/assets/css/custom.css">
     
-
     <!-- Load fonts style after rendering the layout styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <link rel="stylesheet" href="/Zay/assets/css/fontawesome.min.css">
-<!--
-    
-TemplateMo 559 Zay Shop
 
-https://templatemo.com/tm-559-zay-shop
-
--->
 </head>
 
 <body style="background-color: #F9F9F9">
@@ -277,15 +273,21 @@ https://templatemo.com/tm-559-zay-shop
                             <div class="card-body">
                                 
                                 <div class="row">
-                                    <div class="col-6">                 
-                                        <h1 class="h2">Kandang {{ $siCage->no_kandang }}</h1>
+                                    <div class="col-6">
                                         <input type="hidden" type="number" name="cage_id" value={{ $siCage->id }}>
-                                        <input type="hidden" type="number" name="no_cage" value={{ $siCage->no_kandang }}>
-                                        <input type="hidden" type="number" name="jumlah_cage" value={{ 1 }}>
+                                        
+                                        <h1 class="h2">Kandang {{ $siCage->nama_kandang }}</h1>
+                                        <input type="hidden" type="number" name="nama_kandang" value={{ $siCage->nama_kandang }}>
+                                        
+                                        <p class="fs-5 py-2">Ukuran {{ $siCage->size->size }}</p>
+                                        <input type="hidden" type="text" name="ukuran_kandang" value={{ $siCage->size->size }}>
+                                        
+                                        <input type="hidden" type="number" name="harga_kandang" value={{ $siCage->size->harga }}>
+                                        <input type="hidden" type="number" name="jumlah_kandang" value={{ 1 }}>
                                     </div>
                                     <div class="col-6">
                                         <div class="text-end">
-                                            <p class="h3 py-2">Rp {{ number_format($siCage->size->harga) }}</p>
+                                            <p class="fs-5 py-2">Rp {{ number_format($siCage->size->harga) }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -296,7 +298,7 @@ https://templatemo.com/tm-559-zay-shop
                                         <select type="text" id=jenis_hewan name=jenis_hewan class="form-control" aria-label="Default select example" style="height:40px">
                                             <option disabled value>Pilih Hewan</option>
                                             @foreach ($dtPet as $item)
-                                            <option value="{{ $item->id }}">{{ $item->pet }}</option>
+                                            <option value="{{ $item->pet }}">{{ $item->pet }}</option>
                                             @endforeach
                                         </select>
                                     </p>
@@ -372,6 +374,23 @@ https://templatemo.com/tm-559-zay-shop
                             <input type="date" id=tanggal_checkout name=tanggal_checkout class="form-control">
                         </div>
                     </div>
+
+                    <div class="col-6 mb-4 mt-4">
+                        <div class="form-group">
+                            <p>Jumlah Hari</p>
+                            <input type="number" id=jumlah_hari name=jumlah_hari class="form-control">
+                            <p class="fs-6">Pastikan Jumlah hari yang anda masukan sesuai dengan anda masukan untuk mempersingkat pengecekan</p>
+                        </div>
+                    </div>
+
+                    <div class="col-6 mb-4 mt-4">
+                        <div class="form-group">
+                            <p id=total_hari>Total Hari = </p>
+                            <input type="number" name="total_hari" id="total_hari" value="total_hari">
+                        </div>
+                    </div>
+
+                    <button onclick="calculateDays()">Get Difference</button>
                     
                     <div class="col-12 mb-4 mt-4">
                         <div class="form-group">
@@ -379,7 +398,6 @@ https://templatemo.com/tm-559-zay-shop
                             <textarea type="text" id=alamat name=alamat class="form-control" style="height: 100px"></textarea>
                         </div>
                     </div>
-                    
                 </div>
 
                 <div class="row mb-5 mt-2" style="background-color: white; border-radius: 15px">
@@ -417,7 +435,7 @@ https://templatemo.com/tm-559-zay-shop
                     </div>
                 </div>
                 
-                <div class="row" role="button" data-bs-toggle="collapse" href="#collapseExample" style="background-color: white; border-radius: 20px">
+                {{-- <div class="row" role="button" data-bs-toggle="collapse" href="#collapseExample" style="background-color: white; border-radius: 20px">
                     <div class="col-6 mt-4 mb-3">
                         <h4>Total Harga</h4>
                     </div>
@@ -425,7 +443,6 @@ https://templatemo.com/tm-559-zay-shop
                         <p>Rp {{ $siCage->size->harga }}</p>
                     </div>
         
-                    {{-- TIDAK USAH DIPAKE UNTUK SEMENTARA --}}
                     <div class="collapse" id="collapseExample" style="background-color: white; border-radius: 20px">
                         <div class="row mt-4">
                             <div class="col-6">
@@ -452,7 +469,7 @@ https://templatemo.com/tm-559-zay-shop
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 
 
@@ -495,8 +512,7 @@ https://templatemo.com/tm-559-zay-shop
                                     </div>
                                     @endforeach
                                     
-                                    
-                                    <div class="row mt-4">
+                                    {{-- <div class="row mt-4">
                                         <div class="col-12 col-md-12">
                                             <div class="row">
                                                 <div class="col-10 col-md-10">
@@ -508,24 +524,20 @@ https://templatemo.com/tm-559-zay-shop
                                                     <p class="fs-6">Total Bayar<p>
                                                 </div>
                                                 <div class="col-6 col-md-6 text-end">
-                                                    {{-- @foreach ($dtCartItem as $item)
-                                                    @endforeach --}}
-                                                    {{-- <input type="hidden" type="number" name="total_bayar" value={{ $item->sum('jumlah_harga')+550 }}> --}}
-                                                    {{-- <p class="fs-6">Rp {{ number_format($item->sum('jumlah_harga')+550) }}<p> --}}
+                                                    <p class="fs-6">Rp {{ number_format(+550) }}<p>
+                                                    <input type="hidden" type="number" name="total_bayar" value={{ $item->sum('jumlah_harga')+550 }}>
                                                 </div>
                                             </div>
-                                            {{-- UNTUK DISKON NANTINYA --}}
-                                            {{-- <div class="row">
+                                            <div class="row">
                                                 <div class="col-6 col-md-6">
                                                     <p class="fs-6">Diskon<p>
                                                 </div>
                                                 <div class="col-6 col-md-6 text-end">
                                                     <p class="fs-6">{{ $item->diskon }}<p>
                                                 </div>
-                                            </div> --}}
+                                            </div>
                                         </div>
-                                    </div>
-                                    
+                                    </div> --}}
 
                                     <div class="row">
                                         <div class="col-6 col-md-6">
@@ -577,6 +589,17 @@ https://templatemo.com/tm-559-zay-shop
     <script src="/Zay/assets/js/templatemo.js"></script>
     <script src="/Zay/assets/js/custom.js"></script>
 
+    <script>
+        function calculateDays() {
+        var d1 = document.getElementById("tanggal_checkin").value;
+        var d2 = document.getElementById("tanggal_checkout").value;    
+        const dateOne = new Date(d1);
+        const dateTwo = new Date(d2);
+        const time = Math.abs(dateTwo - dateOne);
+        const days = Math.ceil(time / (1000 * 60 * 60 * 24));
+        document.getElementById("total_hari").innerHTML=days;    
+        }    
+    </script>
 
     {{-- <script>
         $('#tanggal_checkout').on('input',function(e){

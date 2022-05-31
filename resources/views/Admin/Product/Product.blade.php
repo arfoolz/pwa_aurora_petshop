@@ -202,8 +202,8 @@
                                                         </a>
                                                       
                                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                          <li><a class="dropdown-item" href="{{ url('edit-product', $item->id) }}}">Edit</a></li>
-                                                          <li><a class="dropdown-item" href="{{ url('delete-product', $item->id) }}}">Delete</a></li>
+                                                          <li><a class="dropdown-item" href="{{ url('edit-product', $item->id) }}">Edit</a></li>
+                                                          <li><a class="dropdown-item" href="{{ url('delete-product', $item->id) }}">Delete</a></li>
                                                         </ul>
                                                     </div>
                                                 </td>

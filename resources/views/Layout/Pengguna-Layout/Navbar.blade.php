@@ -18,9 +18,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/about">About</a>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link" href="/shop">Shop</a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item">
                         <a class="nav-link" href="/petcare">PetCare</a>
                     </li>
@@ -45,15 +45,15 @@
                 </a> --}}
 
                 @if (Auth::guest())
-                    <button type="button"  class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Masuk
-                    </button>
+                <button type="button"  class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Masuk
+                </button>
                 @else
                     <div>
-                        <a class="nav-icon position-relative text-decoration-none" href="/cart" role="button" aria-expanded="false">
+                        {{-- <a class="nav-icon position-relative text-decoration-none" href="/cart" role="button" aria-expanded="false">
                             <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
                             <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
-                        </a>
+                        </a> --}}
                     </div>
                     <div class="dropdown">
                         <a class="nav-icon position-relative text-decoration-none" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">

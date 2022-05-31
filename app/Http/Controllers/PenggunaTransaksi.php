@@ -12,6 +12,7 @@ use App\Models\Detail_Order_Shop;
 use App\Models\Product;
 use App\Models\Gender;
 use App\Models\User;
+use App\Models\Cage;
 use App\Models\Bank;
 use Carbon\Carbon;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
@@ -22,7 +23,7 @@ use DB;
 class PenggunaTransaksi extends Controller
 {
     
-    public function index()
+    public function index(Request $request)
     {
 
         if(Auth::user())
@@ -44,54 +45,59 @@ class PenggunaTransaksi extends Controller
         
     }
 
-    public function AddToCart(Request $request)
-    {
-        if (Auth::user())
-        {
+    // public function AddToCart(Request $request)
+    // {
+    //     if (Auth::user())
+    //     {
 
-            // dd($request);
-            // dd($request->all());
+    //         // dd($request);
+    //         // dd($request->all());
 
-            $jumlah_harga = $request->jumlah_barang*$request->harga_barang;
+    //         $jumlah_harga = $request->jumlah_barang*$request->harga_barang;
 
-            $cart = new Cart;
-            $cart->user_id          = Auth::user()->id;
-            $cart->product_id       = $request->product_id;
-            $cart->nama_barang      = $request->nama_barang;
-            $cart->kategori_barang  = $request->kategori_barang;
-            $cart->satuan_barang    = $request->satuan_barang;
-            $cart->jumlah_barang    = $request->jumlah_barang;
-            $cart->harga_barang     = $request->harga_barang;
-            $cart->jumlah_harga     = $jumlah_harga;
-            $cart->save();
+    //         $cek_cart = Cart::where('user_id', Auth::user()->id)->where('product_id')->first();
 
-            // Cart::Create([
-            //     'user_id'         => Auth::user()->id,
-            //     'product_id'      => $request->produk_id,
+    //         if(empty($cek_cart))
+    //         {
+    //             $cart = new Cart;
+    //             $cart->user_id          = Auth::user()->id;
+    //             $cart->product_id       = $request->product_id;
+    //             $cart->nama_barang      = $request->nama_barang;
+    //             $cart->kategori_barang  = $request->kategori_barang;
+    //             $cart->satuan_barang    = $request->satuan_barang;
+    //             $cart->jumlah_barang    = $request->jumlah_barang;
+    //             $cart->harga_barang     = $request->harga_barang;
+    //             $cart->jumlah_harga     = $jumlah_harga;
+    //             $cart->save();
+    //         }
 
-            //     'nama_barang'     => $request->nama_barang,
-            //     'kategori_barang' => $request->kategori_barang,
-            //     'satuan_barang'   => $request->satuan_barang,
+    //         // Cart::Create([
+    //         //     'user_id'         => Auth::user()->id,
+    //         //     'product_id'      => $request->produk_id,
 
-            //     'jumlah_barang'   => $request->jumlah_barang,
-            //     'harga_barang'    => $request->harga_barang,
-            //     'jumlah_harga'    => $jumlah_harga,
-            // ]);
+    //         //     'nama_barang'     => $request->nama_barang,
+    //         //     'kategori_barang' => $request->kategori_barang,
+    //         //     'satuan_barang'   => $request->satuan_barang,
 
-            return redirect('/cart');
-        }
-        else 
-        {
-            return redirect('login');
-        }
-    }
+    //         //     'jumlah_barang'   => $request->jumlah_barang,
+    //         //     'harga_barang'    => $request->harga_barang,
+    //         //     'jumlah_harga'    => $jumlah_harga,
+    //         // ]);
 
-    public function destroy($id)
-    {
-        $CartItem = Cart::findorfail($id);
-        $CartItem->delete();
-        return back();
-    }
+    //         return redirect('/cart')->with('success', 'Barang berhasil ditambahkan!');
+    //     }
+    //     else 
+    //     {
+    //         return redirect('login');
+    //     }
+    // }
+
+    // public function destroy($id)
+    // {
+    //     $CartItem = Cart::findorfail($id);
+    //     $CartItem->delete();
+    //     return back()->with('delete', 'Barang berhasil di hapus!');
+    // }
 
     // ----------------------------------------------------------------------------------------------------------------------
 
@@ -104,7 +110,7 @@ class PenggunaTransaksi extends Controller
             $dtCartItem     = Cart::With('product', 'user', 'bank')->get();
             $dtPrdct        = Product::all();
             $dtBank         = Bank::all();
-            $data           = DB::table('carts')->sum('jumlah_harga');
+            $data           = DB::table("carts")->where(Auth::user()->id)->sum('jumlah_harga');
             
             return view('Pengguna.Transaksi.Pembayaran', compact('countCart', 'dtCart', 'dtCartItem', 'dtPrdct', 'dtBank'));
         }
@@ -117,54 +123,53 @@ class PenggunaTransaksi extends Controller
     //-------------------------------------------------------------------------------------------------------------------------------
 
 
-    public function AddToOrderShop(Request $request)
-    {
-        if (Auth::user())
-        {
-            // dd($request->all());
+    // public function AddToOrderShop(Request $request)
+    // {
+    //     if (Auth::user())
+    //     {
+    //         dd($request->all());
 
-            $jumlah_harga = DB::table('carts')->sum('harga_barang') * DB::table('carts')->sum('jumlah_barang') ;
-            $total_barang = DB::table('carts')->sum('jumlah_barang');
-            $total_bayar  = DB::table('carts')->sum('jumlah_harga');
+    //         $total_barang = 1;
+    //         $total_bayar  = 1;
 
-            $dt = Carbon::now();
-            $dateNow = $dt->toDateTimeString();
+    //         $dt = Carbon::now();
+    //         $dateNow = $dt->toDateTimeString();
 
-            // Untuk Membuat Kode Transaksi
-            $config      = ['table'=>'order_shop','field'=>'kode_resi', 'length'=>7,'prefix'=>'trs-'];
-            $kode_resi   = IdGenerator::generate($config);
+    //         // Untuk Membuat Kode Transaksi
+    //         $config      = ['table'=>'order_shop','field'=>'kode_resi', 'length'=>7,'prefix'=>'trs-'];
+    //         $kode_resi   = IdGenerator::generate($config);
 
-            $order_shop = new Order_Shop;
-            $order_shop->tanggal_transaksi = $dateNow;
-            $order_shop->kode_resi         = $kode_resi;
-            $order_shop->user_id           = Auth::user()->id;
-            $order_shop->bank_id           = $request->bank_id;
-            $order_shop->paystat_id        = 2;
-            $order_shop->total_barang      = $total_barang;
-            $order_shop->total_bayar       = $total_bayar+550;
-            $order_shop->save();
+    //         $order_shop = new Order_Shop;
+    //         $order_shop->tanggal_transaksi = $dateNow;
+    //         $order_shop->kode_resi         = $kode_resi;
+    //         $order_shop->user_id           = Auth::user()->id;
+    //         $order_shop->nama_kontak       = $request->nama_kontak;
+    //         $order_shop->no_tlpn           = $request->no_tlpn;
+    //         $order_shop->alamat            = $request->alamat;
+    //         $order_shop->bank_id           = $request->bank_id;
+    //         $order_shop->paystat_id        = 2;
+    //         $order_shop->total_barang      = $total_barang;
+    //         $order_shop->total_bayar       = $total_bayar+550;
+    //         $order_shop->save();
 
-            $detail_order_shop = new Detail_Order_Shop;
-            $detail_order_shop->order_id = $order_shop->id;
-            $detail_order_shop->product_id       = $request->product_id;
-            $detail_order_shop->nama_barang      = $request->nama_barang;
-            $detail_order_shop->harga_barang     = $request->harga_barang;
-            $detail_order_shop->jumlah_barang    = $request->jumlah_barang;
-            $detail_order_shop->jumlah_harga     = $jumlah_harga;
-            $detail_order_shop->nama_kontak      = $request->nama_kontak;
-            $detail_order_shop->no_tlpn          = $request->no_tlpn;
-            $detail_order_shop->alamat           = $request->alamat;
-            $detail_order_shop->save();
+    //         $detail_order_shop = new Detail_Order_Shop;
+    //         $detail_order_shop->order_id = $order_shop->id;
+    //         $detail_order_shop->product_id       = $request->product_id;
+    //         $detail_order_shop->nama_barang      = $request->nama_barang;
+    //         $detail_order_shop->harga_barang     = $request->harga_barang;
+    //         $detail_order_shop->jumlah_barang    = $request->jumlah_barang;
+    //         $detail_order_shop->jumlah_harga     = $request->jumlah_harga;
+    //         $detail_order_shop->save();
 
-            session()->forget('carts'); 
+    //         session()->forget('carts'); 
 
-            return redirect('/beranda');
-        }
-        else 
-        {
-            return redirect('login');
-        }
-    }
+    //         return redirect('/beranda');
+    //     }
+    //     else 
+    //     {
+    //         return redirect('login');
+    //     }
+    // }
 
     //--------------------------------------------------------------------------------------------------------------------------------
 
@@ -319,6 +324,8 @@ class PenggunaTransaksi extends Controller
         {
             // dd($request->all());
 
+            $total_bayar  = $request->harga_kandang * $request->jumlah_hari;
+
             $dt = Carbon::now();
             $dateNow = $dt->toDateTimeString();
 
@@ -330,27 +337,27 @@ class PenggunaTransaksi extends Controller
             $order_petcare->tanggal_transaksi = $dateNow;
             $order_petcare->kode_resi         = $kode_resi;
             $order_petcare->user_id           = Auth::user()->id;
+            $order_petcare->nama_kontak       = $request->nama_kontak;
+            $order_petcare->no_tlpn           = $request->no_tlpn;
+            $order_petcare->alamat            = $request->alamat;
             $order_petcare->bank_id           = $request->bank_id;
             $order_petcare->paystat_id        = 2;
             $order_petcare->total_kandang     = 1; // Karna Hanya Bisa Memesan 1 kandang untuk satu kali transaksi
-            $order_petcare->total_bayar       = 550; // Masih Belum di Hitung Jumlah
+            $order_petcare->total_bayar       = $total_bayar + 550; // Masih Belum di Hitung Jumlah
             $order_petcare->save();
 
-            $detail_order_shop = new Detail_Order_PetCare;
-            $detail_order_shop->order_id = $order_petcare->id;
-            $detail_order_shop->cage_id          = $request->cage_id;
-            $detail_order_shop->tanggal_checkin  = $request->tanggal_checkin;
-            $detail_order_shop->tanggal_checkout = $request->tanggal_checkout;
-            $detail_order_shop->jenis_hewan      = $request->jenis_hewan;
-            $detail_order_shop->no_kandang       = $request->no_kandang;
-            $detail_order_shop->ukuran_kandang   = $request->ukuran_kandang;
-            $detail_order_shop->harga_kandang    = $request->harga_kandang;
-            $detail_order_shop->jumlah_kandang   = 1;
-            $detail_order_shop->jumlah_harga     = $request->harga_kandang * 2;
-            $detail_order_shop->nama_kontak      = $request->nama_kontak;
-            $detail_order_shop->no_tlpn          = $request->no_tlpn;
-            $detail_order_shop->alamat           = $request->alamat;
-            $detail_order_shop->save();
+            $detail_order_petcare = new Detail_Order_PetCare;
+            $detail_order_petcare->order_id = $order_petcare->id;
+            $detail_order_petcare->cage_id          = $request->cage_id;
+            $detail_order_petcare->tanggal_checkin  = $request->tanggal_checkin;
+            $detail_order_petcare->tanggal_checkout = $request->tanggal_checkout;
+            $detail_order_petcare->jenis_hewan      = $request->jenis_hewan;
+            $detail_order_petcare->nama_kandang     = $request->nama_kandang;
+            $detail_order_petcare->ukuran_kandang   = $request->ukuran_kandang;
+            $detail_order_petcare->harga_kandang    = $request->harga_kandang;
+            $detail_order_petcare->jumlah_kandang   = 1;
+            $detail_order_petcare->jumlah_harga     = $request->harga_kandang;
+            $detail_order_petcare->save();
 
             return redirect('/beranda');
         }

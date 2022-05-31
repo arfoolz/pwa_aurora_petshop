@@ -46,7 +46,7 @@
               <div class="app-card form ">
                 
                 <div class="app-card-body p-4">
-                    <form action="{{ url('update-pesanan-barang', $dtPsnTtpn->id) }}" method="post">
+                    <form action="{{ url('update-pesanan-titipan', $dtPsnTtpn->id) }}" method="post">
                         {{ csrf_field() }}
         
                         <div class="row">

@@ -8,9 +8,9 @@ use App\Models\User;
 use App\Models\Gender;
 use App\Models\Level;
 use App\Models\Order_shop;
-// use App\Models\Detail_Order_Shop;
+use App\Models\Detail_Order_Shop;
 use App\Models\Order_PetCare;
-// use App\Models\Detail_Order_PetCare;
+use App\Models\Detail_Order_PetCare;
 use Illuminate\Http\Request;
 use Auth;
 use DB;
@@ -48,6 +48,47 @@ class PenggunaProfile extends Controller
         }
     }
 
+    //--------------------------------------------------------------------------------------------------------------------------
+
+    public function indexHistoryDetailOrderShop($id)
+    {
+        if(Auth::user())
+        {
+            $countCart         = DB::table('carts')->count();
+            $dtUser            = User::all();
+
+            // $siHtryOdrShp      = Order_Shop::with('bank','product')->findorfail($id);
+            $siDtlHtryOdrShp   = Detail_Order_Shop::with('product')->findorfail($id);
+
+            return view('Pengguna.Profile.History_Order_Shop', compact('countCart', 'dtUser', 'siHtryOdrShp', 'siDtlHtryOdrShp'));
+        }
+        else
+        {
+            return redirect('login');
+        }
+    }
+
+    //--------------------------------------------------------------------------------------------------------------------------
+
+    public function indexHistoryDetailOrderPetCare($id)
+    {
+        if(Auth::user())
+        {
+            $countCart          = DB::table('carts')->count();
+            $dtUser             = User::all();
+
+            // $siHtryOdrPtcr      = Order_PetCare::with('bank','product')->findorfail($id);
+            $siDtlHtryOdrPtcr   = Detail_Order_PetCare::with('product', 'order_petcare', 'bank')->findorfail($id);
+
+            return view('Pengguna.Profile.History_Order_PetCare', compact('countCart', 'dtUser', 'siDtlHtryOdrPtcr'));
+        }
+        else
+        {
+            return redirect('login');
+        }
+    }
+
+    //--------------------------------------------------------------------------------------------------------------------------
     
     public function create()
     {

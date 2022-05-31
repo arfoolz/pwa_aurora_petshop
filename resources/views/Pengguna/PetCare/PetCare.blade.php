@@ -3,6 +3,9 @@
 
 <head>
     <title>Aurora Petshop</title>
+
+    @laravelPWA
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,17 +16,10 @@
     <link rel="stylesheet" href="Zay/assets/css/templatemo.css">
     <link rel="stylesheet" href="Zay/assets/css/custom.css">
     
-
     <!-- Load fonts style after rendering the layout styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <link rel="stylesheet" href="Zay/assets/css/fontawesome.min.css">
-<!--
-    
-TemplateMo 559 Zay Shop
 
-https://templatemo.com/tm-559-zay-shop
-
--->
 </head>
 
 <body style="background-color: #F9F9F9">
@@ -52,9 +48,9 @@ https://templatemo.com/tm-559-zay-shop
                         <li class="nav-item">
                             <a class="nav-link" href="/about">About</a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link" href="/shop">Shop</a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
                             <a class="nav-link" href="/petcare">PetCare</a>
                         </li>
@@ -83,12 +79,12 @@ https://templatemo.com/tm-559-zay-shop
                             Masuk
                         </button>
                     @else
-                        <div>
+                        {{-- <div>
                             <a class="nav-icon position-relative text-decoration-none" href="/cart" role="button" aria-expanded="false">
                                 <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
                                 <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-white text-dark"></span>
                             </a>
-                        </div>
+                        </div> --}}
                         <div class="dropdown">
                             <a class="nav-icon position-relative text-decoration-none" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fa fa-fw fa-user text-dark mr-3"></i>
@@ -161,8 +157,9 @@ https://templatemo.com/tm-559-zay-shop
     </div> --}}
 
     <section class="container">
-
-        <h4>Data Pesanan</h4>
+        <div class="mb-4 mt-4">
+            <h4>Data Kandang</h4>
+        </div>
 
         <!-- Start Tabel 1 -->
         <form action="{{ url('/add-order-petcare') }}" method="POST">
@@ -177,27 +174,27 @@ https://templatemo.com/tm-559-zay-shop
 
             <!-- LOOPING KANDANG -->
             @foreach ($dtCage as $item)
-                <div class="col-12 col-md-12 mt-3">
-                    <div class="card border-light shadow" style="background-color: #FAFCFC">
-                        <a href="{{ url('detail-petcare', $item->id) }}">
-                        <img src="{{ asset('img-Product/'. $item->gambar) }}" class="rounded img-fluid">
+                <div class="card mt-5 mb-5" style="max-width: 540px; border-radius: 25px">
+                    <div class="row g-0">
+                        <div class="col-6 col-md-4">
+                            <img src="{{ asset('img-Cage/'. $item->gambar) }}" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-6 col-md-8">
                             <div class="card-body">
-                                <div class="row">
-                                    <h2 class="h5 col-9 text-left mt-1 mb-2">Kandang {{ $item->no_kandang }}</h2>
-                                </div>
-                                
-                                <p class="fs-6 text-left mt-1">Ukuran {{ ($item->size->size) }}</p>
-
-                                <p class="fs-6 text-left mt-1">Rp {{ $item->size->harga }}</p>
-
-                                <p class="fs-6 text-end mt-1">Status {{ $item->status->status }}</p>
-
-                                </div>
-                            </div>
-                        </a>
+                            <a href="{{ url('detail-petcare', $item->id) }}">
+                                <h5 class="card-title">{{ $item->nama_kandang }}</h5>
+                                <p class="col-6" class="card-text">{{ $item->size->size }}</p>  
+                                <p class="col-6" class="card-text text-end">Rp {{ $item->size->harga }}</p>
+                                <p class="card-text text-end"><small class="text-muted">Status {{ $item->status->status }}</small></p>
+                            </a>
+                        </div>
+                        </div>
                     </div>
                 </div>
             @endforeach
+
+            
+            
         </form>
         <!-- End Tabel 1 -->
     </section>

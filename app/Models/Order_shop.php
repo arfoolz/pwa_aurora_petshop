@@ -46,4 +46,9 @@ class Order_Shop extends Model
     {   
     return $this->belongsTo(Paystat::class);
     }
+
+    public function bank()
+    {   
+    return $this->belongsTo(bank::class);
+    }
 }

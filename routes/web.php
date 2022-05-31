@@ -41,8 +41,8 @@ Route::group(['middleware' => ['auth','ceklevel:1']], function(){
     Route::post('/update-pesanan-barang/{id}', [App\Http\Controllers\DashboardPesananController::class, 'updatePesananBarang']);
 
     Route::get('/pesanan-titipan', [App\Http\Controllers\DashboardPesananController::class, 'indexPesananTitipan']);
-    Route::get('/edit-pesanan-titipan/{id}', [App\Http\Controllers\DashboardPesananController::class, 'editPesanantitipan']);
-    Route::post('/update-pesanan-titipan/{id}', [App\Http\Controllers\DashboardPesananController::class, 'updatePesanantitipan']);
+    Route::get('/edit-pesanan-titipan/{id}', [App\Http\Controllers\DashboardPesananController::class, 'editPesananTitipan']);
+    Route::post('/update-pesanan-titipan/{id}', [App\Http\Controllers\DashboardPesananController::class, 'updatePesananTitipan']);
 
     Route::get('/product', [App\Http\Controllers\DashboardProductController::class, 'index']);
     Route::get('/create-product', [App\Http\Controllers\DashboardProductController::class, 'create']);
@@ -50,6 +50,13 @@ Route::group(['middleware' => ['auth','ceklevel:1']], function(){
     Route::get('/edit-product/{id}', [App\Http\Controllers\DashboardProductController::class, 'edit'])->name('edit-product');
     Route::post('/update-product/{id}', [App\Http\Controllers\DashboardProductController::class, 'update'])->name('update-product');
     Route::get('/delete-product/{id}', [App\Http\Controllers\DashboardProductController::class, 'destroy'])->name('delete-product');
+
+    Route::get('/cage', [App\Http\Controllers\DashboardCageController::class, 'index']);
+    Route::get('/create-cage', [App\Http\Controllers\DashboardCageController::class, 'create']);
+    Route::post('/simpan-create-cage', [App\Http\Controllers\DashboardCageController::class, 'store']);
+    Route::get('/edit-cage/{id}', [App\Http\Controllers\DashboardCageController::class, 'edit'])->name('edit-cage');
+    Route::post('/update-cage/{id}', [App\Http\Controllers\DashboardCageController::class, 'update'])->name('update-cage');
+    Route::get('/delete-cage/{id}', [App\Http\Controllers\DashboardCageController::class, 'destroy'])->name('delete-cage');
 
     Route::get('/user-admin', [App\Http\Controllers\DashboardAdminController::class, 'index'])->name('user-admin');
     Route::get('/create-admin', [App\Http\Controllers\DashboardAdminController::class, 'create']);
@@ -87,6 +94,8 @@ Route::post('/postlogin_user', [App\Http\Controllers\Login_UserController::class
 Route::get('/logout_user', [App\Http\Controllers\Login_UserController::class, 'postlogout_user'])->name('postlogout_user');
 
 Route::get('/profile/{id}', [App\Http\Controllers\PenggunaProfile::class, 'index'])->name('profile');
+Route::get('/profile/history-order-shop/{id}', [App\Http\Controllers\PenggunaProfile::class, 'indexHistoryDetailOrderShop']);
+Route::get('/profile/history-order-petcare/{id}', [App\Http\Controllers\PenggunaProfile::class, 'indexHistoryDetailOrderPetCare']);
 
 Route::get('/beranda', [App\Http\Controllers\PenggunaBeranda::class, 'index']);
 Route::get('/', [App\Http\Controllers\PenggunaBeranda::class, 'index']);

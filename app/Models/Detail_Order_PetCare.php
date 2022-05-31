@@ -36,7 +36,7 @@ class Detail_Order_PetCare extends Model
 
     public function order_petcare()
     {
-    return $this->belongsTo(Oder_PetCare::class);
+    return $this->belongsTo(Order_PetCare::class);
     }
 
     public function cage()
@@ -44,4 +44,12 @@ class Detail_Order_PetCare extends Model
     return $this->belongsTo(Cage::class);
     }
 
+    public function product()
+    {   
+    return $this->belongsTo(Product::class);
+    }
+    public function bank()
+    {   
+    return $this->belongsTo(Bank::class);
+    }
 }
